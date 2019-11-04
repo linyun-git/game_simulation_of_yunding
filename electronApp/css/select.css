@@ -1,0 +1,14 @@
+#SelectHero{
+    width: 600px;
+    height: 400px;
+    background: rgb(0,0,0,0.8);
+    position: absolute;
+    z-index: 10;
+    display: none;
+    padding: 20px;
+}
+#SelectHero img{
+    margin: 10px;
+    border: blue solid 2px;
+    border-radius: 50px;
+}
