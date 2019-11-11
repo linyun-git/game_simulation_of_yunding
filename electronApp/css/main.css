@@ -42,4 +42,5 @@ nav ul{
 nav ul li img{
     position: absolute;
     margin-top: -10px;
+    display: none;
 }
