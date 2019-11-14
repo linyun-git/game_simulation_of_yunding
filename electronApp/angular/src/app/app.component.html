@@ -1,4 +1,5 @@
 <div style="width: 100%;height: 20px;background: #000;-webkit-app-region: drag;margin: 0; padding: 0;"></div>
+<app-tips #tip style="position: fixed; z-index: 4;"></app-tips>
 <div id="exitFrame" [ngStyle]="{'z-index':exitZIndex}">
     <div id="exittip" [ngClass]="exitFrameAct">
         <div id="title">
@@ -15,12 +16,12 @@
         </div>
     </div>
 </div>
-<div id="mainFrame">
+<div id="mainFrame" [ngStyle]="{'z-index':mainZIndex}">
     <h1>
         <i>CloudTop</i>
     </h1>
     <div id="menu">
-        <h4 onclick="location.href='../index.html'">
+        <h4 (click)="start()">
             Start
         </h4>
         <h4>
@@ -32,5 +33,92 @@
         <h4 (click)="exitFrameOut()">
             Exit
         </h4>
+    </div>
+</div>
+<div id="heroManagerFrame" [ngStyle]="{'z-index':heroManagerZIndex}" [ngClass]="heroManagerAct">
+    <div id="title">
+        <i>
+            <h1 class="number"><span style="color: #317bd5;">10</span>/<span style="color: #317bd5;">{{blueNum}}</span></h1>
+        </i>
+        <div></div>
+        <h1 id="titleFont">Manager</h1>
+        <div></div>
+        <i>
+            <h1 class="number"><span style="color: #cd394b;">10</span>/<span style="color: #cd394b;">{{redNum}}</span></h1>
+        </i>
+    </div>
+    <div id="board">
+        <ul>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+        </ul>
+        <ul style="position: relative;left: 47px;">
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+        </ul>
+        <ul>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+        </ul>
+        <ul style="position: relative;left: 47px;">
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue"></app-hero-square>
+        </ul>
+        <ul>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+        </ul>
+        <ul style="position: relative;left: 47px;">
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+        </ul>
+        <ul>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+        </ul>
+        <ul style="position: relative;left: 47px;">
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed"></app-hero-square>
+        </ul>
     </div>
 </div>
