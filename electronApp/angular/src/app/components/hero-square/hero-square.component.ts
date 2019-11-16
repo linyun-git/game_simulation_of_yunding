@@ -7,9 +7,23 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class HeroSquareComponent implements OnInit {
   @Input() heroSquareColor:string
+  public heroOn:string
+  public hasHero:string='hasHeroFalse'
   constructor() { }
 
   ngOnInit() {
   }
-
+  atestau(){
+    
+  }
+  selectHero(hero:string){
+    if(hero!=undefined){
+      this.hasHero='hasHeroTrue'
+      this.heroOn='assets/headPhoto/'+hero+'.gif'
+    }
+    else{
+      this.heroOn=''
+      this.hasHero='hasHeroFalse'
+    }
+  }
 }

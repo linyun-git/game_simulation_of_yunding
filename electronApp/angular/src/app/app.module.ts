@@ -7,6 +7,8 @@ import { OkComponent } from './components/ok/ok.component';
 import { NoComponent } from './components/no/no.component';
 import { HeroSquareComponent } from './components/hero-square/hero-square.component';
 import { TipsComponent } from './components/tips/tips.component';
+import { HeroHeadPhotoComponent } from './components/hero-head-photo/hero-head-photo.component';
+import { OptionComponent } from './components/option/option.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { TipsComponent } from './components/tips/tips.component';
     OkComponent,
     NoComponent,
     HeroSquareComponent,
-    TipsComponent
+    TipsComponent,
+    HeroHeadPhotoComponent,
+    OptionComponent
   ],
   imports: [
     BrowserModule,

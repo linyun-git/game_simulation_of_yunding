@@ -300,3 +300,24 @@
     transform: rotate(45deg);
     top: 90px;
 }
+
+#heroSelectFrame{
+    padding: 40px;
+    position: fixed;
+    z-index: 3;
+    bottom: 10px;
+    left: 238px;
+    width: 727px;
+    height: 670px;
+    background: rgb(0,0,0,0.5);
+    div{
+        height: 60%;
+        width: 80%;
+        display: flex;
+        justify-content: start;
+        align-items: flex-start;
+    }
+    app-hero-head-photo{
+        margin-right: 30px;
+    }
+}

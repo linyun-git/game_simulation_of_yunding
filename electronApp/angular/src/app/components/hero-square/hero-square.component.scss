@@ -43,3 +43,12 @@ div::after{
 .red:hover,.red:hover::after,.red:hover::before,.blue:hover,.blue:hover::after,.blue:hover::before{
     border-color: #5dbfd8;
 }
+.hasHeroTrue{
+    h1{
+        display: none;
+    }
+    img{
+        position: absolute;
+        z-index: 1;
+    }
+}
