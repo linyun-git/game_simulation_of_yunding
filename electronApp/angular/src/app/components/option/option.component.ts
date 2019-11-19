@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { TipsComponent } from '../tips/tips.component';
+import { webSocket } from 'rxjs/webSocket';
 
 @Component({
   selector: 'app-option',
@@ -11,6 +12,7 @@ export class OptionComponent implements OnInit {
   public tipClass:string='tipBlock'
   public tipDisplay:string='none'
   public connected:string='no'
+  ws:WebSocket
   @ViewChild('tip',{static:true}) tip:TipsComponent
   constructor() { }
 
@@ -36,4 +38,11 @@ export class OptionComponent implements OnInit {
       priTip.tipOut(e.data)
     }
   }
+  send(){
+    if(this.ws){
+      this.ws.send('')
+      this.ws.close()
+    }
+  }
+  
 }
