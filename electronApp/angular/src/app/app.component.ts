@@ -15,22 +15,26 @@ export class AppComponent {
   @ViewChild('option',{static:true}) optionFrame:OptionComponent
   @ViewChildren(HeroHeadPhotoComponent) heroHeads
   @ViewChildren(HeroSquareComponent) heroSquares 
+
+  public menuContent='menu'
+
   public hero:string[]=["vn","ksd"]
   public heroSelectOn:HeroHeadPhotoComponent
   public heroBorder:any[]=[{"hero":'vn',"place":1}]
 
-  public heroSelectFrameDisplay:string='none'
-  public mainZIndex='2'
+  public heroSelectFrameDisplay:string='block'
+  public mainZIndex='0'
   public exitZIndex='0'
-  public heroManagerZIndex='0'
+  public heroManagerZIndex='2'
   title = 'angular';
   public exitFrameAct='go'
   public heroBlue='blue'
   public heroRed='red'
-  public redNum:number=0
-  public blueNum:number=0
   public heroManagerAct=''
   public heroSquare:HeroSquareComponent
+
+  public heroNum:number[]=[0,0]
+  public heroColor:number
 
   constructor() { }
   ngOnInit() {
@@ -70,10 +74,25 @@ export class AppComponent {
   selectHeroSquare(heroSquare:number){
     this.heroSelectFrameDisplay='block'
     this.heroSquare=this.heroSquares._results[heroSquare]
+    if(heroSquare<=27)
+      this.heroColor=0
+    else
+      this.heroColor=1
   }
   selectHeroOk(){
-    this.heroSquare.selectHero(this.heroSelectOn.hero)
+    if(this.heroSelectOn!=undefined){
+      this.heroSelectOn.selectOff()
+      if(this.heroNum[this.heroColor]<10){
+        this.heroNum[this.heroColor]++
+        this.heroSquare.selectHero(this.heroSelectOn.hero)
+      }
+    }
     this.heroSelectFrameDisplay='none'
+  }
+  selectHeroNo(){
+    this.heroSelectFrameDisplay='none'
+    if(this.heroSelectOn!=undefined)
+      this.heroSelectOn.selectOff()
   }
   optionOut(){
     this.optionFrame.optionOut()

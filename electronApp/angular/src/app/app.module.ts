@@ -9,6 +9,7 @@ import { HeroSquareComponent } from './components/hero-square/hero-square.compon
 import { TipsComponent } from './components/tips/tips.component';
 import { HeroHeadPhotoComponent } from './components/hero-head-photo/hero-head-photo.component';
 import { OptionComponent } from './components/option/option.component';
+import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OptionComponent } from './components/option/option.component';
     HeroSquareComponent,
     TipsComponent,
     HeroHeadPhotoComponent,
-    OptionComponent
+    OptionComponent,
+    MenuButtonComponent
   ],
   imports: [
     BrowserModule,
