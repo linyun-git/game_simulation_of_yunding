@@ -16,7 +16,7 @@ export class AppComponent {
   @ViewChildren(HeroHeadPhotoComponent) heroHeads
   @ViewChildren(HeroSquareComponent) heroSquares 
 
-  public menuContent='menu'
+  public menuContent=['go','reset','back','menu','exit']
 
   public hero:string[]=["vn","ksd"]
   public heroSelectOn:HeroHeadPhotoComponent

@@ -124,9 +124,14 @@
             <app-hero-square [heroSquareColor]="heroRed" (click)="selectHeroSquare(55)"></app-hero-square>
         </ul>
     </div>
-    <div id="managerMenu">
-        <div></div>
-        <app-ok></app-ok>
+    <div id="menuButtons1">
+        <app-menu-button [menuContent]="menuContent[0]"></app-menu-button>
+        <app-menu-button [menuContent]="menuContent[1]"></app-menu-button>
+    </div>
+    <div id="menuButtons2">
+        <app-menu-button [menuContent]="menuContent[2]"></app-menu-button>
+        <app-menu-button [menuContent]="menuContent[3]" (click)="menu()"></app-menu-button>
+        <app-menu-button [menuContent]="menuContent[4]" (click)="exitFrameOut()"></app-menu-button>
     </div>
 </div>
 <div id="heroSelectFrame" [ngStyle]="{'display':heroSelectFrameDisplay}">
@@ -136,6 +141,4 @@
     </div>
     <app-ok (click)="selectHeroOk()"></app-ok>
     <app-no (click)="selectHeroNo()"></app-no>
-    <app-menu-button [menuContent]="menuContent"></app-menu-button>
 </div>
-<app-ok style="position: fixed;z-index: 4;right: 0;bottom: 0;" (click)="menu()"></app-ok>
