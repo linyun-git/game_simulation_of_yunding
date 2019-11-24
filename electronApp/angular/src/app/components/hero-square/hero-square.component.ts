@@ -1,32 +1,29 @@
-import { Component, OnInit,Input} from '@angular/core';
-import { hero } from 'src/app/app.component';
-
-import { WebSocketService } from '../../services/web-socket.service';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-hero-square',
   templateUrl: './hero-square.component.html',
   styleUrls: ['./hero-square.component.scss']
 })
-export class HeroSquareComponent implements OnInit{
+export class HeroSquareComponent implements OnInit {
   @Input() heroSquareColor:string
-  public hero = new hero
-  constructor(public webSocket:WebSocketService) { }
-  
+  public heroOn:string
+  public hasHero:string='hasHeroFalse'
+  constructor() { }
+
   ngOnInit() {
-    this.hero.hasHero='hasHeroFalse'
-    this.hero.heroColor=this.heroSquareColor
   }
-  heroTrue(){
-    let check:boolean
-    if(check||check==undefined){
-      this.hero.hasHero='hasHeroTrue'
-      check=false
+  atestau(){
+    
+  }
+  selectHero(hero:string){
+    if(hero!=undefined){
+      this.hasHero='hasHeroTrue'
+      this.heroOn='assets/headPhoto/'+hero+'.gif'
     }
     else{
-      this.hero.hasHero='hasHeroFalse'
-      check=true
+      this.heroOn=''
+      this.hasHero='hasHeroFalse'
     }
-    this.webSocket.connect()
   }
 }

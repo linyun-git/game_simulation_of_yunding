@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManagerFrameComponent } from './manager-frame.component';
+import { OkComponent } from './ok.component';
 
-describe('ManagerFrameComponent', () => {
-  let component: ManagerFrameComponent;
-  let fixture: ComponentFixture<ManagerFrameComponent>;
+describe('OkComponent', () => {
+  let component: OkComponent;
+  let fixture: ComponentFixture<OkComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManagerFrameComponent ]
+      declarations: [ OkComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManagerFrameComponent);
+    fixture = TestBed.createComponent(OkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

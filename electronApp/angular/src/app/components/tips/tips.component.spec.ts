@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoButtonComponent } from './no-button.component';
+import { TipsComponent } from './tips.component';
 
-describe('NoButtonComponent', () => {
-  let component: NoButtonComponent;
-  let fixture: ComponentFixture<NoButtonComponent>;
+describe('TipsComponent', () => {
+  let component: TipsComponent;
+  let fixture: ComponentFixture<TipsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoButtonComponent ]
+      declarations: [ TipsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NoButtonComponent);
+    fixture = TestBed.createComponent(TipsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

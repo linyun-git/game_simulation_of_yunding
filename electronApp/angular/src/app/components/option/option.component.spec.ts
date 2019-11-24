@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExitFrameComponent } from './exit-frame.component';
+import { OptionComponent } from './option.component';
 
-describe('ExitFrameComponent', () => {
-  let component: ExitFrameComponent;
-  let fixture: ComponentFixture<ExitFrameComponent>;
+describe('OptionComponent', () => {
+  let component: OptionComponent;
+  let fixture: ComponentFixture<OptionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExitFrameComponent ]
+      declarations: [ OptionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExitFrameComponent);
+    fixture = TestBed.createComponent(OptionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
