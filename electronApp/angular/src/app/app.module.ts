@@ -3,30 +3,34 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OkComponent } from './components/ok/ok.component';
-import { NoComponent } from './components/no/no.component';
+import { OkButtonComponent } from './components/ok-button/ok-button.component';
+import { NoButtonComponent } from './components/no-button/no-button.component';
+import { ExitFrameComponent } from './exit-frame/exit-frame.component';
+import { MainFrameComponent } from './main-frame/main-frame.component';
+import { ManagerFrameComponent } from './manager-frame/manager-frame.component';
 import { HeroSquareComponent } from './components/hero-square/hero-square.component';
-import { TipsComponent } from './components/tips/tips.component';
-import { HeroHeadPhotoComponent } from './components/hero-head-photo/hero-head-photo.component';
-import { OptionComponent } from './components/option/option.component';
-import { MenuButtonComponent } from './components/menu-button/menu-button.component';
+
+//服务
+import { WebSocketService } from './services/web-socket.service';
+//管道
+import { HeroNameToSrcPipe } from './pipe/hero-name-to-src.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OkComponent,
-    NoComponent,
+    OkButtonComponent,
+    NoButtonComponent,
+    ExitFrameComponent,
+    MainFrameComponent,
+    ManagerFrameComponent,
     HeroSquareComponent,
-    TipsComponent,
-    HeroHeadPhotoComponent,
-    OptionComponent,
-    MenuButtonComponent
+    HeroNameToSrcPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-<div [ngClass]="[heroSquareColor,hasHero]">
+<div [ngClass]="[heroSquareColor,hero.hasHero,hero.heroColor]" (click)="heroTrue()">
     <h1>+</h1>
-    <img src="{{heroOn}}" alt="">
+    <img src="{{hero.heroName | heroNameToSrc}}" alt="">
 </div>

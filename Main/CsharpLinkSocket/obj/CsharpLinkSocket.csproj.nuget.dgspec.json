@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\workspace\\Visual Studio\\CsharpLinkSocket\\CsharpLinkSocket.csproj": {}
+    "E:\\workspace\\Git\\cloudTop\\Main\\CsharpLinkSocket\\CsharpLinkSocket.csproj": {}
   },
   "projects": {
-    "E:\\workspace\\Visual Studio\\CsharpLinkSocket\\CsharpLinkSocket.csproj": {
+    "E:\\workspace\\Git\\cloudTop\\Main\\CsharpLinkSocket\\CsharpLinkSocket.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\workspace\\Visual Studio\\CsharpLinkSocket\\CsharpLinkSocket.csproj",
+        "projectUniqueName": "E:\\workspace\\Git\\cloudTop\\Main\\CsharpLinkSocket\\CsharpLinkSocket.csproj",
         "projectName": "CsharpLinkSocket",
-        "projectPath": "E:\\workspace\\Visual Studio\\CsharpLinkSocket\\CsharpLinkSocket.csproj",
+        "projectPath": "E:\\workspace\\Git\\cloudTop\\Main\\CsharpLinkSocket\\CsharpLinkSocket.csproj",
         "packagesPath": "C:\\Users\\linyun\\.nuget\\packages\\",
-        "outputPath": "E:\\workspace\\Visual Studio\\CsharpLinkSocket\\obj\\",
+        "outputPath": "E:\\workspace\\Git\\cloudTop\\Main\\CsharpLinkSocket\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\linyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
