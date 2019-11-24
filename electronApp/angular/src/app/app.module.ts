@@ -14,6 +14,8 @@ import { HeroSquareComponent } from './components/hero-square/hero-square.compon
 import { WebSocketService } from './services/web-socket.service';
 //管道
 import { HeroNameToSrcPipe } from './pipe/hero-name-to-src.pipe';
+import { SelectHeroLiComponent } from './components/select-hero-li/select-hero-li.component';
+import { SelectHeroUlComponent } from './components/select-hero-ul/select-hero-ul.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HeroNameToSrcPipe } from './pipe/hero-name-to-src.pipe';
     MainFrameComponent,
     ManagerFrameComponent,
     HeroSquareComponent,
-    HeroNameToSrcPipe
+    HeroNameToSrcPipe,
+    SelectHeroLiComponent,
+    SelectHeroUlComponent
   ],
   imports: [
     BrowserModule,

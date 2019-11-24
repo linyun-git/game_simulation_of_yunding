@@ -1,7 +1,8 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit,Input,ViewChild} from '@angular/core';
 import { hero } from 'src/app/app.component';
 
 import { WebSocketService } from '../../services/web-socket.service';
+import { SelectHeroUlComponent } from '../select-hero-ul/select-hero-ul.component';
 
 @Component({
   selector: 'app-hero-square',
@@ -10,6 +11,7 @@ import { WebSocketService } from '../../services/web-socket.service';
 })
 export class HeroSquareComponent implements OnInit{
   @Input() heroSquareColor:string
+  @ViewChild('selectHero',{static:true}) selectHero:SelectHeroUlComponent
   public hero = new hero
   constructor(public webSocket:WebSocketService) { }
   
@@ -18,15 +20,6 @@ export class HeroSquareComponent implements OnInit{
     this.hero.heroColor=this.heroSquareColor
   }
   heroTrue(){
-    let check:boolean
-    if(check||check==undefined){
-      this.hero.hasHero='hasHeroTrue'
-      check=false
-    }
-    else{
-      this.hero.hasHero='hasHeroFalse'
-      check=true
-    }
-    this.webSocket.connect()
+    this.selectHero.selectHero()
   }
 }
