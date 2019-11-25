@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { HeroSquareComponent } from '../hero-square/hero-square.component';
 
 @Component({
   selector: 'app-select-hero-li',
@@ -6,12 +7,13 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./select-hero-li.component.scss']
 })
 export class SelectHeroLiComponent implements OnInit {
+  @Input() that:HeroSquareComponent
   @Input() hero:string
   constructor() { }
 
   ngOnInit() {
   }
-  tanchu(){
-    alert('点击了小li')
+  selectHero(){
+    this.that.setHero(this.hero)
   }
 }

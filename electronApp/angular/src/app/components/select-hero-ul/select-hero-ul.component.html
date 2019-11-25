@@ -1,8 +1,8 @@
-<div [ngStyle]="{'display':display}">
-    <div id="selectHeroFrame" (click)="cancel()">
+<div [ngStyle]="{'display':display}" id="selectHeroFrame">
+    <div (click)="cancel()" id="container">
         <div></div>
         <ul>
-            <app-select-hero-li *ngFor="let item of heros" [hero]=item style="margin-top: 2px;"></app-select-hero-li>
+            <app-select-hero-li *ngFor="let item of heros" [hero]=item [that]=that></app-select-hero-li>
         </ul>
     </div>
 </div>

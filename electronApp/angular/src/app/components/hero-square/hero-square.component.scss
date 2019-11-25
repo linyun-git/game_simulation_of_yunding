@@ -1,4 +1,4 @@
-div{
+#square{
     cursor:pointer;
     width: 81px;
     height: 47.25px;
@@ -17,13 +17,8 @@ div{
         font-weight: 300;
         font-size: 80px;
     }
-    app-select-hero-ul{
-        position: fixed;
-        left: 0;
-        top: 10px;
-    }
 }
-div::before,div::after{
+#square::before,#square::after{
     content: '';
     width: 81px;
     height: 47.25px;
@@ -33,20 +28,20 @@ div::before,div::after{
     border-left: 1px solid;
     border-right: 1px solid;
 }
-div::before{
+#square::before{
     transform: rotate(60deg);
 }
-div::after{
+#square::after{
     transform: rotate(-60deg);
 }
 .blue,.blue::after,.blue::before{
-    border-color: #317bd5;
+    border-color: #317bd5 !important;
 }
 .red,.red::after,.red::before{
-    border-color: #cd394b;
+    border-color: #cd394b !important;
 }
 .red:hover,.red:hover::after,.red:hover::before,.blue:hover,.blue:hover::after,.blue:hover::before{
-    border-color: #5dbfd8;
+    border-color: #5dbfd8 !important;
 }
 .hasHeroTrue{
     h1{
@@ -55,5 +50,36 @@ div::after{
     img{
         position: absolute;
         z-index: 1;
+        height: 65px;
+        width: 65px;
+        border-radius: 50%;
     }
+    div{
+        position: absolute;
+        z-index: 1;
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: rotate360 2s linear infinite;
+    }
+    div::after{
+        content: '';
+        width: 64px;
+        height: 64px;
+        position: absolute;
+        border-radius: 50%;
+        background: #ecf0f1;
+    }
+}
+.levelOne div{
+    background: linear-gradient(0deg, #ecf0f1, #ecf0f1, rgb(50, 203, 230));
+}
+.levelTwo div{
+    background: linear-gradient(0deg, #ecf0f1, #ecf0f1, rgb(124, 4, 139));
+}
+.levelThree div{
+    background: linear-gradient(0deg, #ecf0f1, #ecf0f1, rgb(186, 235, 12));
 }

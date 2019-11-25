@@ -13,6 +13,7 @@ export class MainFrameComponent implements OnInit {
   ngOnInit() {
   }
   private start(){
+    this.that.managerFrameOut()
   }
   private option(){}
   private exit(){

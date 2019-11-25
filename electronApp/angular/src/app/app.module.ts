@@ -16,6 +16,7 @@ import { WebSocketService } from './services/web-socket.service';
 import { HeroNameToSrcPipe } from './pipe/hero-name-to-src.pipe';
 import { SelectHeroLiComponent } from './components/select-hero-li/select-hero-li.component';
 import { SelectHeroUlComponent } from './components/select-hero-ul/select-hero-ul.component';
+import { HeroLevelToStringPipe } from './pipe/hero-level-to-string.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SelectHeroUlComponent } from './components/select-hero-ul/select-hero-u
     HeroSquareComponent,
     HeroNameToSrcPipe,
     SelectHeroLiComponent,
-    SelectHeroUlComponent
+    SelectHeroUlComponent,
+    HeroLevelToStringPipe
   ],
   imports: [
     BrowserModule,

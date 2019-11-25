@@ -60,6 +60,18 @@
             }
         }
     }
+    #title::before, #title::after{
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        background: #e4e4e4;
+        transform: rotate(45deg);
+        top: 11px;
+    }
+    #title::after{
+        top: 90px;
+    }
     #board{
         background: rgb(198,198,198);
         margin-top: 20px;
@@ -135,22 +147,4 @@
             width: 55%;
         }
     }
-}
-#heroManagerFrame::before{
-    content: '';
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    background: #e4e4e4;
-    transform: rotate(45deg);
-    top: 11px;
-}
-#heroManagerFrame::after{
-    content: '';
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    background: #e4e4e4;
-    transform: rotate(45deg);
-    top: 90px;
 }
