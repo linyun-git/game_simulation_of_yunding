@@ -1,6 +1,6 @@
 <div id="square" [ngClass]="[hero.hasHero,hero.heroColor,hero.heroLevel | heroLevelToString]" (click)="toSelectHero()">
     <h1>+</h1>
     <div></div>
-    <img src="{{hero.heroName | heroNameToSrc}}" alt="">
+    <img src="{{hero.heroName | heroNameToSrc}}" alt="" draggable="false">
 </div>
 <app-select-hero-ul #selectHero [that]=this></app-select-hero-ul>

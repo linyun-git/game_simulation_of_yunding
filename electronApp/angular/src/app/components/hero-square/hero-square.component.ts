@@ -11,9 +11,10 @@ import { SelectHeroUlComponent } from '../select-hero-ul/select-hero-ul.componen
 })
 export class HeroSquareComponent implements OnInit{
   @Input() heroSquareColor:string
+  @Input() heroSquareId:number
   @ViewChild('selectHero',{static:true}) selectHeroFrame:SelectHeroUlComponent
   public hero = new hero
-  constructor(public webSocket:WebSocketService) { }
+  constructor(public ws:WebSocketService) { }
   ngOnInit() {
     this.hero.hasHero='hasHeroFalse'
     this.hero.heroColor=this.heroSquareColor
@@ -24,5 +25,6 @@ export class HeroSquareComponent implements OnInit{
   setHero(hero:string){
     this.hero.heroName=hero
     this.hero.hasHero='hasHeroTrue'
+    this.ws.setHeroPlace(this.heroSquareId,hero)
   }
 }
