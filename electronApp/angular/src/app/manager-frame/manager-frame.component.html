@@ -1,14 +1,14 @@
 <div id="heroManagerFrame" [ngClass]="heroManagerAct">
     <div id="title">
         <i>
-            <h1 class="number"><span style="color: #317bd5;">10</span>/<span style="color: #317bd5;">{{blueNum}}</span>
+            <h1 class="number"><span style="color: #317bd5;">10</span>/<span style="color: #317bd5;">{{this.publicSrc.getBlueNum()}}</span>
             </h1>
         </i>
         <div></div>
         <h1 id="titleFont">Manager</h1>
         <div></div>
         <i>
-            <h1 class="number"><span style="color: #cd394b;">10</span>/<span style="color: #cd394b;">{{redNum}}</span>
+            <h1 class="number"><span style="color: #cd394b;">10</span>/<span style="color: #cd394b;">{{this.publicSrc.getRedNum()}}</span>
             </h1>
         </i>
     </div>

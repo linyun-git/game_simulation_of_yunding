@@ -19,14 +19,7 @@ export class WebSocketService {
       ws.send('这里是web端')
     }
     ws.onmessage=function(e){
-      let message:string = e.data
-      // if(isNaN(Number(message))){
-      //   alert('字符串：'+message)
-      // }
-      // else{
-      //   alert('数字'+Number(message))
-      // }
-      let code:string[] = message.split(' ')
+      let code:string[] = e.data.split(' ')
       switch(code[0]){
         case 'setHeroNum':
           that.publicSrc.changeHeroNum(code)

@@ -9,11 +9,8 @@ import { PublicSrcService } from '../services/public-src.service';
 export class ManagerFrameComponent implements OnInit {
   protected heroBlue='blue'
   protected heroRed='red'
-  protected heroNum:number[]=[0,0]
-  protected redNum:number = PublicSrcService.redNum
-  protected blueNum:number = PublicSrcService.blueNum
   protected heroManagerAct:string=''
-  constructor() { }
+  constructor(public publicSrc:PublicSrcService) { }
 
   ngOnInit() {
   }
