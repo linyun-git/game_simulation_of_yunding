@@ -4,27 +4,20 @@ using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace CsharpLinkSocket
+namespace Main
 {
-    class Program
+    public interface ReadSocket
     {
-        static void Main(string[] args)
-        {
-            CsharpSocket csharpSocket = new CsharpSocket("127.0.0.1",4300);
-            Console.WriteLine("按任意键退出");
-            Console.ReadKey();
-        }
+        void readData(string data);
     }
-    class CsharpSocket
+    class CsharpLinkWebSocket
     {
         private Socket socket;
         private Socket clientSocket;
         private byte[] buffer = new byte[1024];
         private int length;
-        private Boolean run=true;
-        public CsharpSocket(string ip,int port)
+        public CsharpLinkWebSocket(string ip, int port)
         {
             IPEndPoint point = new IPEndPoint(IPAddress.Parse(ip), port);
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -40,46 +33,26 @@ namespace CsharpLinkSocket
                 clientSocket.Send(PackHandShakeData(GetSecKeyAccetp(buffer, length)));
                 Console.WriteLine("已经发送握手协议了....");
                 length = clientSocket.Receive(buffer);
+                Console.WriteLine("收到数据");
                 string xm = AnalyticData(buffer, length);
                 clientSocket.Send(PackData("连接时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
-                Task readdata = new Task(() =>
-                {
-                    ReadData();
-                });
-                Task senddata = new Task(() =>
-                {
-                    while (run)
-                    {
-                        String str = Console.ReadLine();
-                        SendData(str);
-                    }
-                });
-                readdata.Start();
-                senddata.Start();
-                readdata.Wait();
-                senddata.Wait();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
         }
-        public void ReadData()
+        public void ReadData(ReadSocket readSocket)
         {
             try
             {
-                while (run)
-                {
-                    Console.WriteLine("等待客户端数据....");
-                    length = clientSocket.Receive(buffer);
-                    string clientMsg = AnalyticData(buffer, length);
-                    if (clientMsg.Equals("exit")) run = false;
-                    Console.WriteLine("接受到客户端数据：" + clientMsg);
-                    string sendMsg = "谢谢你的数据：" + clientMsg;
-                    SendData(sendMsg);
-                }
+                Console.WriteLine("等待客户端数据....");
+                length = clientSocket.Receive(buffer);
+                string clientMsg = AnalyticData(buffer, length);
+                Console.WriteLine("接受到客户端数据：" + clientMsg);
+                readSocket.readData(clientMsg);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }

@@ -40,7 +40,7 @@ export class hero{
   public heroColor:string=''
   public heroId:number
   public heroName:string=''
-  public heroLevel:number=1
+  public heroLevel:number=3
   public heroSkill:string=''
   constructor(){
   }

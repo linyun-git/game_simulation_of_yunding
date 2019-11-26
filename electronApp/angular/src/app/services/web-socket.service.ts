@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { webSocket } from 'rxjs/webSocket';
 import { PublicSrcService } from '../services/public-src.service';
-import { WSAEACCES } from 'constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebSocketService {
   private static ws: WebSocket
-  private static webSocketAdd: string = 'ws://127.0.0.1:4300'
+  private static webSocketAdd: string = 'ws://127.0.0.1:4430'
   private static heroNames: string[]
   constructor(public publicSrc: PublicSrcService) { }
   connect() {
