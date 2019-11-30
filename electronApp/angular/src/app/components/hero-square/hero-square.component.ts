@@ -1,8 +1,7 @@
 import { Component, OnInit,Input,ViewChild} from '@angular/core';
-import { hero } from 'src/app/app.component';
 
-import { WebSocketService } from '../../services/web-socket.service';
 import { SelectHeroUlComponent } from '../select-hero-ul/select-hero-ul.component';
+import { ManagerFrameComponent } from 'src/app/manager-frame/manager-frame.component';
 
 @Component({
   selector: 'app-hero-square',
@@ -12,9 +11,9 @@ import { SelectHeroUlComponent } from '../select-hero-ul/select-hero-ul.componen
 export class HeroSquareComponent implements OnInit{
   @Input() heroSquareColor:string
   @Input() heroSquareId:number
+  @Input() that:ManagerFrameComponent
   @ViewChild('selectHero',{static:true}) selectHeroFrame:SelectHeroUlComponent
-  public hero = new hero
-  constructor(public ws:WebSocketService) { }
+  constructor() { }
   ngOnInit() {
     this.hero.hasHero='hasHeroFalse'
     this.hero.heroColor=this.heroSquareColor
@@ -25,6 +24,17 @@ export class HeroSquareComponent implements OnInit{
   setHero(hero:string){
     this.hero.heroName=hero
     this.hero.hasHero='hasHeroTrue'
-    this.ws.setHeroPlace(this.heroSquareId,hero)
+    this.that.setHeroPlace(this.heroSquareId,hero)
+  }
+  setHeroSkill(skill:string){
+    this.hero.heroSkill = skill
+  }
+  protected hero = {
+  hasHero:'',
+  heroColor:'',
+  heroId:0,
+  heroName:'',
+  heroLevel:3,
+  heroSkill:''
   }
 }

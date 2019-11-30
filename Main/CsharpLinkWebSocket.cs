@@ -7,10 +7,6 @@ using System.Text.RegularExpressions;
 
 namespace Main
 {
-    public interface ReadSocket
-    {
-        void readData(string data);
-    }
     class CsharpLinkWebSocket
     {
         private Socket socket;
@@ -42,7 +38,7 @@ namespace Main
                 Console.WriteLine(e.ToString());
             }
         }
-        public void ReadData(ReadSocket readSocket)
+        public void ReadData(Action<string> action)
         {
             try
             {
@@ -50,7 +46,7 @@ namespace Main
                 length = clientSocket.Receive(buffer);
                 string clientMsg = AnalyticData(buffer, length);
                 Console.WriteLine("接受到客户端数据：" + clientMsg);
-                readSocket.readData(clientMsg);
+                action(clientMsg);
             }
             catch (Exception e)
             {

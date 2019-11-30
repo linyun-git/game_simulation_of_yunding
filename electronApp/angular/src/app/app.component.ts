@@ -1,47 +1,63 @@
-import { Component,ViewChild,OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { ExitFrameComponent } from './exit-frame/exit-frame.component';
-import { WebSocketService } from './services/web-socket.service';
 import { ManagerFrameComponent } from './manager-frame/manager-frame.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent  implements OnInit{
-  @ViewChild('exitFrame',{static:true}) private exitFrame:ExitFrameComponent
-  @ViewChild('managerFrame',{static:true}) private managerFrame:ManagerFrameComponent
+export class AppComponent implements OnInit {
+  @ViewChild('exitFrame', { static: true }) private exitFrame: ExitFrameComponent
+  @ViewChild('managerFrame', { static: true }) private managerFrame: ManagerFrameComponent
   title = 'angular';
-  protected frameZIndex:string[]=['0','2','1']
-
-
-  constructor(public ws:WebSocketService) { }
+  protected frameZIndex: string[] = ['0', '2', '1']
+  constructor() { }
   ngOnInit(): void {
-    this.ws.connect()
+    this.connect()
   }
 
-
-  exitFrameOut(){
-    this.frameZIndex[0]='5'
+  //切换界面
+  exitFrameOut() {
+    this.frameZIndex[0] = '5'
     this.exitFrame.exitFrameOut()
   }
-  exitFrameGone(){
-    setTimeout(() => this.frameZIndex[0]='0', 290);
+  exitFrameGone() {
+    setTimeout(() => this.frameZIndex[0] = '0', 290);
   }
-  managerFrameOut(){
-    this.frameZIndex[2]='2'
-    this.frameZIndex[1]='1'
+  managerFrameOut() {
+    this.frameZIndex[2] = '2'
+    this.frameZIndex[1] = '1'
     this.managerFrame.managerFrameOut()
   }
-}
 
-//英雄类
-export class hero{
-  public hasHero:string=''
-  public heroColor:string=''
-  public heroId:number
-  public heroName:string=''
-  public heroLevel:number=3
-  public heroSkill:string=''
-  constructor(){
+  //WebSocket通信
+  private ws: WebSocket
+  connect() {
+    let that = this
+    this.ws = new WebSocket('ws://127.0.0.1:4430')
+    this.ws.onopen = function (e) {
+      that.ws.send('这里是web端')
+    }
+    this.ws.onmessage = function (e) {
+      that.receive(e.data)
+    }
+    this.ws.onclose = function (e) {
+      console.log('断开连接')
+    }
+  }
+  receive(code: string) {
+    let codes: string[] = code.split(' ')
+    switch (codes[0]) {
+      case 'setHeroNum':
+        this.managerFrame.setHeroNum(codes)
+        break
+      case 'setHeroInf':
+        this.managerFrame.setHeroInf(codes)
+    }
+  }
+  send(mes: string) {
+    if (this.ws) {
+      this.ws.send(mes)
+    }
   }
 }

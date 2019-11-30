@@ -10,4 +10,10 @@ namespace Main
             Console.WriteLine("Hello World!");
         }
     }
+    class Hero
+    {
+        public string heroName;
+        public int heroSquareId;
+        public int heroLevel;
+    }
 }

@@ -9,13 +9,11 @@ import { ExitFrameComponent } from './exit-frame/exit-frame.component';
 import { MainFrameComponent } from './main-frame/main-frame.component';
 import { ManagerFrameComponent } from './manager-frame/manager-frame.component';
 import { HeroSquareComponent } from './components/hero-square/hero-square.component';
-
-//服务
-import { WebSocketService } from './services/web-socket.service';
-//管道
-import { HeroNameToSrcPipe } from './pipe/hero-name-to-src.pipe';
 import { SelectHeroLiComponent } from './components/select-hero-li/select-hero-li.component';
 import { SelectHeroUlComponent } from './components/select-hero-ul/select-hero-ul.component';
+
+//管道
+import { HeroNameToSrcPipe } from './pipe/hero-name-to-src.pipe';
 import { HeroLevelToStringPipe } from './pipe/hero-level-to-string.pipe';
 
 @NgModule({
@@ -36,7 +34,7 @@ import { HeroLevelToStringPipe } from './pipe/hero-level-to-string.pipe';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [WebSocketService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

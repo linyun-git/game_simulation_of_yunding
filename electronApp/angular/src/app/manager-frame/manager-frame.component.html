@@ -1,89 +1,89 @@
 <div id="heroManagerFrame" [ngClass]="heroManagerAct">
     <div id="title">
         <i>
-            <h1 class="number"><span style="color: #317bd5;">10</span>/<span style="color: #317bd5;">{{this.publicSrc.getBlueNum()}}</span>
+            <h1 class="number"><span style="color: #317bd5;">10</span>/<span style="color: #317bd5;">{{blueNum}}</span>
             </h1>
         </i>
         <div></div>
         <h1 id="titleFont">Manager</h1>
         <div></div>
         <i>
-            <h1 class="number"><span style="color: #cd394b;">10</span>/<span style="color: #cd394b;">{{this.publicSrc.getRedNum()}}</span>
+            <h1 class="number"><span style="color: #cd394b;">10</span>/<span style="color: #cd394b;">{{redNum}}</span>
             </h1>
         </i>
     </div>
     <div id="board">
         <ul>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="0"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="1"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="2"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="3"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="4"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="5"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="6"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="0" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="1" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="2" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="3" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="4" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="5" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="6" [that]=this></app-hero-square>
         </ul>
         <ul style="position: relative;left: 47px;">
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="7"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="8"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="9"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="10"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="11"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="12"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="13"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="7" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="8" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="9" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="10" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="11" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="12" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="13" [that]=this></app-hero-square>
         </ul>
         <ul>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="14"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="15"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="16"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="17"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="18"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="19"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="20"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="14" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="15" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="16" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="17" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="18" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="19" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="20" [that]=this></app-hero-square>
         </ul>
         <ul style="position: relative;left: 47px;">
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="21"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="22"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="23"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="24"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="25"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="26"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="27"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="21" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="22" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="23" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="24" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="25" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="26" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="27" [that]=this></app-hero-square>
         </ul>
         <ul>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="28"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="29"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="30"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="31"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="32"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="33"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="34"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="28" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="29" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="30" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="31" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="32" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="33" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="34" [that]=this></app-hero-square>
         </ul>
         <ul style="position: relative;left: 47px;">
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="35"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="36"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="37"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="38"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="39"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="40"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="41"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="35" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="36" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="37" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="38" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="39" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="40" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="41" [that]=this></app-hero-square>
         </ul>
         <ul>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="42"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="43"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="44"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="45"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="46"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="47"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="48"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="42" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="43" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="44" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="45" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="46" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="47" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="48" [that]=this></app-hero-square>
         </ul>
         <ul style="position: relative;left: 47px;">
-            <app-hero-square [heroSquareColor]="heroRed" draggable="true" [heroSquareId]="49"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="50"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="51"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="52"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="53"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="54"></app-hero-square>
-            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="55"></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" draggable="true" [heroSquareId]="49" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="50" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="51" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="52" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="53" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="54" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="55" [that]=this></app-hero-square>
         </ul>
     </div>
 </div>
