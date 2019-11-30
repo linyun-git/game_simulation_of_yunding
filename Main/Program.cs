@@ -18,7 +18,7 @@ namespace Main
         public string heroSkill = "对单个个体造成1000点伤害";
         public string setHeroInf()
         {
-            return "setHeroInf "+heroSquareId.ToString()+" skill-"+heroSkill;
+            return "setHeroInf "+heroSquareId.ToString()+" skill-"+heroName+"的skill";
         }
     }
 }

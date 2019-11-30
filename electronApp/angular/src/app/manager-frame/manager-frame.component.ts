@@ -8,7 +8,7 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./manager-frame.component.scss']
 })
 export class ManagerFrameComponent implements OnInit {
-  @ViewChildren('app-hero-square') heroSquares: HeroSquareComponent[]
+  @ViewChildren(HeroSquareComponent) heroSquares
   @Input() that:AppComponent
   protected heroBlue = 'blue'
   protected heroRed = 'red'
@@ -30,7 +30,7 @@ export class ManagerFrameComponent implements OnInit {
       let orders = code.split('-')
       switch (orders[0]) {
         case 'skill':
-          this.heroSquares[squareId].setHeroSkill(orders[1])
+          this.heroSquares._results[squareId].setHeroSkill(orders[1])
           break
       }
     }

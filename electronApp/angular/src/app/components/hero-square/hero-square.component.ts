@@ -30,9 +30,6 @@ export class HeroSquareComponent implements OnInit{
     this.hero.heroSkill = skill
     alert('将id:'+this.heroSquareId+'的skill'+'设置为：'+this.hero.heroSkill)
   }
-  alert(){
-    alert('一个alert')
-  }
   protected hero = {
   hasHero:'',
   heroColor:'',
