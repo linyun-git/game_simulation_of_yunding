@@ -53,6 +53,7 @@ export class AppComponent implements OnInit {
         break
       case 'setHeroInf':
         this.managerFrame.setHeroInf(codes)
+        break
     }
   }
   send(mes: string) {

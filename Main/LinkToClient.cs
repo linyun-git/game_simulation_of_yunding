@@ -102,6 +102,7 @@ namespace Main
         {
             try
             {
+                Hero hero;
                 int heroSquareID = Int32.Parse(code[1]);
                 List<Hero> heroList;
                 string heroColor;
@@ -117,16 +118,18 @@ namespace Main
                 }
                 if(heroList.Any(hero => hero.heroSquareId == heroSquareID))
                 {
-                    heroList.FirstOrDefault(hero => hero.heroSquareId == heroSquareID).heroName = code[2];
+                    hero = heroList.FirstOrDefault(hero => hero.heroSquareId == heroSquareID);
+                    hero.heroName = code[2];
                 }
                 else
                 {
-                    Hero hero = new Hero();
+                    hero = new Hero();
                     hero.heroName = code[2];
                     hero.heroSquareId = heroSquareID;
                     heroList.Add(hero);
                 }
                 CsharpLinkWebSocket.SendData("setHeroNum "+heroColor+"Num "+heroList.Count.ToString());
+                CsharpLinkWebSocket.SendData(hero.setHeroInf());
             }
             catch(Exception e)
             {
