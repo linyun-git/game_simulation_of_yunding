@@ -54,6 +54,8 @@ export class AppComponent implements OnInit {
       case 'setHeroInf':
         this.managerFrame.setHeroInf(codes)
         break
+      case 'setHeroLevel':
+        this.managerFrame.setHeroLevel(codes)
     }
   }
   send(mes: string) {

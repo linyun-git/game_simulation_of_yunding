@@ -1,0 +1,172 @@
+#setHero{
+    position: fixed;
+    z-index: 3;
+    top: 20px;
+    left: 0;
+    width: 1200px;
+    height: 800px;
+}
+.piece{
+    height: 300px;
+    width: 250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #efefef;
+    box-shadow: 0 0 5px 0px rgb(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    .title{
+        position: relative;
+        height: 25%;
+        width: 100%;
+        background: rgb(215,215,215);
+        box-shadow: 0 0 5px 0px rgb(0,0,0,0.1);
+        .heroImg{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translate(0,-50%);
+        }
+        .heroName{
+            width: 60%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+            div{
+                cursor:pointer;
+                height: 30px;
+                img{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+    .menu{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        a{
+            cursor:pointer;
+            width: 33%;
+            border: 2px solid rgb(215,215,215);
+            text-align: center;
+        }
+    }
+    .content{
+        height: 200px;
+        width: 100%;
+        .con{
+            height: 100%;
+            width: 100%;
+        }
+        #con1{
+            div{
+                margin-top: 20px;
+                position: relative;
+                width: 100%;
+                height: 21px;
+                span{
+                    position: absolute;
+                    left: 40px;
+                }
+                span+span{
+                    left: 150px;
+                    margin-left: 0;
+                    margin-right: 40px;
+                }
+            }
+        }
+        #con2{
+            padding: 20px 20px;
+        }
+        #con3{
+            text-align: center;
+        }
+    }
+    .levelOne{
+        .heroImg{
+            border: 2px solid rgb(0, 107, 126);
+        }
+        div{
+            img+img{
+                display: none;
+            }
+        }
+    }
+    .levelTwo{
+        .heroImg{
+            border: 2px solid rgb(124, 4, 139);
+        }
+        div{
+            img+img+img{
+                display: none;
+            }
+        }
+    }
+    .levelThree{
+        .heroImg{
+            border: 2px solid rgb(255, 102, 0);
+        }
+    }
+}
+.readCont1{
+    .menu{
+        #a1{
+            border-bottom: none;
+            cursor: default;
+        }
+    }
+    .content{
+        #con2{
+            display: none;
+        }
+        #con3{
+            display: none;
+        }
+    }
+}
+.readCont2{
+    .menu{
+        #a2{
+            border-bottom: none;
+            cursor: default;
+        }
+    }
+    .content{
+        #con1{
+            display: none;
+        }
+        #con3{
+            display: none;
+        }
+    }
+}
+.readCont3{
+    .menu{
+        #a3{
+            border-bottom: none;
+            cursor: default;
+        }
+    }
+    .content{
+        #con1{
+            display: none;
+        }
+        #con2{
+            display: none;
+        }
+    }
+}

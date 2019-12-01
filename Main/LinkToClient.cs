@@ -26,7 +26,6 @@ namespace Main
             readDataTask.Wait();
             runCodeTask.Wait();
         }
-
         //每次接收到数据将数据放入接受命令栈
         private void readData(String data)
         {
@@ -70,6 +69,9 @@ namespace Main
             });
             runCodeTask.Start();
         }
+
+        ///<summary>执行一条命令</summary>
+        ///<param name="code">传入的命令</param>
         private void runCode(string[] code)
         {
             switch (code[0])
@@ -79,6 +81,9 @@ namespace Main
                     break;
                 case "setHeroPlace":
                     setHeroPlace(code);
+                    break;
+                case "changeHeroLevel":
+                    changeHeroLevel(code);
                     break;
             }
             Console.WriteLine("执行了一条命令：" + string.Join("_", code));
@@ -130,6 +135,39 @@ namespace Main
                 }
                 CsharpLinkWebSocket.SendData("setHeroNum "+heroColor+"Num "+heroList.Count.ToString());
                 CsharpLinkWebSocket.SendData(hero.setHeroInf());
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+        private void changeHeroLevel(string[] code)
+        {
+            Hero hero;
+            try
+            {
+                int heroSquareID = Int32.Parse(code[1]);
+                if (heroSquareID < 27)
+                {
+                    hero = blueHeroList.FirstOrDefault(hero => hero.heroSquareId == heroSquareID);
+                }
+                else
+                {
+                    hero = redHeroList.FirstOrDefault(hero => hero.heroSquareId == heroSquareID);
+                }
+                switch (hero.heroLevel)
+                {
+                    case 1:
+                        hero.heroLevel = 2;
+                        break;
+                    case 2:
+                        hero.heroLevel = 3;
+                        break;
+                    case 3:
+                        hero.heroLevel = 1;
+                        break;
+                }
+                CsharpLinkWebSocket.SendData("setHeroLevel " + heroSquareID + " " + hero.heroLevel);
             }
             catch(Exception e)
             {

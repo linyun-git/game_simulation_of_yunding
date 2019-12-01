@@ -1,0 +1,46 @@
+<div id="setHero" [ngStyle]="{'display':display}">
+    <div class="piece" [ngClass]="readCont">
+        <div class="title" [ngClass]="that.hero.heroLevel | heroLevelToString">
+            <img src="{{that.hero.heroName | heroNameToSrc}}" alt="" class="heroImg">
+            <div class="heroName">
+                {{that.hero.heroName}}
+                <div (click)="setHeroLevel()">
+                    <img src="{{'五角星' | heroNameToSrc}}" alt="">
+                    <img src="{{'五角星' | heroNameToSrc}}" alt="">
+                    <img src="{{'五角星' | heroNameToSrc}}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="menu">
+            <a id="a1" (click)="readCont1()">属性</a>
+            <a id="a2" (click)="readCont2()">技能</a>
+            <a id="a3" (click)="readCont3()">装备</a>
+        </div>
+        <div class="content" (click)="close()">
+            <div id="con1" class="con">
+                <div>
+                    <span>攻击：{{that.hero.ability.ad}}</span>
+                    <span>魔法：{{that.hero.ability.ap}}</span>
+                </div>
+                <div>
+                    <span>物抗：{{that.hero.ability.adr}}</span>
+                    <span>法抗：{{that.hero.ability.apr}}</span>
+                </div>
+                <div>
+                    <span>生命：{{that.hero.ability.HP}}</span>
+                    <span>能量：{{that.hero.ability.MP}}</span>
+                </div>
+                <div>
+                    <span>蓝耗：{{that.hero.ability.skillMp}}</span>
+                    <span></span>
+                </div>
+            </div>
+            <div id="con2">
+                {{that.hero.heroSkill}}
+            </div>
+            <div id="con3">
+                Cont3
+            </div>
+        </div>
+    </div>
+</div>

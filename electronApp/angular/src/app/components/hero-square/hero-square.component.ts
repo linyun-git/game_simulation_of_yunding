@@ -2,6 +2,7 @@ import { Component, OnInit,Input,ViewChild} from '@angular/core';
 
 import { SelectHeroUlComponent } from '../select-hero-ul/select-hero-ul.component';
 import { ManagerFrameComponent } from 'src/app/manager-frame/manager-frame.component';
+import { SetHeroPieceComponent } from '../set-hero-piece/set-hero-piece.component';
 
 @Component({
   selector: 'app-hero-square',
@@ -12,7 +13,8 @@ export class HeroSquareComponent implements OnInit{
   @Input() heroSquareColor:string
   @Input() heroSquareId:number
   @Input() that:ManagerFrameComponent
-  @ViewChild('selectHero',{static:true}) selectHeroFrame:SelectHeroUlComponent
+  @ViewChild(SelectHeroUlComponent,{static:true}) selectHeroFrame
+  @ViewChild(SetHeroPieceComponent,{static:true}) setHeroFrame
   constructor() { }
   ngOnInit() {
     this.hero.hasHero='hasHeroFalse'
@@ -28,14 +30,32 @@ export class HeroSquareComponent implements OnInit{
   }
   setHeroSkill(skill:string){
     this.hero.heroSkill = skill
-    alert('将id:'+this.heroSquareId+'的skill'+'设置为：'+this.hero.heroSkill)
+  }
+  right(){
+    if(this.hero.hasHero == 'hasHeroTrue')
+    this.setHeroFrame.open()
+  }
+  changeHeroLevel() {
+    this.that.changeHeroLevel(this.heroSquareId)
+  }
+  setHeroLevel(heroLevel:number){
+    this.hero.heroLevel = heroLevel
   }
   protected hero = {
   hasHero:'',
   heroColor:'',
   heroId:0,
   heroName:'',
-  heroLevel:3,
-  heroSkill:''
+  heroLevel:1,
+  heroSkill:'',
+  ability:{
+    ad:0,//攻击力
+    ap:0,//法强
+    adr:0,//物抗
+    apr:0,//法抗
+    HP:0,//生命值
+    MP:0,//法力值
+    skillMp:0//技能蓝耗
+  }
   }
 }

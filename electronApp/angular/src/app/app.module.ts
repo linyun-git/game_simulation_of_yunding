@@ -15,6 +15,7 @@ import { SelectHeroUlComponent } from './components/select-hero-ul/select-hero-u
 //管道
 import { HeroNameToSrcPipe } from './pipe/hero-name-to-src.pipe';
 import { HeroLevelToStringPipe } from './pipe/hero-level-to-string.pipe';
+import { SetHeroPieceComponent } from './components/set-hero-piece/set-hero-piece.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeroLevelToStringPipe } from './pipe/hero-level-to-string.pipe';
     HeroNameToSrcPipe,
     SelectHeroLiComponent,
     SelectHeroUlComponent,
-    HeroLevelToStringPipe
+    HeroLevelToStringPipe,
+    SetHeroPieceComponent
   ],
   imports: [
     BrowserModule,

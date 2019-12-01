@@ -14,8 +14,10 @@ namespace Main
     {
         public string heroName;
         public int heroSquareId;
-        public int heroLevel;
+        public int heroLevel = 1;
         public string heroSkill = "对单个个体造成1000点伤害";
+
+        ///<summary>返回设置英雄信息命令的字符串</summary>
         public string setHeroInf()
         {
             return "setHeroInf "+heroSquareId.ToString()+" skill-"+heroName+"的skill";

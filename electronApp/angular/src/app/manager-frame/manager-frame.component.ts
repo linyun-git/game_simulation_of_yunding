@@ -45,10 +45,19 @@ export class ManagerFrameComponent implements OnInit {
         break
     }
   }
+  setHeroLevel(codes: string[]){
+    let squareId: number = Number(codes[1])
+    let heroLevel: number = Number(codes[2])
+    this.heroSquares._results[squareId].setHeroLevel(heroLevel)
+  }
 
   //提供给子组件的通信方式
   setHeroPlace(heroSquareId:number,hero:string){
     let code:string = 'setHeroPlace '+heroSquareId+' '+hero
+    this.that.send(code)
+  }
+  changeHeroLevel(heroSquareId:number){
+    let code:string = 'changeHeroLevel '+heroSquareId
     this.that.send(code)
   }
 }
