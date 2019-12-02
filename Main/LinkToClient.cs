@@ -82,6 +82,9 @@ namespace Main
                 case "exit":
                     exit();
                     break;
+                case "reset":
+                    reset();
+                    break;
                 case "setHeroPlace":
                     setHeroPlace(code);
                     break;
@@ -110,6 +113,13 @@ namespace Main
         {
             string heros = string.Join(" ", Program.heros);
             CsharpLinkWebSocket.SendData("init "+heros);
+        }
+        private void reset()
+        {
+            blueHeroList.Clear();
+            CsharpLinkWebSocket.SendData("setHeroNum blueNum " + blueHeroList.Count.ToString());
+            redHeroList.Clear();
+            CsharpLinkWebSocket.SendData("setHeroNum redNum " + redHeroList.Count.ToString());
         }
         private void setHeroPlace(string[] code)
         {

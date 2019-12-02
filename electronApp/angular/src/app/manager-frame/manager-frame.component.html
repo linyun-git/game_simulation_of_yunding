@@ -77,7 +77,8 @@
             <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="48" [that]=this></app-hero-square>
         </ul>
         <ul style="position: relative;left: 47px;">
-            <app-hero-square [heroSquareColor]="heroRed" draggable="true" [heroSquareId]="49" [that]=this></app-hero-square>
+            <app-hero-square [heroSquareColor]="heroRed" draggable="true" [heroSquareId]="49" [that]=this>
+            </app-hero-square>
             <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="50" [that]=this></app-hero-square>
             <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="51" [that]=this></app-hero-square>
             <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="52" [that]=this></app-hero-square>
@@ -85,5 +86,14 @@
             <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="54" [that]=this></app-hero-square>
             <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="55" [that]=this></app-hero-square>
         </ul>
+    </div>
+    <div class="buttons" id="buttons1">
+        <app-icon-to-button [icon]="buttons[0]"></app-icon-to-button>
+        <app-icon-to-button [icon]="buttons[1]" (click)="reset()"></app-icon-to-button>
+    </div>
+    <div class="buttons" id="buttons2">
+        <app-icon-to-button [icon]="buttons[2]"></app-icon-to-button>
+        <app-icon-to-button [icon]="buttons[3]"></app-icon-to-button>
+        <app-icon-to-button [icon]="buttons[4]"></app-icon-to-button>
     </div>
 </div>

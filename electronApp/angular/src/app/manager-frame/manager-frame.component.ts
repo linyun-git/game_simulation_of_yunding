@@ -10,6 +10,7 @@ import { AppComponent } from '../app.component';
 export class ManagerFrameComponent implements OnInit {
   @ViewChildren(HeroSquareComponent) heroSquares
   @Input() that:AppComponent
+  protected buttons:string[] = ['go','reset','back','home','exit']
   protected heroBlue = 'blue'
   protected heroRed = 'red'
   protected heroManagerAct: string = ''
@@ -26,14 +27,8 @@ export class ManagerFrameComponent implements OnInit {
   //处理接收的英雄数据
   setHeroInf(codes: string[]) {
     let squareId: number = Number(codes[1])
-    for (let code of codes) {
-      let orders = code.split('-')
-      switch (orders[0]) {
-        case 'skill':
-          this.heroSquares._results[squareId].setHeroSkill(orders[1])
-          break
-      }
-    }
+    codes.shift()
+    this.heroSquares._results[squareId].init(codes)
   }
   setHeroNum(codes: string[]) {
     switch (codes[1]) {
@@ -58,6 +53,15 @@ export class ManagerFrameComponent implements OnInit {
   }
   changeHeroLevel(heroSquareId:number){
     let code:string = 'changeHeroLevel '+heroSquareId
+    this.that.send(code)
+  }
+
+  //按钮操作
+  reset(){
+    for(var i=0; i<55;i++){
+      this.heroSquares._results[i].init()
+    }
+    let code:string = 'reset'
     this.that.send(code)
   }
 }

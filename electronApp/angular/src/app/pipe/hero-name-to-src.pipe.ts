@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class HeroNameToSrcPipe implements PipeTransform {
   transform(heroName: string): string {
       if (heroName != '') {
-          return 'assets/img/' + heroName + '.png';
+          return 'assets/img/hero/' + heroName + '.png';
       }
       else
           return '';

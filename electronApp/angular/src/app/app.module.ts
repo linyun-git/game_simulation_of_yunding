@@ -16,6 +16,8 @@ import { SelectHeroUlComponent } from './components/select-hero-ul/select-hero-u
 import { HeroNameToSrcPipe } from './pipe/hero-name-to-src.pipe';
 import { HeroLevelToStringPipe } from './pipe/hero-level-to-string.pipe';
 import { SetHeroPieceComponent } from './components/set-hero-piece/set-hero-piece.component';
+import { IconSrcPipe } from './pipe/icon-src.pipe';
+import { IconToButtonComponent } from './components/icon-to-button/icon-to-button.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { SetHeroPieceComponent } from './components/set-hero-piece/set-hero-piec
     SelectHeroLiComponent,
     SelectHeroUlComponent,
     HeroLevelToStringPipe,
-    SetHeroPieceComponent
+    SetHeroPieceComponent,
+    IconSrcPipe,
+    IconToButtonComponent
   ],
   imports: [
     BrowserModule,
