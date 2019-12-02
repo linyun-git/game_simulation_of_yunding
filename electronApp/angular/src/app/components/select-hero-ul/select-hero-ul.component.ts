@@ -1,6 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { HeroSquareComponent } from '../hero-square/hero-square.component';
-
+import { PublicSrcService } from 'src/app/services/public-src.service';
 @Component({
   selector: 'app-select-hero-ul',
   templateUrl: './select-hero-ul.component.html',
@@ -8,9 +8,8 @@ import { HeroSquareComponent } from '../hero-square/hero-square.component';
 })
 export class SelectHeroUlComponent implements OnInit {
   @Input() that:HeroSquareComponent
-  public heros:string[] = ['阿兹尔','艾翁','黛安娜','劫','拉克丝','乐芙兰','雷克顿','娜美','千珏','辛德拉']
   protected display:string='none'
-  constructor() { }
+  constructor(public pubsrc:PublicSrcService) { }
 
   ngOnInit() {
   }

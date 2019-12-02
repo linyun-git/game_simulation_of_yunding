@@ -2,7 +2,7 @@
     <div (click)="cancel()" id="container">
         <div></div>
         <ul>
-            <app-select-hero-li *ngFor="let item of heros" [hero]=item [that]=that></app-select-hero-li>
+            <app-select-hero-li *ngFor="let item of pubsrc.getHeros()" [hero]=item [that]=that></app-select-hero-li>
         </ul>
     </div>
 </div>

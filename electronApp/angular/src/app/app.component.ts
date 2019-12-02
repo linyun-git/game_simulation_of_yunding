@@ -1,6 +1,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ExitFrameComponent } from './exit-frame/exit-frame.component';
 import { ManagerFrameComponent } from './manager-frame/manager-frame.component';
+import { PublicSrcService } from './services/public-src.service';
+let pubsrc = new PublicSrcService
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,7 +17,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.connect()
   }
-
   //切换界面
   exitFrameOut() {
     this.frameZIndex[0] = '5'
@@ -37,6 +38,7 @@ export class AppComponent implements OnInit {
     this.ws = new WebSocket('ws://127.0.0.1:4430')
     this.ws.onopen = function (e) {
       that.ws.send('这里是web端')
+      that.ws.send('init')
     }
     this.ws.onmessage = function (e) {
       that.receive(e.data)
@@ -48,6 +50,10 @@ export class AppComponent implements OnInit {
   receive(code: string) {
     let codes: string[] = code.split(' ')
     switch (codes[0]) {
+      case 'init':
+        codes.shift()
+        pubsrc.setHeros(codes)
+        break
       case 'setHeroNum':
         this.managerFrame.setHeroNum(codes)
         break

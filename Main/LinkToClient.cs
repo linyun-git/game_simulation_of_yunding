@@ -76,6 +76,9 @@ namespace Main
         {
             switch (code[0])
             {
+                case "init":
+                    init();
+                    break;
                 case "exit":
                     exit();
                     break;
@@ -103,6 +106,11 @@ namespace Main
             readDataOff();
             runAcceptCodeOff();
         }
+        private void init()
+        {
+            string heros = string.Join(" ", Program.heros);
+            CsharpLinkWebSocket.SendData("init "+heros);
+        }
         private void setHeroPlace(string[] code)
         {
             try
@@ -111,7 +119,7 @@ namespace Main
                 int heroSquareID = Int32.Parse(code[1]);
                 List<Hero> heroList;
                 string heroColor;
-                if (heroSquareID < 27)
+                if (heroSquareID <= 27)
                 {
                     heroList = blueHeroList;
                     heroColor = "blue";
@@ -147,7 +155,7 @@ namespace Main
             try
             {
                 int heroSquareID = Int32.Parse(code[1]);
-                if (heroSquareID < 27)
+                if (heroSquareID <= 27)
                 {
                     hero = blueHeroList.FirstOrDefault(hero => hero.heroSquareId == heroSquareID);
                 }

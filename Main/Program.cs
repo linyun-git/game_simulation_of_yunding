@@ -4,6 +4,9 @@ namespace Main
 {
     class Program
     {
+        public static string[] heros = {"阿兹尔", "艾翁",
+            "黛安娜", "劫", "拉克丝", "乐芙兰", "雷克顿",
+            "娜美", "千珏", "辛德拉" };
         static void Main(string[] args)
         {
             LinkToClient linkToClient = new LinkToClient();
