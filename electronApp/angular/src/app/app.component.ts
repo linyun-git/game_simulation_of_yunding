@@ -30,6 +30,10 @@ export class AppComponent implements OnInit {
     this.frameZIndex[1] = '1'
     this.managerFrame.managerFrameOut()
   }
+  managerToHome(){
+    this.frameZIndex[1] = '2'
+    this.frameZIndex[2] = '1'
+  }
 
   //WebSocket通信
   private ws: WebSocket

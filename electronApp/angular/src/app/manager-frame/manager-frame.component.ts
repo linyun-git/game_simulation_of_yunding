@@ -23,6 +23,9 @@ export class ManagerFrameComponent implements OnInit {
   managerFrameOut() {
     this.heroManagerAct = 'heroManagerAct'
   }
+  gone(){
+    this.heroManagerAct = 'gone'
+  }
 
   //处理接收的英雄数据
   setHeroInf(codes: string[]) {
@@ -63,5 +66,16 @@ export class ManagerFrameComponent implements OnInit {
     }
     let code:string = 'reset'
     this.that.send(code)
+  }
+  exit(){
+    this.that.exitFrameOut()
+  }
+  home(){
+    this.gone()
+    this.that.managerToHome()
+  }
+  back(){
+    this.gone()
+    setTimeout(() => this.that.managerToHome(), 310);
   }
 }
