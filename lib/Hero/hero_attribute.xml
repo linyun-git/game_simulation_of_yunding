@@ -319,19 +319,19 @@
                 <skill></skill>
                 <detail>
                         <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>750</hp>
+                                <adr>60</adr>
+                                <ad>40</ad>
                         </LV1>
                         <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>1350</hp>
+                                <adr>60</adr>
+                                <ad>72</ad>
                         </LV2>
                         <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>2700</hp>
+                                <adr>60</adr>
+                                <ad>144</ad>
                         </LV3>
                 </detail>
         </hero>
@@ -343,19 +343,19 @@
                 <skill></skill>
                 <detail>
                         <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>550</hp>
+                                <adr>25</adr>
+                                <ad>60</ad>
                         </LV1>
                         <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>990</hp>
+                                <adr>25</adr>
+                                <ad>108</ad>
                         </LV2>
                         <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>1980</hp>
+                                <adr>25</adr>
+                                <ad>216</ad>
                         </LV3>
                 </detail>
         </hero>
@@ -367,19 +367,19 @@
                 <skill></skill>
                 <detail>
                         <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>500</hp>
+                                <adr>20</adr>
+                                <ad>28</ad>
                         </LV1>
                         <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>900</hp>
+                                <adr>20</adr>
+                                <ad>50</ad>
                         </LV2>
                         <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>1800</hp>
+                                <adr>20</adr>
+                                <ad>101</ad>
                         </LV3>
                 </detail>
         </hero>
@@ -391,19 +391,19 @@
                 <skill></skill>
                 <detail>
                         <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>650</hp>
+                                <adr>30</adr>
+                                <ad>50</ad>
                         </LV1>
                         <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>1170</hp>
+                                <adr>30</adr>
+                                <ad>90</ad>
                         </LV2>
                         <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>2340</hp>
+                                <adr>30</adr>
+                                <ad>180</ad>
                         </LV3>
                 </detail>
         </hero>
@@ -415,19 +415,19 @@
                 <skill></skill>
                 <detail>
                         <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>650</hp>
+                                <adr>30</adr>
+                                <ad>60</ad>
                         </LV1>
                         <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>1170</hp>
+                                <adr>30</adr>
+                                <ad>108</ad>
                         </LV2>
                         <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>2340</hp>
+                                <adr>30</adr>
+                                <ad>216</ad>
                         </LV3>
                 </detail>
         </hero>
@@ -439,19 +439,19 @@
                 <skill></skill>
                 <detail>
                         <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>600</hp>
+                                <adr>30</adr>
+                                <ad>55</ad>
                         </LV1>
                         <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>1080</hp>
+                                <adr>30</adr>
+                                <ad>99</ad>
                         </LV2>
                         <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
+                                <hp>2160</hp>
+                                <adr>30</adr>
+                                <ad>198</ad>
                         </LV3>
                 </detail>
         </hero>
