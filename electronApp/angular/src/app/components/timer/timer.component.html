@@ -1,4 +1,4 @@
 <div>
     <img src="{{imgsrc | iconSrc}}" alt="" [ngStyle]="{'transform':'rotate('+rotate+'deg)'}">
-    <p>{{setTime | timer}}</p>
+    <p [ngStyle]="{'color':textColor}">{{setTime | timer}}</p>
 </div>
