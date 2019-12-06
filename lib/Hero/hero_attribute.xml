@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <HeroList>
-        <hero id="001">
-                <name>奥恩</name>
+        <hero name="奥恩">
                 <race>雷霆</race>
                 <career>守护神</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
                                 <adr>40</adr>
                                 <ad>50</ad>
+                                <skill></skill>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
                                 <adr>40</adr>
                                 <ad>90</ad>
+                                <skill></skill>
                         </LV2>
                         <LV3>
                                 <hp>2340</hp>
                                 <adr>40</adr>
                                 <ad>180</ad>
+                                <skill></skill>
                         </LV3>
                 </detail>
         </hero>
 
-        <hero id="002">
+        <hero name="塔莉垭">
                 <name>塔莉垭</name>
                 <race>山脉</race>
                 <career>法师</career>
@@ -48,7 +49,7 @@
                 </detail>
         </hero>
 
-        <hero id="003">
+        <hero name="茂凯">
                 <name>茂凯</name>
                 <race>森林</race>
                 <career>德鲁伊</career>
@@ -72,7 +73,7 @@
                 </detail>
         </hero>
 
-        <hero id="004">
+        <hero name="薇恩">
                 <name>薇恩</name>
                 <race>光</race>
                 <career>游侠</career>
@@ -96,7 +97,7 @@
                 </detail>
         </hero>
 
-        <hero id="005">
+        <hero name="内瑟斯">
                 <name>内瑟斯</name>
                 <race>光</race>
                 <career>守护神</career>
@@ -120,7 +121,7 @@
                 </detail>
         </hero>
 
-        <hero id="006">
+        <hero name="克格莫">
                 <name>克格莫</name>
                 <race>剧毒</race>
                 <career>掠食者</career>
@@ -144,7 +145,7 @@
                 </detail>
         </hero>
 
-        <hero id="007">
+        <hero name="弗拉基米尔">
                 <name>弗拉基米尔</name>
                 <race>海洋</race>
                 <career>法师</career>
@@ -168,7 +169,7 @@
                 </detail>
         </hero>
 
-        <hero id="008">
+        <hero name="黛安娜">
                 <name>黛安娜</name>
                 <race>地狱火</race>
                 <career>刺客</career>
@@ -192,7 +193,7 @@
                 </detail>
         </hero>
 
-        <hero id="009">
+        <hero name="沃里克">
                 <name>沃里克</name>
                 <race>极地</race>
                 <career>掠食者</career>
@@ -216,7 +217,7 @@
                 </detail>
         </hero>
 
-        <hero id="010">
+        <hero name="艾翁">
                 <name>艾翁</name>
                 <race>森林</race>
                 <career>德鲁伊</career>
