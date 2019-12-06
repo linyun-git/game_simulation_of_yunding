@@ -16,7 +16,7 @@ export class HeroSquareComponent implements OnInit {
   @ViewChild(SelectHeroUlComponent, { static: true }) selectHeroFrame
   @ViewChild(SetHeroPieceComponent, { static: true }) setHeroFrame
   protected hero = {
-    hasHero: '',
+    hasHero: hasHeroStatus.hasHeroFalse,
     heroColor: '',
     heroId: 0,
     heroName: '',
@@ -43,7 +43,7 @@ export class HeroSquareComponent implements OnInit {
     this.selectHeroFrame.selectHero()
   }
   right() {
-    if (this.hero.hasHero == 'hasHeroTrue')
+    if (this.hero.hasHero == hasHeroStatus.hasHeroTrue)
       this.setHeroFrame.open()
   }
   changeHeroLevel() {
@@ -56,12 +56,12 @@ export class HeroSquareComponent implements OnInit {
   }
   setHero(hero: string) {
     this.hero.heroName = hero
-    this.hero.hasHero = 'hasHeroTrue'
+    this.hero.hasHero = hasHeroStatus.hasHeroTrue
     this.that.setHeroPlace(this.heroSquareId, hero)
   }
   init(heroAbilities?: string[]) {
     if (heroAbilities == undefined) {
-      this.hero.hasHero = 'hasHeroFalse'
+      this.hero.hasHero = hasHeroStatus.hasHeroFalse
       this.hero.heroColor = this.heroSquareColor
       this.hero.heroId = 0
       this.hero.heroName = ''
@@ -108,3 +108,4 @@ export class HeroSquareComponent implements OnInit {
     }
   }
 }
+export enum hasHeroStatus{hasHeroFalse,hasHeroTrue}

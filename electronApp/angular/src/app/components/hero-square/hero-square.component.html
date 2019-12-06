@@ -1,4 +1,4 @@
-<div id="square" [ngClass]="[hero.hasHero,hero.heroColor,hero.heroLevel | heroLevelToString]" (click)="toSelectHero()" (contextmenu)="right()">
+<div id="square" [ngClass]="[hero.hasHero | hasHeroStatusToString,hero.heroColor,hero.heroLevel | heroLevelToString]" (click)="toSelectHero()" (contextmenu)="right()">
     <h1>+</h1>
     <div></div>
     <img src="{{hero.heroName | heroNameToSrc}}" alt="" draggable="false">

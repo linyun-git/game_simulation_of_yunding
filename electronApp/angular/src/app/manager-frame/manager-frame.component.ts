@@ -10,6 +10,7 @@ import { AppComponent } from '../app.component';
 export class ManagerFrameComponent implements OnInit {
   @ViewChildren(HeroSquareComponent) heroSquares
   @Input() that:AppComponent
+  status:Status = Status.Waiting
   protected buttons:string[] = ['go','reset','back','home','exit']
   protected heroBlue = 'blue'
   protected heroRed = 'red'
@@ -79,3 +80,4 @@ export class ManagerFrameComponent implements OnInit {
     setTimeout(() => this.that.managerToHome(), 310);
   }
 }
+enum Status{Fighting,Waiting,pausing,end}

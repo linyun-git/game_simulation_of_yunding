@@ -18,6 +18,9 @@ import { HeroLevelToStringPipe } from './pipe/hero-level-to-string.pipe';
 import { SetHeroPieceComponent } from './components/set-hero-piece/set-hero-piece.component';
 import { IconSrcPipe } from './pipe/icon-src.pipe';
 import { IconToButtonComponent } from './components/icon-to-button/icon-to-button.component';
+import { TimerComponent } from './components/timer/timer.component';
+import { TimerPipe } from './pipe/timer.pipe';
+import { HasHeroStatusToStringPipe } from './pipe/has-hero-status-to-string.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { IconToButtonComponent } from './components/icon-to-button/icon-to-butto
     HeroLevelToStringPipe,
     SetHeroPieceComponent,
     IconSrcPipe,
-    IconToButtonComponent
+    IconToButtonComponent,
+    TimerComponent,
+    TimerPipe,
+    HasHeroStatusToStringPipe
   ],
   imports: [
     BrowserModule,

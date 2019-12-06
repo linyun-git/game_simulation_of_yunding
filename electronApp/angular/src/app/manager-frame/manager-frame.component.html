@@ -1,5 +1,5 @@
 <div id="heroManagerFrame" [ngClass]="heroManagerAct">
-    <div id="title">
+    <div id="title" style="display: none;">
         <i>
             <h1 class="number"><span style="color: #317bd5;">10</span>/<span style="color: #317bd5;">{{blueNum}}</span>
             </h1>
@@ -12,7 +12,7 @@
             </h1>
         </i>
     </div>
-    <div id="board">
+    <div id="board" style="margin-top: 120px;">
         <ul>
             <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="0" [that]=this></app-hero-square>
             <app-hero-square [heroSquareColor]="heroBlue" [heroSquareId]="1" [that]=this></app-hero-square>
@@ -97,3 +97,4 @@
         <app-icon-to-button [icon]="buttons[4]" (click)="exit()"></app-icon-to-button>
     </div>
 </div>
+<app-timer></app-timer>
