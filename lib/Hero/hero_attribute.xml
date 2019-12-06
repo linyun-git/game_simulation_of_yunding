@@ -26,10 +26,8 @@
         </hero>
 
         <hero name="塔莉垭">
-                <name>塔莉垭</name>
                 <race>山脉</race>
                 <career>法师</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>500</hp>
@@ -50,10 +48,8 @@
         </hero>
 
         <hero name="茂凯">
-                <name>茂凯</name>
                 <race>森林</race>
                 <career>德鲁伊</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -74,10 +70,8 @@
         </hero>
 
         <hero name="薇恩">
-                <name>薇恩</name>
                 <race>光</race>
                 <career>游侠</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>500</hp>
@@ -98,10 +92,8 @@
         </hero>
 
         <hero name="内瑟斯">
-                <name>内瑟斯</name>
                 <race>光</race>
                 <career>守护神</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -122,10 +114,8 @@
         </hero>
 
         <hero name="克格莫">
-                <name>克格莫</name>
                 <race>剧毒</race>
                 <career>掠食者</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>500</hp>
@@ -146,10 +136,8 @@
         </hero>
 
         <hero name="弗拉基米尔">
-                <name>弗拉基米尔</name>
                 <race>海洋</race>
                 <career>法师</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>550</hp>
@@ -170,10 +158,8 @@
         </hero>
 
         <hero name="黛安娜">
-                <name>黛安娜</name>
                 <race>地狱火</race>
                 <career>刺客</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>550</hp>
@@ -194,10 +180,8 @@
         </hero>
 
         <hero name="沃里克">
-                <name>沃里克</name>
                 <race>极地</race>
                 <career>掠食者</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -218,10 +202,8 @@
         </hero>
 
         <hero name="艾翁">
-                <name>艾翁</name>
                 <race>森林</race>
                 <career>德鲁伊</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
@@ -241,11 +223,9 @@
                 </detail>
         </hero>
 
-        <hero id="011">
-                <name>婕拉</name>
+        <hero name="婕拉">
                 <race>地狱火</race>
                 <career>召唤使</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>500</hp>
@@ -265,11 +245,9 @@
                 </detail>
         </hero>
 
-        <hero id="012">
-                <name>雷克顿</name>
+        <hero name="雷克顿">
                 <race>沙漠</race>
                 <career>狂战士</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
@@ -289,11 +267,9 @@
                 </detail>
         </hero>
 
-        <hero id="013">
-                <name>妮蔻</name>
+        <hero name="妮蔻">
                 <race>森林</race>
                 <career>德鲁伊</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>500</hp>
@@ -313,11 +289,9 @@
                 </detail>
         </hero>
 
-        <hero id="014">
-                <name>布隆</name>
+        <hero name="布隆">
                 <race>极地</race>
                 <career>守护神</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>750</hp>
@@ -337,11 +311,9 @@
                 </detail>
         </hero>
 
-        <hero id="015">
-                <name>韦鲁斯</name>
+        <hero name="韦鲁斯">
                 <race>地狱火</race>
                 <career>游侠</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>550</hp>
@@ -361,11 +333,9 @@
                 </detail>
         </hero>
 
-        <hero id="016">
-                <name>辛德拉</name>
+        <hero name="辛德拉">
                 <race>海洋</race>
                 <career>法师</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>500</hp>
@@ -385,11 +355,9 @@
                 </detail>
         </hero>
 
-        <hero id="017">
-                <name>贾克斯</name>
+        <hero name="贾克斯">
                 <race>光</race>
                 <career>狂战士</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -409,11 +377,9 @@
                 </detail>
         </hero>
 
-        <hero id="018">
-                <name>斯卡纳</name>
+        <hero name="斯卡纳">
                 <race>水晶</race>
                 <career>掠食者</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -433,11 +399,9 @@
                 </detail>
         </hero>
 
-        <hero id="019">
-                <name>亚索</name>
+        <hero name="亚索">
                 <race>云霄</race>
                 <career>剑士</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
@@ -457,11 +421,9 @@
                 </detail>
         </hero>
 
-        <hero id="020">
-                <name>玛尔扎哈</name>
+        <heroname="玛尔扎哈">
                 <race>影</race>
                 <career>召唤使</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -481,11 +443,9 @@
                 </detail>
         </hero>
 
-        <hero id="021">
-                <name>雷克塞</name>
+        <hero name="雷克塞">
                 <race>钢铁</race>
                 <career>掠食者</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -505,11 +465,9 @@
                 </detail>
         </hero>
 
-        <hero id="022">
-                <name>乐芙兰</name>
+        <hero name="乐芙兰">
                 <race>森林</race>
                 <career>刺客法师</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -529,11 +487,9 @@
                 </detail>
         </hero>
 
-        <hero id="023">
-                <name>沃利贝尔</name>
+        <hero name="沃利贝尔">
                 <race>雷霆极地</race>
                 <career>狂战士</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -553,11 +509,9 @@
                 </detail>
         </hero>
 
-        <hero id="024">
-                <name>锤石</name>
+        <hero name="锤石">
                 <race>海洋</race>
                 <career>守护神</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -577,11 +531,9 @@
                 </detail>
         </hero>
 
-        <hero id="025">
-                <name>赛恩</name>
+        <hero name="赛恩">
                 <race>影</race>
                 <career>狂战士</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -601,11 +553,9 @@
                 </detail>
         </hero>
 
-        <hero id="026">
-                <name>索拉卡</name>
+        <hero name="索拉卡">
                 <race>光</race>
                 <career>秘术</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -625,107 +575,9 @@
                 </detail>
         </hero>
 
-        <hero id="027">
-                <name>奇亚娜</name>
-                <race>云霄</race>
-                <career>刺客</career>
-                <skill></skill>
-                <detail>
-                        <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV1>
-                        <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV2>
-                        <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV3>
-                </detail>
-        </hero>
-
-        <hero id="028">
-                <name>奇亚娜</name>
-                <race>地狱火</race>
-                <career>刺客</career>
-                <skill></skill>
-                <detail>
-                        <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV1>
-                        <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV2>
-                        <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV3>
-                </detail>
-        </hero>
-
-        <hero id="029">
-                <name>奇亚娜</name>
-                <race>山脉</race>
-                <career>刺客</career>
-                <skill></skill>
-                <detail>
-                        <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV1>
-                        <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV2>
-                        <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV3>
-                </detail>
-        </hero>
-
-        <hero id="030">
-                <name>奇亚娜</name>
-                <race>海洋</race>
-                <career>刺客</career>
-                <skill></skill>
-                <detail>
-                        <LV1>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV1>
-                        <LV2>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV2>
-                        <LV3>
-                                <hp></hp>
-                                <adr></adr>
-                                <ad></ad>
-                        </LV3>
-                </detail>
-        </hero>
-
-        <hero id="031">
-                <name>希维尔</name>
+        <hero name="希维尔">
                 <race>沙漠</race>
                 <career>剑士</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -745,11 +597,9 @@
                 </detail>
         </hero>
 
-        <hero id="032">
-                <name>伊泽瑞尔</name>
+        <hero name="伊泽瑞尔">
                 <race>极地</race>
                 <career>游侠</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -769,11 +619,9 @@
                 </detail>
         </hero>
 
-        <hero id="033">
-                <name>亚托克斯</name>
+        <hero name="亚托克斯">
                 <race>光</race>
                 <career>剑士</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -793,11 +641,9 @@
                 </detail>
         </hero>
 
-        <hero id="034">
-                <name>魔腾</name>
+        <hero name="魔腾">
                 <race>钢铁</race>
                 <career>刺客</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -817,11 +663,10 @@
                 </detail>
         </hero>
 
-        <hero id="035">
-                <name>千珏</name>
-                <race>地狱火影</race>
+        <hero name="千珏">
+    
+                <race>地狱火 影</race>
                 <career>游侠</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -841,11 +686,9 @@
                 </detail>
         </hero>
 
-        <hero id="036">
-                <name>阿兹尔</name>
+        <hero name="阿兹尔">
                 <race>沙漠</race>
                 <career>召唤使</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -865,11 +708,9 @@
                 </detail>
         </hero>
 
-        <hero id="037">
-                <name>诺提勒斯</name>
+        <hero name="诺提勒斯">
                 <race>海洋</race>
                 <career>守护神</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -889,11 +730,9 @@
                 </detail>
         </hero>
 
-        <hero id="038">
-                <name>蒙多</name>
+        <hero name="蒙多">
                 <race>剧毒</race>
                 <career>狂战士</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -913,11 +752,9 @@
                 </detail>
         </hero>
 
-        <hero id="039">
-                <name>维迦</name>
+        <hero name="维迦">
                 <race>影</race>
                 <career>法师</career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
@@ -937,11 +774,9 @@
                 </detail>
         </hero>
 
-        <hero id="0">
-                <name></name>
+        <hero name="">
                 <race></race>
                 <career></career>
-                <skill></skill>
                 <detail>
                         <LV1>
                                 <hp></hp>
