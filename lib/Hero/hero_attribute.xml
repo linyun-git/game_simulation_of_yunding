@@ -3,36 +3,47 @@
         <hero name="奥恩">
                 <race>雷霆</race>
                 <career>守护神</career>
+                <skill>奥恩朝一个锥形区域进行雷霆吐息，对区域内的敌人造成魔法伤害，并在接下来的一段时间里使这些敌人被暴击的几率提升。</skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
                                 <adr>40</adr>
                                 <ad>50</ad>
-                                <skill></skill>
+                                <apr>20</apr>
+                                <asd>0.55</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
                                 <adr>40</adr>
                                 <ad>90</ad>
-                                <skill></skill>
                         </LV2>
                         <LV3>
                                 <hp>2340</hp>
                                 <adr>40</adr>
                                 <ad>180</ad>
-                                <skill></skill>
                         </LV3>
                 </detail>
         </hero>
 
         <hero name="塔莉垭">
                 <race>山脉</race>
-                <career>法师</career>
+                <career>魔法师</career>
+                <skill>塔莉垭在拥有最多当前法力值的敌人脚下引发岩突，对其造成魔法伤害，并将其晕眩2秒。此外，这个技能还会将远程英雄拉近，或将近战英雄推离。</skill>
                 <detail>
                         <LV1>
                                 <hp>500</hp>
                                 <adr>20</adr>
                                 <ad>40</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>50</mp>
+                                <mmp>80</mmp>
                         </LV1>
                         <LV2>
                                 <hp>900</hp>
@@ -55,6 +66,12 @@
                                 <hp>650</hp>
                                 <adr>35</adr>
                                 <ad>55</ad>
+                                <apr>20</apr>
+                                <asd>0.5</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>0</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
@@ -77,6 +94,12 @@
                                 <hp>500</hp>
                                 <adr>25</adr>
                                 <ad>40</ad>
+                                <apr>20</apr>
+                                <asd>0.75</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>0</mmp>
                         </LV1>
                         <LV2>
                                 <hp>900</hp>
@@ -99,6 +122,12 @@
                                 <hp>650</hp>
                                 <adr>40</adr>
                                 <ad>50</ad>
+                                <apr>20</apr>
+                                <asd>0.55</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>100</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
@@ -121,6 +150,12 @@
                                 <hp>500</hp>
                                 <adr>20</adr>
                                 <ad>25</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>40</mmp>
                         </LV1>
                         <LV2>
                                 <hp>900</hp>
@@ -143,6 +178,12 @@
                                 <hp>550</hp>
                                 <adr>30</adr>
                                 <ad>40</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>2</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>
                         </LV1>
                         <LV2>
                                 <hp>990</hp>
@@ -165,6 +206,12 @@
                                 <hp>550</hp>
                                 <adr>20</adr>
                                 <ad>50</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>100</mmp>
                         </LV1>
                         <LV2>
                                 <hp>990</hp>
@@ -187,6 +234,12 @@
                                 <hp>650</hp>
                                 <adr>30</adr>
                                 <ad>50</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>50</mp>
+                                <mmp>150</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
@@ -209,6 +262,12 @@
                                 <hp>600</hp>
                                 <adr>25</adr>
                                 <ad>50</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>2</dis>
+                                <mp>50</mp>
+                                <mmp>100</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1080</hp>
@@ -231,6 +290,12 @@
                                 <hp>500</hp>
                                 <adr>20</adr>
                                 <ad>25</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>
                         </LV1>
                         <LV2>
                                 <hp>900</hp>
@@ -253,6 +318,12 @@
                                 <hp>600</hp>
                                 <adr>35</adr>
                                 <ad>60</ad>
+                                <apr>20</apr>
+                                <asd>0.5</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>100</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1080</hp>
@@ -275,6 +346,12 @@
                                 <hp>500</hp>
                                 <adr>20</adr>
                                 <ad>45</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>2</dis>
+                                <mp>0</mp>
+                                <mmp>80</mmp>
                         </LV1>
                         <LV2>
                                 <hp>900</hp>
@@ -297,6 +374,12 @@
                                 <hp>750</hp>
                                 <adr>60</adr>
                                 <ad>40</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>65</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1350</hp>
@@ -319,6 +402,12 @@
                                 <hp>550</hp>
                                 <adr>25</adr>
                                 <ad>60</ad>
+                                <apr>20</apr>
+                                <asd>0.75</asd>
+                                <crit>0.25</crit>
+                                <dis>4</dis>
+                                <mp>50</mp>
+                                <mmp>100</mmp>
                         </LV1>
                         <LV2>
                                 <hp>990</hp>
@@ -341,6 +430,12 @@
                                 <hp>500</hp>
                                 <adr>20</adr>
                                 <ad>28</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>80</mmp>
                         </LV1>
                         <LV2>
                                 <hp>900</hp>
@@ -363,6 +458,12 @@
                                 <hp>650</hp>
                                 <adr>30</adr>
                                 <ad>50</ad>
+                                <apr>20</apr>
+                                <asd>0.8</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>50</mp>
+                                <mmp>125</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
@@ -385,6 +486,12 @@
                                 <hp>650</hp>
                                 <adr>30</adr>
                                 <ad>60</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
@@ -407,6 +514,12 @@
                                 <hp>600</hp>
                                 <adr>30</adr>
                                 <ad>55</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>100</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1080</hp>
@@ -429,6 +542,12 @@
                                 <hp>550</hp>
                                 <adr>20</adr>
                                 <ad>40</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>75</mp>
+                                <mmp>125</mmp>
                         </LV1>
                         <LV2>
                                 <hp>990</hp>
@@ -451,6 +570,12 @@
                                 <hp>650</hp>
                                 <adr>30</adr>
                                 <ad>65</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
@@ -473,6 +598,12 @@
                                 <hp>550</hp>
                                 <adr>20</adr>
                                 <ad>55</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>2</dis>
+                                <mp>50</mp>
+                                <mmp>80</mmp>
                         </LV1>
                         <LV2>
                                 <hp>990</hp>
@@ -494,7 +625,13 @@
                         <LV1>
                                 <hp>850</hp>
                                 <adr>35</adr>
-                                <ad>60</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>                                <ad>60</ad>
+
                         </LV1>
                         <LV2>
                                 <hp>1530</hp>
@@ -517,6 +654,12 @@
                                 <hp>700</hp>
                                 <adr>40</adr>
                                 <ad>55</ad>
+                                <apr>20</apr>
+                                <asd>0.55</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>50</mp>
+                                <mmp>125</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1260</hp>
