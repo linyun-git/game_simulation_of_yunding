@@ -9,7 +9,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             String data = null;
-            // data = XMLjiexi.GetDetail("奥恩", "LV2", "hp");
+             data = XMLjiexi.GetDetail("奥恩", "LV2", "hp");
 
             // data = XMLjiexi.GetRace("奥恩");
 
@@ -26,7 +26,7 @@ namespace ConsoleApp1
         {
             string informationNeeded = "/HeroList/hero[@name='" + name + "']/detail/" + lv + "/" + detail;
             XmlDocument dom = new XmlDocument();
-            dom.Load(@"C:\Users\fengruoling\Desktop\yunding\game_simulation_of_yunding\lib\Hero\hero_attribute.xml");
+            dom.Load(@"..\..\..\..\Hero\hero_attribute.xml");
             XmlElement root = dom.DocumentElement;
             XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
             return node.InnerText;
@@ -36,7 +36,7 @@ namespace ConsoleApp1
         {
             string informationNeeded = "/HeroList/hero[@name='" + name + "']/race";
             XmlDocument dom = new XmlDocument();
-            dom.Load(@"C:\Users\fengruoling\Desktop\yunding\game_simulation_of_yunding\lib\Hero\hero_attribute.xml");
+            dom.Load(@"..\..\..\..\Hero\hero_attribute.xml");
             XmlElement root = dom.DocumentElement;
             XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
             return node.InnerText;
@@ -46,7 +46,7 @@ namespace ConsoleApp1
         {
             string informationNeeded = "/HeroList/hero[@name='" + name + "']/career";
             XmlDocument dom = new XmlDocument();
-            dom.Load(@"C:\Users\fengruoling\Desktop\yunding\game_simulation_of_yunding\lib\Hero\hero_attribute.xml");
+            dom.Load(@"..\..\..\..\Hero\hero_attribute.xml");
             XmlElement root = dom.DocumentElement;
             XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
             return node.InnerText;
