@@ -80,4 +80,4 @@ export class ManagerFrameComponent implements OnInit {
     setTimeout(() => this.that.managerToHome(), 310);
   }
 }
-enum Status{Fighting,Waiting,pausing,end}
+export enum Status{Fighting,Waiting,pausing,end}

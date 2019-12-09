@@ -3,6 +3,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { SelectHeroUlComponent } from '../select-hero-ul/select-hero-ul.component';
 import { ManagerFrameComponent } from 'src/app/manager-frame/manager-frame.component';
 import { SetHeroPieceComponent } from '../set-hero-piece/set-hero-piece.component';
+import { Status } from '../../manager-frame/manager-frame.component';
 
 @Component({
   selector: 'app-hero-square',
@@ -15,6 +16,8 @@ export class HeroSquareComponent implements OnInit {
   @Input() that: ManagerFrameComponent
   @ViewChild(SelectHeroUlComponent, { static: true }) selectHeroFrame
   @ViewChild(SetHeroPieceComponent, { static: true }) setHeroFrame
+  aclass: string[] = ['blue']
+  bclass: string[] = ['blue']
   protected hero = {
     hasHero: hasHeroStatus.hasHeroFalse,
     heroColor: '',
@@ -36,6 +39,12 @@ export class HeroSquareComponent implements OnInit {
   constructor() { }
   ngOnInit() {
     this.init()
+  }
+  statusEqualsWaiting() {
+    if (this.that.status == Status.Waiting)
+      return true
+    else
+      return false
   }
 
   //事件
@@ -108,4 +117,4 @@ export class HeroSquareComponent implements OnInit {
     }
   }
 }
-export enum hasHeroStatus{hasHeroFalse,hasHeroTrue}
+export enum hasHeroStatus { hasHeroFalse, hasHeroTrue }
