@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace Main
 {
@@ -9,8 +11,29 @@ namespace Main
             "娜美", "千珏", "辛德拉" };
         static void Main(string[] args)
         {
+            Process electron = new Process();
+            string elecStr = "cloudTop/cloudTop.exe";
+            try
+            {
+                electron.StartInfo.UseShellExecute = false;
+                electron.StartInfo.FileName = elecStr;
+                electron.StartInfo.CreateNoWindow = true;
+                electron.Start();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             LinkToClient linkToClient = new LinkToClient();
             Console.WriteLine("Hello World!");
+            try
+            {
+                electron.Kill();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
     class Hero

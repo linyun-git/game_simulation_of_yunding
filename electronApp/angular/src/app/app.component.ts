@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   @ViewChild('exitFrame', { static: true }) private exitFrame: ExitFrameComponent
   @ViewChild('managerFrame', { static: true }) private managerFrame: ManagerFrameComponent
   title = 'angular';
-  protected frameZIndex: string[] = ['0', '1', '2']
+  protected frameZIndex: string[] = ['0', '2', '1']
   constructor() { }
   ngOnInit(): void {
     this.connect()
