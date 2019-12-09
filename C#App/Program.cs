@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading;
+using System.Xml;
 
-namespace Test
+namespace ConsoleApp1
 {
     class Hero
     {
@@ -9,62 +11,90 @@ namespace Test
         public double MAXHP { get; set; }
         public double HP { get; set; }
         public string Name { get; set; }
-        public int count = 1;
-        static int flag = 0;
-        public bool Attack(Hero target)
+        public double ASD { get; set; }
+        public double Dead { get; set; }
+        public void Attack(object targ)
         {
-            bool hasDead = false;
-            double damage = this.ATN * (target.DEF/100) ;
-            if (this.Name == "薇恩")
+            Hero target = (Hero)targ;
+            double damage ;
+            while (target.HP > 0&&this.HP>0)
             {
-                damage = damage + (count / 3) * target.MAXHP * 0.08;
-                count++;
-                if (count == 4)
+                Random rd = new Random();
+                int baoji = rd.Next(1, 5);
+                if (baoji == 1)
                 {
-                    Console.WriteLine("薇恩发动了技能：第三次攻击对目标造成最大生命值的额外百分比伤害");
-                    count = 1;
-                    flag = 1;
+                    damage = this.ATN * (target.DEF / 100) * 2;
                 }
-            }
-            if (this.Name == "茂凯")
-            {
-                if (flag == 1)
+                else
                 {
-                    Console.WriteLine("茂凯发动了技能：受到技能伤害后下一次攻击将回复自身血量");
-                    this.HP = this.HP + 100;
-                    flag = 0;
+                    damage = this.ATN * (target.DEF / 100);
                 }
+                target.HP = target.HP - damage;
+                Console.WriteLine("{0}向{1}发动攻击，造成{2}点伤害!", this.Name, target.Name, damage, target.HP);
+                Thread.Sleep(TimeSpan.FromSeconds(this.ASD));
+                if (target.HP <= 0)
+                {
+                    Console.WriteLine("{0}已经死亡！", target.Name);
+                    target.HP = 0;
+                    target.Dead = 1;
+                }
+                Console.WriteLine("{0}生命值变为{1}", target.Name, target.HP);
             }
-            target.HP = target.HP - damage;
-            Console.WriteLine("{0}向{1}发动攻击，造成{2}点伤害!", this.Name, target.Name, damage, target.HP);
-            if (target.HP <= 0)
-            {
-                Console.WriteLine("{0}已经死亡！", target.Name);
-                target.HP = 0;
-                hasDead = true;
-            }
-            Console.WriteLine("{0}生命值变为{1}", target.Name, target.HP);
-            return hasDead;
         }
 
         static void Main()
         {
-            Hero A = new Hero() { Name = "薇恩", ATN = 40, DEF = 25, HP = 500 ,MAXHP = 500},
-                B = new Hero() { HP = 650, Name = "茂凯", ATN = 55, DEF = 35 , MAXHP = 650};
-            while (A.HP >= 0 && B.HP >= 0)
-            {
-                if (B.Attack(A))
-                {
-                    Console.WriteLine("{0}获取胜利", B.Name);
-                    break;
-                }
-                if (A.Attack(B))
-                {
-                    Console.WriteLine("{0}获取胜利", A.Name);
-                    break;
-                }
+            Hero[,] qp = new Hero[8, 7];
+            Hero Weien = new Hero() { Name = "薇恩", ATN = 40, DEF = 25, HP = 500, MAXHP = 500, ASD = 0.25, Dead = 0 },
+                Maokai = new Hero() { HP = 650, Name = "茂凯", ATN = 55, DEF = 35, MAXHP = 650, ASD = 0.5, Dead = 0 };
+            Thread t1 = new Thread(new ParameterizedThreadStart(Weien.Attack));
+            t1.Start(Maokai);
+            Thread t2 = new Thread(new ParameterizedThreadStart(Maokai.Attack));
+            t2.Start(Weien);
+            t1.Join();
+            t2.Join();
+            if (Maokai.Dead == 1 )
+            { 
+                Console.WriteLine("{0}胜利！", Weien.Name);
             }
-            Console.ReadKey();
+            else if (Weien.Dead == 1)
+            {
+                Console.WriteLine("{0}胜利！", Maokai.Name);
+            }
         }
+    }
+    class XMLjiexi
+    {
+        //  获取英雄不同等级的技能（skill），护甲(adr)，生命值(hp)，攻击力(ad)  输入参数为（英雄的名字，等级，所需内容）
+        public static string GetDetail(string name, string lv, string detail)
+        {
+            string informationNeeded = "/HeroList/hero[@name='" + name + "']/detail/" + lv + "/" + detail;
+            XmlDocument dom = new XmlDocument();
+            dom.Load(@"..\..\..\..\Hero\hero_attribute.xml");
+            XmlElement root = dom.DocumentElement;
+            XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
+            return node.InnerText;
+        }
+        // 获取英雄的种族  输入参数为（英雄的名字）
+        public static string GetRace(string name)
+        {
+            string informationNeeded = "/HeroList/hero[@name='" + name + "']/race";
+            XmlDocument dom = new XmlDocument();
+            dom.Load(@"..\..\..\..\Hero\hero_attribute.xml");
+            XmlElement root = dom.DocumentElement;
+            XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
+            return node.InnerText;
+        }
+        // 获取英雄的职业  输入参数为（英雄的名字）
+        public static string GetCareer(string name)
+        {
+            string informationNeeded = "/HeroList/hero[@name='" + name + "']/career";
+            XmlDocument dom = new XmlDocument();
+            dom.Load(@"..\..\..\..\Hero\hero_attribute.xml");
+            XmlElement root = dom.DocumentElement;
+            XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
+            return node.InnerText;
+        }
+
     }
 }
