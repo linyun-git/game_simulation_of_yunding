@@ -31,7 +31,7 @@ namespace ConsoleApp1
                 }
                 target.HP = target.HP - damage;
                 Console.WriteLine("{0}向{1}发动攻击，造成{2}点伤害!", this.Name, target.Name, damage, target.HP);
-                Thread.Sleep(TimeSpan.FromSeconds(this.ASD));
+                Thread.Sleep(TimeSpan.FromSeconds(1/(this.ASD)));
                 if (target.HP <= 0)
                 {
                     Console.WriteLine("{0}已经死亡！", target.Name);
@@ -45,21 +45,29 @@ namespace ConsoleApp1
         static void Main()
         {
             Hero[,] qp = new Hero[8, 7];
-            Hero Weien = new Hero() { Name = "薇恩", ATN = 40, DEF = 25, HP = 500, MAXHP = 500, ASD = 0.25, Dead = 0 },
-                Maokai = new Hero() { HP = 650, Name = "茂凯", ATN = 55, DEF = 35, MAXHP = 650, ASD = 0.5, Dead = 0 };
+            Hero Weien = new Hero() { Name = "薇恩", ATN = 40, DEF = 25, HP = 500, MAXHP = 500, ASD = 0.75, Dead = 0 },
+                Maokai = new Hero() { Name = "茂凯", ATN = 55, DEF = 35, HP = 650, MAXHP = 650, ASD = 0.5, Dead = 0 },
+                Wolike = new Hero() { Name = "沃里克", ATN = 50, DEF = 30, HP = 650, MAXHP = 650, ASD = 0.6, Dead = 0 },
+              Leikedun = new Hero() { Name = "雷克顿", ATN = 60, DEF = 35, HP = 600, MAXHP = 600, ASD = 0.5, Dead = 0 };
             Thread t1 = new Thread(new ParameterizedThreadStart(Weien.Attack));
             t1.Start(Maokai);
             Thread t2 = new Thread(new ParameterizedThreadStart(Maokai.Attack));
             t2.Start(Weien);
+            Thread t3 = new Thread(new ParameterizedThreadStart(Leikedun.Attack));
+            t3.Start(Weien);
+            Thread t4 = new Thread(new ParameterizedThreadStart(Wolike.Attack));
+            t4.Start(Maokai);
             t1.Join();
             t2.Join();
-            if (Maokai.Dead == 1 )
+            t3.Join();
+            t4.Join();
+            if (Maokai.Dead == 1 && Leikedun.Dead == 1)
             { 
-                Console.WriteLine("{0}胜利！", Weien.Name);
+                Console.WriteLine("蓝色方胜利！");
             }
-            else if (Weien.Dead == 1)
+            else if (Weien.Dead == 1 && Wolike.Dead == 1)
             {
-                Console.WriteLine("{0}胜利！", Maokai.Name);
+                Console.WriteLine("红色方胜利！", Maokai.Name);
             }
         }
     }
