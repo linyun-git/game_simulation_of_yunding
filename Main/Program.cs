@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace Main
 {
@@ -10,43 +9,8 @@ namespace Main
             "娜美", "千珏", "辛德拉" };
         static void Main(string[] args)
         {
-            Process electron = new Process();
-            Process nginx = new Process();
-            string elecStr = "cloudTop/cloudTop.exe";
-            string ngxStr = "nginx/nginx.exe";
-            try
-            {
-                nginx.StartInfo.UseShellExecute = false;
-                nginx.StartInfo.FileName = ngxStr;
-                nginx.StartInfo.CreateNoWindow = true;
-                nginx.Start();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            try
-            {
-                electron.StartInfo.UseShellExecute = false;
-                electron.StartInfo.FileName = elecStr;
-                electron.StartInfo.CreateNoWindow = true;
-                electron.Start();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
             LinkToClient linkToClient = new LinkToClient();
             Console.WriteLine("Hello World!");
-            try
-            {
-                electron.Kill();
-                nginx.Kill();
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
         }
     }
     class Hero

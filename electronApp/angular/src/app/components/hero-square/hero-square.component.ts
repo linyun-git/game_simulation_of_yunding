@@ -16,8 +16,6 @@ export class HeroSquareComponent implements OnInit {
   @Input() that: ManagerFrameComponent
   @ViewChild(SelectHeroUlComponent, { static: true }) selectHeroFrame
   @ViewChild(SetHeroPieceComponent, { static: true }) setHeroFrame
-  aclass: string[] = ['blue']
-  bclass: string[] = ['blue']
   protected hero = {
     hasHero: hasHeroStatus.hasHeroFalse,
     heroColor: '',
@@ -40,7 +38,7 @@ export class HeroSquareComponent implements OnInit {
   ngOnInit() {
     this.init()
   }
-  statusEqualsWaiting() {
+  private statusEqualsWaiting() {
     if (this.that.status == Status.Waiting)
       return true
     else
@@ -48,30 +46,47 @@ export class HeroSquareComponent implements OnInit {
   }
 
   //事件
+  //单击事件
+  click() {
+    if (this.statusEqualsWaiting()) {
+      this.toSelectHero()
+    }
+    else {
+
+    }
+  }
+  //右键事件
+  contextmenu() {
+    if (this.statusEqualsWaiting())
+      this.checkHeroInf()
+  }
+
+
+  //执行
   toSelectHero() {
     this.selectHeroFrame.selectHero()
   }
-  right() {
+  checkHeroInf() {
     if (this.hero.hasHero == hasHeroStatus.hasHeroTrue)
       this.setHeroFrame.open()
-  }
-  changeHeroLevel() {
-    this.that.changeHeroLevel(this.heroSquareId)
   }
 
   //设置英雄
   setHeroLevel(heroLevel: number) {
     this.hero.heroLevel = heroLevel
   }
+  changeHeroLevel() {
+    this.that.changeHeroLevel(this.heroSquareId)
+  }
   setHero(hero: string) {
     this.hero.heroName = hero
     this.hero.hasHero = hasHeroStatus.hasHeroTrue
+    this.hero.heroColor = this.heroSquareColor
     this.that.setHeroPlace(this.heroSquareId, hero)
   }
   init(heroAbilities?: string[]) {
     if (heroAbilities == undefined) {
       this.hero.hasHero = hasHeroStatus.hasHeroFalse
-      this.hero.heroColor = this.heroSquareColor
       this.hero.heroId = 0
       this.hero.heroName = ''
       this.hero.heroLevel = 1

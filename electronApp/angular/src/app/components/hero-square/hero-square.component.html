@@ -1,4 +1,4 @@
-<div id="square" [ngClass]="statusEqualsWaiting()?aclass:bclass" (click)="toSelectHero()" (contextmenu)="right()">
+<div id="square" [ngClass]="statusEqualsWaiting()?[heroSquareColor,hero.heroLevel | heroLevelToString,hero.hasHero|hasHeroStatusToString]:[hero.heroColor,hero.heroLevel | heroLevelToString,hero.hasHero|hasHeroStatusToString]" (click)="click()" (contextmenu)="checkHeroInf()">
     <h1>+</h1>
     <div></div>
     <img src="{{hero.heroName | heroNameToSrc}}" alt="" draggable="false">

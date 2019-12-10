@@ -66,6 +66,14 @@
         animation: rotate360 2s linear infinite;
     }
 }
+.hasHeroFalse{
+    h1{
+        display: none;
+    }
+}
+.hasHeroFalse,.hasHeroFalse::before,.hasHeroFalse::after{
+    border-color: #5dbfd8;
+}
 .levelOne div{
     background: linear-gradient(0deg, #ecf0f1, rgb(0, 107, 126));
 }

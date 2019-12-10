@@ -10,7 +10,7 @@ import { AppComponent } from '../app.component';
 export class ManagerFrameComponent implements OnInit {
   @ViewChildren(HeroSquareComponent) heroSquares
   @Input() that:AppComponent
-  status:Status = Status.Waiting
+  status:Status = Status.Fighting
   protected buttons:string[] = ['go','reset','back','home','exit']
   protected heroBlue = 'blue'
   protected heroRed = 'red'

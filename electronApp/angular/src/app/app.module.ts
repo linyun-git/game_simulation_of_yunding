@@ -22,6 +22,7 @@ import { TimerComponent } from './components/timer/timer.component';
 import { TimerPipe } from './pipe/timer/timer.pipe';
 import { HasHeroStatusToStringPipe } from './pipe/hasHeroStatusToString/has-hero-status-to-string.pipe';
 import { StatusEqualsWaitingPipe } from './pipe/statusEqualsWaiting/status-equals-waiting.pipe';
+import { HeroFightLogComponent } from './components/hero-fight-log/hero-fight-log.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { StatusEqualsWaitingPipe } from './pipe/statusEqualsWaiting/status-equal
     TimerComponent,
     TimerPipe,
     HasHeroStatusToStringPipe,
-    StatusEqualsWaitingPipe
+    StatusEqualsWaitingPipe,
+    HeroFightLogComponent
   ],
   imports: [
     BrowserModule,

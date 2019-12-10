@@ -1,0 +1,123 @@
+#log{
+    background: #efefef;
+    height: 300px;
+    width: 250px;
+    box-shadow: 0 0 5px 0px rgb(0,0,0,0.5);
+    #button{
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: #e8e8e8;
+        box-shadow: 0 0 0px 2px rgb(255,255,255,0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #button::before{
+        content: '';
+        position: absolute;
+        height: 16px;
+        width: 3px;
+        background: #000;
+    }
+    #button::after{
+        content: '';
+        position: absolute;
+        height: 16px;
+        width: 3px;
+        background: #000;
+        transform: rotate(90deg);
+    }
+    #button:hover::after,#button:hover::before{
+        background: #fff;
+    }
+    #title{
+        margin: 0 auto;
+        margin-top: 10%;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        img{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+        .bar{
+            position: relative;
+            height: 15px;
+            font-size: 11px;
+            span{
+                margin-left: 4px;
+            }
+        }
+        #HP{
+            background: rgb(255,0,0,0.5);
+        }
+        #HP::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 135px;
+            height: 15px;
+            border: 2px solid #000;
+            box-sizing: border-box;
+        }
+        #MP{
+            background: rgb(0,0,255,0.5);
+        }
+        #MP::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 135px;
+            height: 15px;
+            border: 2px solid #000;
+            box-sizing: border-box;
+        }
+        .flex{
+            width: 60%;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+    #cont{
+        width: 90%;
+        height: 70%;
+        background: #fff;
+        margin: 0 auto;
+        margin-top: 10px;
+        box-shadow: 0 0 5px 0px rgb(0,0,0,0.3) inset;
+        padding: 0 10px;
+        overflow: scroll;
+        overflow-x: hidden;
+        p{
+            margin-top: 10px;
+        }
+    }
+    #cont::-webkit-scrollbar{
+        display: none;
+    }
+}
+.moving{
+    position: fixed;
+    height: 820px;
+    width: 1200px;
+    top: 0;
+    left: 0;
+    #log{
+        position: absolute;
+    }
+}
+.static{
+    #log{
+        position: fixed;
+    }
+}

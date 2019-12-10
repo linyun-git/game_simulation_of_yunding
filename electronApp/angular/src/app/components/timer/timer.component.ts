@@ -51,6 +51,6 @@ export class TimerComponent implements OnInit {
     }
   }
   end(){
-    alert('end')
+    // alert('end')
   }
 }
