@@ -4,6 +4,8 @@ import { SelectHeroUlComponent } from '../select-hero-ul/select-hero-ul.componen
 import { ManagerFrameComponent } from 'src/app/manager-frame/manager-frame.component';
 import { SetHeroPieceComponent } from '../set-hero-piece/set-hero-piece.component';
 import { Status } from '../../manager-frame/manager-frame.component';
+import { HeroFightLogComponent } from '../hero-fight-log/hero-fight-log.component';
+import { HeroLevelToStringPipe } from 'src/app/pipe/heroLevelToString/hero-level-to-string.pipe';
 
 @Component({
   selector: 'app-hero-square',
@@ -16,21 +18,24 @@ export class HeroSquareComponent implements OnInit {
   @Input() that: ManagerFrameComponent
   @ViewChild(SelectHeroUlComponent, { static: true }) selectHeroFrame
   @ViewChild(SetHeroPieceComponent, { static: true }) setHeroFrame
-  protected hero = {
+  @ViewChild(HeroFightLogComponent, { static: true }) fightLogFrame
+  public hero = {
     hasHero: hasHeroStatus.hasHeroFalse,
     heroColor: '',
     heroId: 0,
     heroName: '',
     heroLevel: 1,
     heroSkill: '',
+    fightLog: [''],
     ability: {
       ad: 0,//攻击力
       ap: 0,//法强
       adr: 0,//物抗
       apr: 0,//法抗
-      HP: 0,//生命值
-      MP: 0,//法力值
-      skillMp: 0//技能蓝耗
+      maxHP: 0,//生命值
+      maxMP: 0,//法力值
+      MP: 0,//技能蓝耗
+      HP: 0
     }
   }
 
@@ -44,7 +49,43 @@ export class HeroSquareComponent implements OnInit {
     else
       return false
   }
-
+  private heroLevelToString(heroLevel:number):string{
+    switch (heroLevel) {
+      case 1:
+        return 'levelOne'
+      case 2:
+        return 'levelTwo'
+      case 3:
+        return 'levelThree'
+    }
+  }
+  squareClass(): string[] {
+    console.log('class');
+    
+    let Class: string[] = []
+    if (this.statusEqualsWaiting()) {
+      Class.push('pointer')
+      Class.push(this.heroSquareColor)
+      if (this.hero.hasHero == hasHeroStatus.hasHeroTrue) {
+        Class.push('textnone')
+        Class.push(this.heroLevelToString(this.hero.heroLevel))
+      }
+      else{
+        Class.push('textblock')
+      }
+    }
+    else{
+      Class.push('textnone')
+      if (this.hero.hasHero == hasHeroStatus.hasHeroTrue) {
+        Class.push(this.hero.heroColor)
+        Class.push(this.heroLevelToString(this.hero.heroLevel))
+      }
+      else{
+        Class.push('borderLight')
+      }
+    }
+    return Class
+  }
   //事件
   //单击事件
   click() {
@@ -52,7 +93,7 @@ export class HeroSquareComponent implements OnInit {
       this.toSelectHero()
     }
     else {
-
+      this.viewFightLog()
     }
   }
   //右键事件
@@ -63,6 +104,11 @@ export class HeroSquareComponent implements OnInit {
 
 
   //执行
+  viewFightLog() {
+    if (this.hero.hasHero == hasHeroStatus.hasHeroTrue) {
+      this.fightLogFrame.block()
+    }
+  }
   toSelectHero() {
     this.selectHeroFrame.selectHero()
   }
@@ -97,7 +143,9 @@ export class HeroSquareComponent implements OnInit {
       this.hero.ability.apr = 0
       this.hero.ability.HP = 0
       this.hero.ability.MP = 0
-      this.hero.ability.skillMp = 0
+      this.hero.ability.maxMP = 0
+      this.hero.ability.maxHP = 0
+      this.hero.fightLog = []
     }
     else {
       for (let heroAbility of heroAbilities) {
@@ -124,8 +172,11 @@ export class HeroSquareComponent implements OnInit {
           case 'MP':
             this.hero.ability.MP = Number(order[1])
             break
-          case 'skillMp':
-            this.hero.ability.skillMp = Number(order[1])
+          case 'maxMP':
+            this.hero.ability.maxMP = Number(order[1])
+            break
+          case 'maxHP':
+            this.hero.ability.maxHP = Number(order[1])
             break
         }
       }

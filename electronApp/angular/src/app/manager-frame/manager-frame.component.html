@@ -88,7 +88,7 @@
         </ul>
     </div>
     <div class="buttons" id="buttons1">
-        <app-icon-to-button [icon]="buttons[0]" style="display: block;"></app-icon-to-button>
+        <app-icon-to-button [icon]="buttons[0]" style="display: block;" (click)="go()"></app-icon-to-button>
         <app-icon-to-button [icon]="buttons[1]" (click)="reset()"></app-icon-to-button>
     </div>
     <div class="buttons" id="buttons2">
@@ -98,5 +98,3 @@
     </div>
 </div>
 <app-timer></app-timer>
-<app-hero-fight-log></app-hero-fight-log>
-<app-hero-fight-log></app-hero-fight-log>

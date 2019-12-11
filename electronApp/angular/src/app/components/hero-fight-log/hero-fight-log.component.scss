@@ -108,6 +108,7 @@
 }
 .moving{
     position: fixed;
+    z-index: 3;
     height: 820px;
     width: 1200px;
     top: 0;
@@ -119,5 +120,6 @@
 .static{
     #log{
         position: fixed;
+        z-index: 3;
     }
 }

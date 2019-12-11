@@ -1,5 +1,4 @@
 #square{
-    cursor:pointer;
     width: 81px;
     height: 47.25px;
     position: relative;
@@ -16,6 +15,37 @@
         color: #cad1d7;
         font-weight: 300;
         font-size: 80px;
+    }
+    img{
+        position: absolute;
+        z-index: 1;
+        height: 65px;
+        width: 65px;
+        border-radius: 50%;
+    }
+    div{
+        position: absolute;
+        z-index: 1;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: rotate360 2s linear infinite;
+    }
+}
+.pointer{
+    cursor:pointer;
+}
+.textnone{
+    h1{
+        display: none;
+    }
+}
+.textblock{
+    h1{
+        display: block;
     }
 }
 #square::before,#square::after{
@@ -43,36 +73,8 @@
 .red:hover,.red:hover::after,.red:hover::before,.blue:hover,.blue:hover::after,.blue:hover::before{
     border-color: #5dbfd8 !important;
 }
-.hasHeroTrue{
-    h1{
-        display: none;
-    }
-    img{
-        position: absolute;
-        z-index: 1;
-        height: 65px;
-        width: 65px;
-        border-radius: 50%;
-    }
-    div{
-        position: absolute;
-        z-index: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        animation: rotate360 2s linear infinite;
-    }
-}
-.hasHeroFalse{
-    h1{
-        display: none;
-    }
-}
-.hasHeroFalse,.hasHeroFalse::before,.hasHeroFalse::after{
-    border-color: #5dbfd8;
+.borderLight,.borderLight::before,.borderLight::after{
+    border-color: #5dbfd8 !important;
 }
 .levelOne div{
     background: linear-gradient(0deg, #ecf0f1, rgb(0, 107, 126));

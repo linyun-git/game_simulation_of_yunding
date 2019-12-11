@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, AfterViewChecked, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewChecked, ElementRef,Input } from '@angular/core';
+import { HeroSquareComponent } from '../hero-square/hero-square.component';
 
 @Component({
   selector: 'app-hero-fight-log',
@@ -6,6 +7,7 @@ import { Component, OnInit, ViewChild, AfterViewChecked, ElementRef } from '@ang
   styleUrls: ['./hero-fight-log.component.scss']
 })
 export class HeroFightLogComponent implements OnInit, AfterViewChecked {
+  @Input() that:HeroSquareComponent
   @ViewChild('scroll', { static: true }) private logScroll: ElementRef;
   //日志自动滚动到最下方
   ngAfterViewChecked(): void {
@@ -16,18 +18,28 @@ export class HeroFightLogComponent implements OnInit, AfterViewChecked {
       this.logScroll.nativeElement.scrollTop = this.logScroll.nativeElement.scrollHeight;
     } catch (err) { }
   }
-
+  display:string = 'none'
   HP: number = 60
   maxHP: number = 100
   MP: number = 10
   maxMP: number = 100
   heroName: string = '劫'
-
+  block(){
+    this.display = 'block'
+  }
+  none(){
+    this.display = 'none'
+  }
   log: string[] = []
   constructor() { }
   ngOnInit() {
   }
-
+  HPpoint(){
+    return this.that.hero.ability.HP/this.that.hero.ability.maxHP
+  }
+  MPpoint(){
+    return this.that.hero.ability.MP/this.that.hero.ability.maxMP
+  }
   //允许移动
   status: string = 'static'
   top: number = 250
