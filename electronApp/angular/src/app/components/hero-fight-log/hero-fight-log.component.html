@@ -3,7 +3,7 @@
         <div id="button" (mousedown)="mousedown($event)">
         </div>
         <div id="title">
-            <img src="{{that.hero.heroName|heroNameToSrc}}" alt="">
+            <img src="{{that.hero.heroName|heroNameToSrc}}" alt="" draggable="false">
             <div class="flex">
                 <div id="HP" class="bar" [ngStyle]="{'width':HPpoint()*135+'px'}"><span>{{that.hero.ability.HP}}/{{that.hero.ability.maxHP}}</span></div>
                 <div id="MP" class="bar" [ngStyle]="{'width':MPpoint()*135+'px'}"><span>{{that.hero.ability.MP}}/{{that.hero.ability.maxMP}}</span></div>

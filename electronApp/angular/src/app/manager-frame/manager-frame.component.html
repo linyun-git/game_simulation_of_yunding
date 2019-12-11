@@ -1,5 +1,6 @@
-<div id="heroManagerFrame" [ngClass]="heroManagerAct">
-    <div id="title" style="opacity: 0;">
+<div id="heroManagerFrame" [ngClass]="[heroManagerAct,statusClass()]">
+    <app-timer></app-timer>
+    <div id="title">
         <i>
             <h1 class="number"><span style="color: #317bd5;">10</span>/<span style="color: #317bd5;">{{blueNum}}</span>
             </h1>
@@ -97,4 +98,3 @@
         <app-icon-to-button [icon]="buttons[4]" (click)="exit()"></app-icon-to-button>
     </div>
 </div>
-<app-timer></app-timer>

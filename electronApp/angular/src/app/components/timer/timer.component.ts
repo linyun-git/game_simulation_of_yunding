@@ -16,25 +16,37 @@ export class TimerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    time = new Date()
-    this.thisTime = time.getTime()
-    this.TimeOut()
+    this.TimeReady()
   }
   TimeReady(){
+    this.textColor = 'white'
+    this.imgsrc = 'whiteTime'
+    time = new Date()
+    this.thisTime = time.getTime()
     this.maxTime = 3
+    this.run(()=>{
+      this.FightStart()
+    })
   }
   TimeOut(){
     this.textColor = 'red'
     this.imgsrc = 'redTime'
+    time = new Date()
+    this.thisTime = time.getTime()
     this.maxTime = 10
     this.run(this.end)
   }
   FightStart(){
     this.textColor = 'white'
+    this.imgsrc = 'whiteTime'
     time = new Date()
+    this.thisTime = time.getTime()
     this.maxTime = 30
-    // this.run()
+    this.run(()=>{
+      this.TimeOut()
+    })
   }
+
   private run(fun:any){
     let time = new Date()
     let t = time.getTime() - this.thisTime

@@ -7,6 +7,12 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    app-timer{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(0.4) translate(0,50%);
+    }
     #title{
         margin-top: 20px;
         width: 90%;
@@ -172,6 +178,22 @@ app-icon-to-button{
         opacity: 1;
     }
     to{
+        opacity: 0;
+    }
+}
+.statusWaiting{
+    app-timer{
+        display: none;
+    }
+    #title{
+        opacity: 1;
+    }
+}
+.statusOther{
+    app-timer{
+        display: block;
+    }
+    #title{
         opacity: 0;
     }
 }

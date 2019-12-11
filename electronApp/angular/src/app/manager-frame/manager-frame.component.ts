@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren,Input } from '@angular/core';
+import { Component, OnInit, ViewChildren, Input } from '@angular/core';
 import { HeroSquareComponent } from '../components/hero-square/hero-square.component';
 import { AppComponent } from '../app.component';
 
@@ -9,9 +9,17 @@ import { AppComponent } from '../app.component';
 })
 export class ManagerFrameComponent implements OnInit {
   @ViewChildren(HeroSquareComponent) heroSquares
-  @Input() that:AppComponent
-  status:Status = Status.Waiting
-  protected buttons:string[] = ['go','reset','back','home','exit']
+  @Input() that: AppComponent
+  statusClass() {
+    if (this.status == Status.Waiting) {
+      return 'statusWaiting'
+    }
+    else {
+      return 'statusOther'
+    }
+  }
+  status: Status = Status.Waiting
+  protected buttons: string[] = ['go', 'reset', 'back', 'home', 'exit']
   protected heroBlue = 'blue'
   protected heroRed = 'red'
   protected heroManagerAct: string = ''
@@ -24,7 +32,7 @@ export class ManagerFrameComponent implements OnInit {
   managerFrameOut() {
     this.heroManagerAct = 'heroManagerAct'
   }
-  gone(){
+  gone() {
     this.heroManagerAct = 'gone'
   }
 
@@ -44,43 +52,50 @@ export class ManagerFrameComponent implements OnInit {
         break
     }
   }
-  setHeroLevel(codes: string[]){
+  setHeroLevel(codes: string[]) {
     let squareId: number = Number(codes[1])
     let heroLevel: number = Number(codes[2])
     this.heroSquares._results[squareId].setHeroLevel(heroLevel)
   }
 
   //提供给子组件的通信方式
-  setHeroPlace(heroSquareId:number,hero:string){
-    let code:string = 'setHeroPlace '+heroSquareId+' '+hero
+  setHeroPlace(heroSquareId: number, hero: string) {
+    let code: string = 'setHeroPlace ' + heroSquareId + ' ' + hero
     this.that.send(code)
   }
-  changeHeroLevel(heroSquareId:number){
-    let code:string = 'changeHeroLevel '+heroSquareId
+  changeHeroLevel(heroSquareId: number) {
+    let code: string = 'changeHeroLevel ' + heroSquareId
     this.that.send(code)
   }
 
   //按钮操作
-  reset(){
-    for(var i=0; i<55;i++){
+  reset() {
+    for (var i = 0; i < 55; i++) {
       this.heroSquares._results[i].init()
     }
-    let code:string = 'reset'
+    let code: string = 'reset'
     this.that.send(code)
   }
-  exit(){
+  exit() {
     this.that.exitFrameOut()
   }
-  home(){
+  home() {
     this.gone()
     this.that.managerToHome()
   }
-  back(){
-    this.gone()
-    setTimeout(() => this.that.managerToHome(), 310);
+  back() {
+    switch (this.status) {
+      case Status.Waiting:
+        this.gone()
+        setTimeout(() => this.that.managerToHome(), 310);
+        break
+      case Status.Fighting:
+        this.status = Status.Waiting
+        break
+    }
   }
-  go(){
+  go() {
     this.status = Status.Fighting
   }
 }
-export enum Status{Fighting,Waiting,pausing,end}
+export enum Status { Fighting, Waiting, pausing, end }
