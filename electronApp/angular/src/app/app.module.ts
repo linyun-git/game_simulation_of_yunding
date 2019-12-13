@@ -19,10 +19,11 @@ import { SetHeroPieceComponent } from './components/set-hero-piece/set-hero-piec
 import { IconSrcPipe } from './pipe/iconSrc/icon-src.pipe';
 import { IconToButtonComponent } from './components/icon-to-button/icon-to-button.component';
 import { TimerComponent } from './components/timer/timer.component';
-import { TimerPipe } from './pipe/timer/timer.pipe';
 import { HasHeroStatusToStringPipe } from './pipe/hasHeroStatusToString/has-hero-status-to-string.pipe';
 import { StatusEqualsWaitingPipe } from './pipe/statusEqualsWaiting/status-equals-waiting.pipe';
 import { HeroFightLogComponent } from './components/hero-fight-log/hero-fight-log.component';
+import { StatusToClassPipe } from './pipe/statusToClass/status-to-class.pipe';
+import { TipsComponent } from './components/tips/tips.component';
 
 @NgModule({
   declarations: [
@@ -41,10 +42,11 @@ import { HeroFightLogComponent } from './components/hero-fight-log/hero-fight-lo
     IconSrcPipe,
     IconToButtonComponent,
     TimerComponent,
-    TimerPipe,
     HasHeroStatusToStringPipe,
     StatusEqualsWaitingPipe,
-    HeroFightLogComponent
+    HeroFightLogComponent,
+    StatusToClassPipe,
+    TipsComponent
   ],
   imports: [
     BrowserModule,

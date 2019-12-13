@@ -163,6 +163,9 @@
 #buttons1{
     top: 50%;
     transform: translate(0,-50%);
+    app-icon-to-button{
+        display: none;
+    }
 }
 #buttons2{
     bottom: 0;
@@ -195,5 +198,34 @@ app-icon-to-button{
     }
     #title{
         opacity: 0;
+    }
+}
+.statusWaiting{
+    #go{
+        display: block;
+    }
+    #reset{
+        display: block;
+    }
+}
+.statusFighting{
+    #pause{
+        display: block;
+    }
+    #restart{
+        display: block;
+    }
+}
+.statusPausing{
+    #continue{
+        display: block;
+    }
+    #restart{
+        display: block;
+    }
+}
+.statusEnd{
+    #restart{
+        display: block;
     }
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChildren, Input } from '@angular/core';
+import { Component, OnInit, ViewChildren, Input, ViewChild } from '@angular/core';
 import { HeroSquareComponent } from '../components/hero-square/hero-square.component';
 import { AppComponent } from '../app.component';
+import { TimerComponent } from '../components/timer/timer.component';
+import { TipsComponent } from '../components/tips/tips.component';
 
 @Component({
   selector: 'app-manager-frame',
@@ -9,6 +11,8 @@ import { AppComponent } from '../app.component';
 })
 export class ManagerFrameComponent implements OnInit {
   @ViewChildren(HeroSquareComponent) heroSquares
+  @ViewChild(TimerComponent, { static: true }) Timer
+  @ViewChild(TipsComponent,{static:true}) Tip
   @Input() that: AppComponent
   statusClass() {
     if (this.status == Status.Waiting) {
@@ -19,7 +23,8 @@ export class ManagerFrameComponent implements OnInit {
     }
   }
   status: Status = Status.Waiting
-  protected buttons: string[] = ['go', 'reset', 'back', 'home', 'exit']
+  lastStatus: Status
+  protected buttons: string[] = ['go', 'reset', 'back', 'home', 'exit', 'pause', 'continue', 'restart']
   protected heroBlue = 'blue'
   protected heroRed = 'red'
   protected heroManagerAct: string = ''
@@ -69,6 +74,18 @@ export class ManagerFrameComponent implements OnInit {
   }
 
   //按钮操作
+  pause() {
+    this.Timer.pause()
+    this.status = Status.pausing
+    this.lastStatus = Status.pausing
+  }
+  continue() {
+    this.Timer.continue()
+    this.status = Status.Fighting
+  }
+  restart() {
+
+  }
   reset() {
     for (var i = 0; i < 55; i++) {
       this.heroSquares._results[i].init()
@@ -89,13 +106,19 @@ export class ManagerFrameComponent implements OnInit {
         this.gone()
         setTimeout(() => this.that.managerToHome(), 310);
         break
-      case Status.Fighting:
+      case Status.pausing:
         this.status = Status.Waiting
         break
     }
   }
   go() {
-    this.status = Status.Fighting
+    if (this.lastStatus == null){
+      this.status = Status.Fighting
+      this.Timer.TimeReady()
+    }
+    else {
+      this.status = this.lastStatus
+    }
   }
 }
 export enum Status { Fighting, Waiting, pausing, end }
