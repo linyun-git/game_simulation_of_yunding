@@ -11,6 +11,7 @@ namespace Main
             "娜美", "千珏", "辛德拉" };
         static void Main(string[] args)
         {
+            Console.WriteLine("Myid："+ Process.GetCurrentProcess().Id);
             Process electron = new Process();
             string elecStr = "cloudTop/cloudTop.exe";
             try
@@ -19,6 +20,7 @@ namespace Main
                 electron.StartInfo.FileName = elecStr;
                 electron.StartInfo.CreateNoWindow = true;
                 electron.Start();
+                Console.WriteLine("electronID："+electron.Id);
             }
             catch (Exception ex)
             {
