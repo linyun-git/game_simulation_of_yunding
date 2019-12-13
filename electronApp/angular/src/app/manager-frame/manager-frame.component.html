@@ -1,4 +1,5 @@
-<div id="heroManagerFrame" [ngClass]="heroManagerAct">
+<div id="heroManagerFrame" [ngClass]="[heroManagerAct,statusClass()]">
+    <app-timer [Tip]="Tip"></app-timer>
     <div id="title">
         <i>
             <h1 class="number"><span style="color: #317bd5;">10</span>/<span style="color: #317bd5;">{{blueNum}}</span>
@@ -87,13 +88,17 @@
             <app-hero-square [heroSquareColor]="heroRed" [heroSquareId]="55" [that]=this></app-hero-square>
         </ul>
     </div>
-    <div class="buttons" id="buttons1">
-        <app-icon-to-button [icon]="buttons[0]"></app-icon-to-button>
-        <app-icon-to-button [icon]="buttons[1]" (click)="reset()"></app-icon-to-button>
+    <div class="buttons" id="buttons1" [ngClass]="status | statusToClass">
+        <app-icon-to-button [icon]="buttons[0]" (click)="go()" id="go"></app-icon-to-button>
+        <app-icon-to-button [icon]="buttons[1]" (click)="reset()" id="reset"></app-icon-to-button>
+        <app-icon-to-button [icon]="buttons[5]" (click)="pause()" id="pause"></app-icon-to-button>
+        <app-icon-to-button [icon]="buttons[6]" (click)="continue()" id="continue"></app-icon-to-button>
+        <app-icon-to-button [icon]="buttons[7]" (click)="restart()" id="restart"></app-icon-to-button>
     </div>
     <div class="buttons" id="buttons2">
         <app-icon-to-button [icon]="buttons[2]" (click)="back()"></app-icon-to-button>
         <app-icon-to-button [icon]="buttons[3]" (click)="home()"></app-icon-to-button>
         <app-icon-to-button [icon]="buttons[4]" (click)="exit()"></app-icon-to-button>
     </div>
+    <app-tips></app-tips>
 </div>
