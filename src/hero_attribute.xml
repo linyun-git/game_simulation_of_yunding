@@ -659,7 +659,7 @@
         <hero name="贾克斯">
                 <race>光</race>
                 <career>狂战士</career>
-                <skill></skill>
+                <skill>贾克斯在一段时间里闪避所有即将到来的攻击，随后对附近所有敌人进行打击，造成150/250/450魔法伤害和1.5秒的晕眩。</skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -676,11 +676,23 @@
                                 <hp>1170</hp>
                                 <adr>30</adr>
                                 <ad>90</ad>
+                                <apr>20</apr>
+                                <asd>0.8</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>50</mp>
+                                <mmp>125</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2340</hp>
                                 <adr>30</adr>
                                 <ad>180</ad>
+                                <apr>20</apr>
+                                <asd>0.8</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>50</mp>
+                                <mmp>125</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -688,7 +700,7 @@
         <hero name="斯卡纳">
                 <race>水晶</race>
                 <career>掠食者</career>
-                <skill></skill>
+                <skill>斯卡纳获得一层150/450/750护盾，持续一段时间当护盾存在时，斯卡纳会获得30%/65%/100%攻击速度。</skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -705,11 +717,23 @@
                                 <hp>1170</hp>
                                 <adr>30</adr>
                                 <ad>108</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2340</hp>
                                 <adr>30</adr>
                                 <ad>216</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -717,7 +741,7 @@
         <hero name="亚索">
                 <race>云霄</race>
                 <career>剑士</career>
-                <skill></skill>
+                <skill>亚索闪烁至具有最多装备的敌人处，并将其击飞，使其滞空并对其进行4/5/6次打击，每次打击都会造成普攻伤害并施加攻击特效。</skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
@@ -734,11 +758,23 @@
                                 <hp>1080</hp>
                                 <adr>30</adr>
                                 <ad>99</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>100</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2160</hp>
                                 <adr>30</adr>
                                 <ad>198</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>100</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -746,7 +782,7 @@
         <hero name="玛尔扎哈">
                 <race>影</race>
                 <career>召唤使</career>
-                <skill></skill>
+                <skill>玛尔扎哈召唤2/3/4个影灵。影灵的每次攻击造成30/60/90魔法伤害。影灵会从已激活的【影】元素特质加成中获益。</skill>
                 <detail>
                         <LV1>
                                 <hp>550</hp>
@@ -763,11 +799,23 @@
                                 <hp>990</hp>
                                 <adr>20</adr>
                                 <ad>72</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>75</mp>
+                                <mmp>125</mmp>
                         </LV2>
                         <LV3>
                                 <hp>1980</hp>
                                 <adr>20</adr>
                                 <ad>144</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>75</mp>
+                                <mmp>125</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -775,7 +823,7 @@
         <hero name="雷克塞">
                 <race>钢铁</race>
                 <career>掠食者</career>
-                <skill></skill>
+                <skill>雷克塞撕咬一名敌人，造成250/550/850真实伤害</skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -792,11 +840,23 @@
                                 <hp>1170</hp>
                                 <adr>30</adr>
                                 <ad>117</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2340</hp>
                                 <adr>30</adr>
                                 <ad>234</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -804,7 +864,7 @@
         <hero name="乐芙兰">
                 <race>森林</race>
                 <career>刺客法师</career>
-                <skill></skill>
+                <skill>乐芙兰朝一名随机的敌人掷出一道幻影锁链，造成200/450/800魔法伤害并在短暂的延迟后将目标晕眩1.5秒。</skill>
                 <detail>
                         <LV1>
                                 <hp>550</hp>
@@ -821,11 +881,23 @@
                                 <hp>990</hp>
                                 <adr>20</adr>
                                 <ad>99</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>2</dis>
+                                <mp>50</mp>
+                                <mmp>80</mmp>
                         </LV2>
                         <LV3>
                                 <hp>1980</hp>
                                 <adr>20</adr>
                                 <ad>198</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>2</dis>
+                                <mp>50</mp>
+                                <mmp>80</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -833,28 +905,41 @@
         <hero name="沃利贝尔">
                 <race>雷霆极地</race>
                 <career>狂战士</career>
-                <skill></skill>
+                <skill>沃利贝尔撕咬他的目标，造成200/450/850魔法伤害。如果目标的生命值低于35%，这个技能会将目标击杀并回满沃利贝尔的法力值。</skill>
                 <detail>
                         <LV1>
                                 <hp>850</hp>
                                 <adr>35</adr>
+                                <ad>60</ad>
                                 <apr>20</apr>
                                 <asd>0.7</asd>
                                 <crit>0.25</crit>
                                 <dis>1</dis>
                                 <mp>0</mp>
-                                <mmp>75</mmp>                                <ad>60</ad>
+                                <mmp>75</mmp>                                
 
                         </LV1>
                         <LV2>
                                 <hp>1530</hp>
                                 <adr>35</adr>
                                 <ad>108</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp> 
                         </LV2>
                         <LV3>
                                 <hp>3060</hp>
                                 <adr>35</adr>
                                 <ad>216</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>75</mmp> 
                         </LV3>
                 </detail>
         </hero>
@@ -862,7 +947,7 @@
         <hero name="锤石">
                 <race>海洋</race>
                 <career>守护神</career>
-                <skill></skill>
+                <skill>锤石将他的灯笼扔到生命值最低的友军处，为该友军及该友军附近的所有友军提供一层250/400/600护盾，持续5秒。</skill>
                 <detail>
                         <LV1>
                                 <hp>700</hp>
@@ -879,11 +964,23 @@
                                 <hp>1260</hp>
                                 <adr>40</adr>
                                 <ad>99</ad>
+                                <apr>20</apr>
+                                <asd>0.55</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>50</mp>
+                                <mmp>125</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2520</hp>
                                 <adr>40</adr>
                                 <ad>198</ad>
+                                <apr>20</apr>
+                                <asd>0.55</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>50</mp>
+                                <mmp>125</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -891,22 +988,40 @@
         <hero name="赛恩">
                 <race>影</race>
                 <career>狂战士</career>
-                <skill></skill>
+                <skill>赛恩蓄力片刻，随后将他的斧头朝一个方向砸下，对命中的所有敌人造成击飞效果和200/400/800魔法伤害。</skill>
                 <detail>
                         <LV1>
                                 <hp>850</hp>
                                 <adr>35</adr>
                                 <ad>65</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>125</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1530</hp>
                                 <adr>35</adr>
                                 <ad>117</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>125</mmp>
                         </LV2>
                         <LV3>
                                 <hp>3060</hp>
                                 <adr>35</adr>
                                 <ad>234</ad>
+                                <apr>20</apr>
+                                <asd>0.65</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>125</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -914,22 +1029,41 @@
         <hero name="索拉卡">
                 <race>光</race>
                 <career>秘术</career>
-                <skill></skill>
+                <skill>
+                  索拉卡使一名随机敌人周围的区域平静，对站在区域内的所有敌人造成150/300/450魔法伤害并阻止他们获得法力值。持续时间：3/5/7秒</skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
                                 <adr>20</adr>
                                 <ad>40</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>60</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1080</hp>
                                 <adr>20</adr>
                                 <ad>72</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>60</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2160</hp>
                                 <adr>20</adr>
                                 <ad>144</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>60</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -937,22 +1071,40 @@
         <hero name="希维尔">
                 <race>沙漠</race>
                 <career>剑士</career>
-                <skill></skill>
+                <skill>在接下来的一段时间里，希维尔的攻击可弹射，对命中的敌人造成额外100%/125%/150%物理伤害并施加攻击特效。</skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
                                 <adr>25</adr>
                                 <ad>50</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>65</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1080</hp>
                                 <adr>25</adr>
                                 <ad>90</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>65</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2160</hp>
                                 <adr>25</adr>
                                 <ad>180</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>65</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -960,22 +1112,40 @@
         <hero name="伊泽瑞尔">
                 <race>极地</race>
                 <career>游侠</career>
-                <skill></skill>
+                <skill>伊泽瑞尔朝生命值最低的敌人发射一块碎冰，施放时间0.25秒，造成200/400/800魔法伤害并施加攻击特效。</skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
                                 <adr>20</adr>
                                 <ad>65</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>30</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1080</hp>
                                 <adr>20</adr>
                                 <ad>117</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>30</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2160</hp>
                                 <adr>20</adr>
                                 <ad>234</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>30</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -983,22 +1153,40 @@
         <hero name="亚托克斯">
                 <race>光</race>
                 <career>剑士</career>
-                <skill></skill>
+                <skill>亚托克斯顺劈他面前的区域，对区域内的敌人造成250/500/1000伤害。</skill>
                 <detail>
                         <LV1>
                                 <hp>700</hp>
                                 <adr>35</adr>
                                 <ad>65</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>70</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1260</hp>
                                 <adr>35</adr>
                                 <ad>117</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>70</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2520</hp>
                                 <adr>35</adr>
                                 <ad>234</ad>
+                                <apr>20</apr>
+                                <asd>0.7</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>70</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -1006,22 +1194,40 @@
         <hero name="魔腾">
                 <race>钢铁</race>
                 <career>刺客</career>
-                <skill></skill>
+                <skill>被动：魔腾的攻击每命中3次后会获得强化，对所有邻近的单位造成伤害并附加攻击特效，还会治疗自身相当于伤害值40%/60%/80%的生命值。</skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
                                 <adr>25</adr>
                                 <ad>60</ad>
+                                <apr>20</apr>
+                                <asd>0.75</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>0</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
                                 <adr>25</adr>
                                 <ad>108</ad>
+                                <apr>20</apr>
+                                <asd>0.75</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>0</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2340</hp>
                                 <adr>25</adr>
                                 <ad>216</ad>
+                                <apr>20</apr>
+                                <asd>0.75</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>0</mp>
+                                <mmp>0</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -1030,22 +1236,40 @@
     
                 <race>地狱火 影</race>
                 <career>游侠</career>
-                <skill></skill>
+                <skill>狼灵扑向千珏的目标，造成150/325/650魔法伤害并降低目标80%的治疗效果数秒。与此同时，羊灵跳离千珏的目标。</skill>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
                                 <adr>20</adr>
                                 <ad>55</ad>
+                                <apr>20</apr>
+                                <asd>0.75</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>35</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1170</hp>
                                 <adr>20</adr>
                                 <ad>99</ad>
+                                <apr>20</apr>
+                                <asd>0.75</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>35</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2340</hp>
                                 <adr>20</adr>
                                 <ad>198</ad>
+                                <apr>20</apr>
+                                <asd>0.75</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>35</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -1053,22 +1277,40 @@
         <hero name="阿兹尔">
                 <race>沙漠</race>
                 <career>召唤使</career>
-                <skill></skill>
+                <skill>阿兹尔在一名随机的敌人附近召唤一个沙漠士兵。在阿兹尔攻击时，沙漠士兵会对附近的敌人进行攻击，沿直线造成125/250/375魔法伤害。沙漠士兵持续6秒。</skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
                                 <adr>20</adr>
                                 <ad>55</ad>
+                                <apr>20</apr>
+                                <asd>0.8</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>100</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1080</hp>
                                 <adr>20</adr>
                                 <ad>99</ad>
+                                <apr>20</apr>
+                                <asd>0.8</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>100</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2160</hp>
                                 <adr>20</adr>
                                 <ad>198</ad>
+                                <apr>20</apr>
+                                <asd>0.8</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>100</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -1076,22 +1318,40 @@
         <hero name="诺提勒斯">
                 <race>海洋</race>
                 <career>守护神</career>
-                <skill></skill>
+                <skill>诺提勒斯将放出一道冲击波来追击一名距离最远的敌人，将其击飞并使其晕眩3/4/6秒。它也会对沿途的所有敌人造成100/200/400魔法伤害。</skill>
                 <detail>
                         <LV1>
                                 <hp>850</hp>
                                 <adr>40</adr>
                                 <ad>55</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>50</mp>
+                                <mmp>125</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1530</hp>
                                 <adr>40</adr>
                                 <ad>99</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>50</mp>
+                                <mmp>125</mmp>
                         </LV2>
                         <LV3>
                                 <hp>3060</hp>
                                 <adr>35</adr>
                                 <ad>198</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>50</mp>
+                                <mmp>125</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -1099,22 +1359,40 @@
         <hero name="蒙多">
                 <race>剧毒</race>
                 <career>狂战士</career>
-                <skill></skill>
+                <skill>蒙多医生创造一团持续一段时间的护体毒云。毒云每秒对附近的敌人造成基于他最大生命值的魔法伤害，并且自身获得相当于基于伤害值的治疗效果。</skill>
                 <detail>
                         <LV1>
                                 <hp>750</hp>
                                 <adr>35</adr>
                                 <ad>60</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>75</mp>
+                                <mmp>125</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1350</hp>
                                 <adr>35</adr>
                                 <ad>108</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>75</mp>
+                                <mmp>125</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2700</hp>
                                 <adr>35</adr>
                                 <ad>216</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>1</dis>
+                                <mp>75</mp>
+                                <mmp>125</mmp>
                         </LV3>
                 </detail>
         </hero>
@@ -1122,22 +1400,40 @@
         <hero name="维迦">
                 <race>影</race>
                 <career>法师</career>
-                <skill></skill>
+                <skill>维迦用魔法能量来轰击一名敌人，造成300/600/900伤害。如果敌人的星级低于维迦，那么这个技能会将其立刻击杀。（无视【水晶】效果）</skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
                                 <adr>20</adr>
                                 <ad>50</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>60</mmp>
                         </LV1>
                         <LV2>
                                 <hp>1080</hp>
                                 <adr>20</adr>
                                 <ad>90</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>60</mmp>
                         </LV2>
                         <LV3>
                                 <hp>2160</hp>
                                 <adr>20</adr>
                                 <ad>180</ad>
+                                <apr>20</apr>
+                                <asd>0.6</asd>
+                                <crit>0.25</crit>
+                                <dis>3</dis>
+                                <mp>0</mp>
+                                <mmp>60</mmp>
                         </LV3>
                 </detail>
         </hero>
