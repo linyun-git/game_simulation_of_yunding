@@ -10,11 +10,18 @@ namespace data_analysis
         static void Main(string[] args)
         {
            String data = null;
-            data = XMLjiexi.GetDetail("奥恩", 2, "hp");
+            //data = XMLjiexi.GetDetail("奥恩", 2, "hp");
 
             // data = XMLjiexi.GetRace("奥恩");
 
             // data = XMLjiexi.GetCareer("奥恩");
+
+            /*String[] name = XMLjiexi.GetName();
+            for(int i=0;i<100; i++)
+            {
+                Console.WriteLine(name[i]);
+            }*/
+
 
             Console.WriteLine(data);
             Console.ReadLine();
@@ -26,7 +33,6 @@ namespace data_analysis
         public static string GetDetail(string name, int lv, string detail)
         {
             string informationNeeded = "/HeroList/hero[@name='" + name + "']/detail/LV" + lv + "/" + detail;
-            Console.WriteLine(informationNeeded);
             XmlDocument dom = new XmlDocument();
             dom.Load(@"..\..\..\..\src\hero_attribute.xml");
             XmlElement root = dom.DocumentElement;
@@ -38,7 +44,7 @@ namespace data_analysis
         {
             string informationNeeded = "/HeroList/hero[@name='" + name + "']/race";
             XmlDocument dom = new XmlDocument();
-            dom.Load(@"..\..\..\..\Hero\hero_attribute.xml");
+            dom.Load(@"..\..\..\..\src\hero_attribute.xml");
             XmlElement root = dom.DocumentElement;
             XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
             return node.InnerText;
@@ -48,10 +54,26 @@ namespace data_analysis
         {
             string informationNeeded = "/HeroList/hero[@name='" + name + "']/career";
             XmlDocument dom = new XmlDocument();
-            dom.Load(@"..\..\..\..\Hero\hero_attribute.xml");
+            dom.Load(@"..\..\..\..\src\hero_attribute.xml");
             XmlElement root = dom.DocumentElement;
             XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
             return node.InnerText;
+        }
+
+        public static String[] GetName()
+        {
+            string name;
+            string[] allname = new string[100];
+            XmlDocument dom = new XmlDocument();
+            dom.Load(@"..\..\..\..\src\hero_attribute.xml");
+            XmlNode cNodes = dom.SelectSingleNode("HeroList");
+            for (int i = 0; i < cNodes.ChildNodes.Count; i++)
+            {
+                XmlNode node = cNodes.ChildNodes[i];
+                name = node.Attributes["name"].Value; //这里就取到name的值
+                allname[i] = name;
+            }
+            return allname;
         }
 
     }
