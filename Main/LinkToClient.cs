@@ -8,8 +8,8 @@ namespace Main
 {
     class LinkToClient
     {
-        private List<Hero> redHeroList = new List<Hero>();
-        private List<Hero> blueHeroList = new List<Hero>();
+        private List<HeroInf> redHeroList = new List<HeroInf>();
+        private List<HeroInf> blueHeroList = new List<HeroInf>();
         private Task readDataTask;
         private CancellationTokenSource readDataCts = new CancellationTokenSource();
         private Task runCodeTask;
@@ -125,9 +125,9 @@ namespace Main
         {
             try
             {
-                Hero hero;
+                HeroInf hero;
                 int heroSquareID = Int32.Parse(code[1]);
-                List<Hero> heroList;
+                List<HeroInf> heroList;
                 string heroColor;
                 if (heroSquareID <= 27)
                 {
@@ -139,20 +139,18 @@ namespace Main
                     heroList = redHeroList;
                     heroColor = "red";
                 }
-                if(heroList.Any(hero => hero.heroSquareId == heroSquareID))
+                if(heroList.Any(hero => hero.idEquals(heroSquareID)))
                 {
-                    hero = heroList.FirstOrDefault(hero => hero.heroSquareId == heroSquareID);
-                    hero.heroName = code[2];
+                    hero = heroList.FirstOrDefault(hero => hero.idEquals(heroSquareID));
+                    hero = new HeroInf(code[2],heroSquareID);
                 }
                 else
                 {
-                    hero = new Hero();
-                    hero.heroName = code[2];
-                    hero.heroSquareId = heroSquareID;
+                    hero = new HeroInf(code[2], heroSquareID);
                     heroList.Add(hero);
                 }
                 CsharpLinkWebSocket.SendData("setHeroNum "+heroColor+"Num "+heroList.Count.ToString());
-                CsharpLinkWebSocket.SendData(hero.setHeroInf());
+                CsharpLinkWebSocket.SendData("setHeroInf "+heroSquareID+" "+hero.getHeroInf());
             }
             catch(Exception e)
             {
@@ -161,36 +159,31 @@ namespace Main
         }
         private void changeHeroLevel(string[] code)
         {
-            Hero hero;
+            HeroInf hero;
             try
             {
                 int heroSquareID = Int32.Parse(code[1]);
                 if (heroSquareID <= 27)
                 {
-                    hero = blueHeroList.FirstOrDefault(hero => hero.heroSquareId == heroSquareID);
+                    hero = blueHeroList.FirstOrDefault(hero => hero.idEquals(heroSquareID));
                 }
                 else
                 {
-                    hero = redHeroList.FirstOrDefault(hero => hero.heroSquareId == heroSquareID);
+                    hero = redHeroList.FirstOrDefault(hero => hero.idEquals(heroSquareID));
                 }
-                switch (hero.heroLevel)
-                {
-                    case 1:
-                        hero.heroLevel = 2;
-                        break;
-                    case 2:
-                        hero.heroLevel = 3;
-                        break;
-                    case 3:
-                        hero.heroLevel = 1;
-                        break;
-                }
-                CsharpLinkWebSocket.SendData("setHeroLevel " + heroSquareID + " " + hero.heroLevel);
+                hero.changeLevel();
+                CsharpLinkWebSocket.SendData("setHeroInf " + heroSquareID + " " + hero.getHeroInf());
             }
             catch(Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
+        }
+
+        //执行
+        private Boolean addHero(HeroInf hero,List<HeroInf> heroList)
+        {
+            return false;
         }
     }
 }

@@ -22,7 +22,6 @@ export class HeroSquareComponent implements OnInit {
   public hero = {
     hasHero: hasHeroStatus.hasHeroFalse,
     heroColor: '',
-    heroId: 0,
     heroName: '',
     heroLevel: 1,
     heroSkill: '',
@@ -49,7 +48,7 @@ export class HeroSquareComponent implements OnInit {
     else
       return false
   }
-  private heroLevelToString(heroLevel:number):string{
+  private heroLevelToString(heroLevel: number): string {
     switch (heroLevel) {
       case 1:
         return 'levelOne'
@@ -61,7 +60,7 @@ export class HeroSquareComponent implements OnInit {
   }
   squareClass(): string[] {
     console.log('class');
-    
+
     let Class: string[] = []
     if (this.statusEqualsWaiting()) {
       Class.push('pointer')
@@ -70,17 +69,17 @@ export class HeroSquareComponent implements OnInit {
         Class.push('textnone')
         Class.push(this.heroLevelToString(this.hero.heroLevel))
       }
-      else{
+      else {
         Class.push('textblock')
       }
     }
-    else{
+    else {
       Class.push('textnone')
       if (this.hero.hasHero == hasHeroStatus.hasHeroTrue) {
         Class.push(this.hero.heroColor)
         Class.push(this.heroLevelToString(this.hero.heroLevel))
       }
-      else{
+      else {
         Class.push('borderLight')
       }
     }
@@ -133,7 +132,6 @@ export class HeroSquareComponent implements OnInit {
   init(heroAbilities?: string[]) {
     if (heroAbilities == undefined) {
       this.hero.hasHero = hasHeroStatus.hasHeroFalse
-      this.hero.heroId = 0
       this.hero.heroName = ''
       this.hero.heroLevel = 1
       this.hero.heroSkill = ''
@@ -178,6 +176,9 @@ export class HeroSquareComponent implements OnInit {
           case 'maxHP':
             this.hero.ability.maxHP = Number(order[1])
             break
+          case 'level':
+            this.hero.heroLevel = Number(order[1])
+            break;
         }
       }
     }

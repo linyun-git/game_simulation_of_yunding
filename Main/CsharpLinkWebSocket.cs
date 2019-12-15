@@ -55,6 +55,7 @@ namespace Main
         }
         public void SendData(String str)
         {
+            Console.WriteLine("发送数据："+str);
             clientSocket.Send(PackData(str));
         }
         private static string GetSecKeyAccetp(byte[] handShakeBytes, int bytesLength)
