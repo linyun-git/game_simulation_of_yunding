@@ -10,6 +10,7 @@ namespace Main
     {
         private List<HeroInf> redHeroList = new List<HeroInf>();
         private List<HeroInf> blueHeroList = new List<HeroInf>();
+        private int maxNum = 10;
         private Task readDataTask;
         private CancellationTokenSource readDataCts = new CancellationTokenSource();
         private Task runCodeTask;
@@ -113,6 +114,10 @@ namespace Main
         {
             string heros = string.Join(" ", Program.heros);
             CsharpLinkWebSocket.SendData("init "+heros);
+            //for (int i = 0; i < Program.heros.Length; i++)
+            //{
+              //  CsharpLinkWebSocket.SendData("hero " + Program.heros[i]);
+           // }
         }
         private void reset()
         {
@@ -139,18 +144,25 @@ namespace Main
                     heroList = redHeroList;
                     heroColor = "red";
                 }
-                if(heroList.Any(hero => hero.idEquals(heroSquareID)))
+                if(heroList.Any(hero => hero.IdEquals(heroSquareID)))
                 {
-                    hero = heroList.FirstOrDefault(hero => hero.idEquals(heroSquareID));
+                    hero = heroList.FirstOrDefault(hero => hero.IdEquals(heroSquareID));
                     hero = new HeroInf(code[2],heroSquareID);
+                    CsharpLinkWebSocket.SendData("setHeroNum " + heroColor + "Num " + heroList.Count.ToString());
+                    CsharpLinkWebSocket.SendData("setHeroInf " + heroSquareID + " " + hero.GetHeroInf());
                 }
-                else
+                else if(heroList.Count<maxNum)
                 {
                     hero = new HeroInf(code[2], heroSquareID);
                     heroList.Add(hero);
+                    CsharpLinkWebSocket.SendData("setHeroNum " + heroColor + "Num " + heroList.Count.ToString());
+                    CsharpLinkWebSocket.SendData("setHeroInf " + heroSquareID + " " + hero.GetHeroInf());
                 }
-                CsharpLinkWebSocket.SendData("setHeroNum "+heroColor+"Num "+heroList.Count.ToString());
-                CsharpLinkWebSocket.SendData("setHeroInf "+heroSquareID+" "+hero.getHeroInf());
+                else if (heroList.Count == maxNum)
+                {
+                    CsharpLinkWebSocket.SendData("setInit " + heroSquareID);
+                    error("已达上限");
+                }
             }
             catch(Exception e)
             {
@@ -165,14 +177,14 @@ namespace Main
                 int heroSquareID = Int32.Parse(code[1]);
                 if (heroSquareID <= 27)
                 {
-                    hero = blueHeroList.FirstOrDefault(hero => hero.idEquals(heroSquareID));
+                    hero = blueHeroList.FirstOrDefault(hero => hero.IdEquals(heroSquareID));
                 }
                 else
                 {
-                    hero = redHeroList.FirstOrDefault(hero => hero.idEquals(heroSquareID));
+                    hero = redHeroList.FirstOrDefault(hero => hero.IdEquals(heroSquareID));
                 }
-                hero.changeLevel();
-                CsharpLinkWebSocket.SendData("setHeroInf " + heroSquareID + " " + hero.getHeroInf());
+                hero.ChangeLevel();
+                CsharpLinkWebSocket.SendData("setHeroInf " + heroSquareID + " " + hero.GetHeroInf());
             }
             catch(Exception e)
             {
@@ -184,6 +196,11 @@ namespace Main
         private Boolean addHero(HeroInf hero,List<HeroInf> heroList)
         {
             return false;
+        }
+
+        public void error(string error)
+        {
+            CsharpLinkWebSocket.SendData("error " + error);
         }
     }
 }

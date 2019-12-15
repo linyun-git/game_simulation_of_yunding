@@ -27,7 +27,7 @@ namespace data_analysis
             Console.ReadLine();
         }
     }
-    class XMLjiexi
+    public class XMLjiexi
         {
         //  获取英雄不同等级的技能（skill），护甲(adr)，生命值(hp)，攻击力(ad)  输入参数为（英雄的名字，等级，所需内容）
         public static string GetDetail(string name, int lv, string detail)
@@ -63,10 +63,10 @@ namespace data_analysis
         public static String[] GetName()
         {
             string name;
-            string[] allname = new string[100];
             XmlDocument dom = new XmlDocument();
             dom.Load(@"..\..\..\..\src\hero_attribute.xml");
             XmlNode cNodes = dom.SelectSingleNode("HeroList");
+            string[] allname = new string[cNodes.ChildNodes.Count];
             for (int i = 0; i < cNodes.ChildNodes.Count; i++)
             {
                 XmlNode node = cNodes.ChildNodes[i];

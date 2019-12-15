@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
-using ConsoleApp1;
+using data_analysis;
 
 namespace Main
 {
@@ -53,28 +53,34 @@ namespace Main
             this.heroSquareId = heroSquareId;
             heroLevel = 1;
             ability = new Ability();
-            init();
+            Init();
         }
-        private void init()
+        private void Init()
         {
+            ability.ad = Int32.Parse(GetInf("ad"));
+            //ability.ap = Int32.Parse(getInf("ap"));
+            ability.adr = Int32.Parse(GetInf("adr"));
+            ability.apr = Int32.Parse(GetInf("apr"));
+            ability.MP = Int32.Parse(GetInf("mp"));
+            ability.maxHP = Int32.Parse(GetInf("hp"));
+            ability.maxMP = Int32.Parse(GetInf("mmp"));
+            ability.heroSkill = GetInf("skill");
+        }
+        private string GetInf(string heroInf)
+        {
+            string inf = "0";
             try
             {
-                ability.ad = Int32.Parse(XMLjiexi.GetDetail(heroName, "LV" + this.heroLevel, "ad"));
-                //ability.ap = Int32.Parse(XMLjiexi.GetDetail(heroName, "LV" + this.heroLevel, "ap"));
-                ability.adr = Int32.Parse(XMLjiexi.GetDetail(heroName, "LV" + this.heroLevel, "adr"));
-                ability.apr = Int32.Parse(XMLjiexi.GetDetail(heroName, "LV" + this.heroLevel, "apr"));
-                ability.MP = Int32.Parse(XMLjiexi.GetDetail(heroName, "LV" + this.heroLevel, "mp"));
-                ability.maxHP = Int32.Parse(XMLjiexi.GetDetail(heroName, "LV" + this.heroLevel, "hp"));
-                ability.maxMP = Int32.Parse(XMLjiexi.GetDetail(heroName, "LV" + this.heroLevel, "mmp"));
-                ability.heroSkill = XMLjiexi.GetDetail(heroName, "LV" + this.heroLevel, "skill");
+                inf = XMLjiexi.GetDetail(heroName, heroLevel, heroInf);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.ToString());
+                Console.WriteLine("获取"+ heroInf+"错误");
             }
+            return inf;
         }
         ///<summary>修改英雄等级</summary>
-        public void changeLevel()
+        public void ChangeLevel()
         {
             switch (heroLevel)
             {
@@ -87,16 +93,18 @@ namespace Main
                 case 3:
                     heroLevel = 1;
                     break;
+                default:
+                    break;
             }
-            init();
+            Init();
         }
         ///<summary>返回设置英雄信息命令的字符串</summary>
-        public string getHeroInf()
+        public string GetHeroInf()
         {
             return "ad-"+ability.ad+" ap-"+ability.ap+" adr-"+ability.adr+" apr-"+ability.apr
                 +" MP-"+ability.MP+" maxHP-"+ability.maxHP+" maxMP-"+ability.maxMP+" heroSkill-"+ability.heroSkill+" level-"+ heroLevel;
         }
-        public Boolean idEquals(int heroSquareId)
+        public bool IdEquals(int heroSquareId)
         {
             if(this.heroSquareId == heroSquareId)
             {
