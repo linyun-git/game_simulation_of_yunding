@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HeroSquareComponent } from '../components/hero-square/hero-square.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,5 +12,8 @@ export class PublicSrcService {
   }
   setHeros(heros:string[]){
     PublicSrcService.heros = heros
+  }
+  addHero(hero:string){
+    PublicSrcService.heros.push(hero)
   }
 }

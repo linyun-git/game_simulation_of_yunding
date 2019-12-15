@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     this.frameZIndex[1] = '1'
     this.managerFrame.managerFrameOut()
   }
-  managerToHome(){
+  managerToHome() {
     this.frameZIndex[1] = '2'
     this.frameZIndex[2] = '1'
   }
@@ -66,6 +66,16 @@ export class AppComponent implements OnInit {
         break
       case 'setHeroLevel':
         this.managerFrame.setHeroLevel(codes)
+        break
+      case 'hero':
+        pubsrc.addHero(codes[1])
+        break
+      case 'setInit':
+        this.managerFrame.setInit(codes)
+        break
+      case 'error':
+        alert(codes[1])
+        break
     }
   }
   send(mes: string) {

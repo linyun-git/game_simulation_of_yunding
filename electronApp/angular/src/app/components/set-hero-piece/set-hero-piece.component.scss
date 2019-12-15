@@ -1,6 +1,6 @@
 #setHero{
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     top: 20px;
     left: 0;
     width: 1200px;
@@ -84,8 +84,6 @@
                 }
                 span+span{
                     left: 150px;
-                    margin-left: 0;
-                    margin-right: 40px;
                 }
             }
         }

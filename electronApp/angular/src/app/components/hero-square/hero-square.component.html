@@ -1,7 +1,8 @@
-<div id="square" [ngClass]="[hero.hasHero,hero.heroColor,hero.heroLevel | heroLevelToString]" (click)="toSelectHero()" (contextmenu)="right()">
+<div id="square" [ngClass]="squareClass()" (click)="click()" (contextmenu)="checkHeroInf()">
     <h1>+</h1>
     <div></div>
     <img src="{{hero.heroName | heroNameToSrc}}" alt="" draggable="false">
 </div>
 <app-select-hero-ul [that]=this></app-select-hero-ul>
 <app-set-hero-piece [that]=this></app-set-hero-piece>
+<app-hero-fight-log [that]=this></app-hero-fight-log>

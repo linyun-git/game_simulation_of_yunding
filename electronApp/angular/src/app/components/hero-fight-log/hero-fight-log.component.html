@@ -1,0 +1,16 @@
+<div id="frame" [ngClass]="[status]" [ngStyle]="{'display':display}" (mousemove)="mousemove($event)" (mouseup)="mouseup()">
+    <div id="log" [ngStyle]="{'top':top+'px','left':left+'px'}">
+        <div id="button" (mousedown)="mousedown($event)">
+        </div>
+        <div id="title">
+            <img src="{{that.hero.heroName|heroNameToSrc}}" alt="" draggable="false">
+            <div class="flex">
+                <div id="HP" class="bar" [ngStyle]="{'width':HPpoint()*135+'px'}"><span>{{that.hero.ability.HP}}/{{that.hero.ability.maxHP}}</span></div>
+                <div id="MP" class="bar" [ngStyle]="{'width':MPpoint()*135+'px'}"><span>{{that.hero.ability.MP}}/{{that.hero.ability.maxMP}}</span></div>
+            </div>
+        </div>
+        <div id="cont" #scroll>
+            <p *ngFor="let item of that.hero.fightLog">{{item}}</p>
+        </div>
+    </div>
+</div>

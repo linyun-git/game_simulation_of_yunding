@@ -5,3 +5,5 @@
 4. 棋盘管理窗口展开效果
 5. 提示卡片展开效果
 6. 棋盘管理窗口标题强调
+
+允许其他设备访问angular命令	ng serve --host 0.0.0.0 --disable-host-check

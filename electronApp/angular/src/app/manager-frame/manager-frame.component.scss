@@ -7,6 +7,12 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    app-timer{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(0.4) translate(0,50%);
+    }
     #title{
         margin-top: 20px;
         width: 90%;
@@ -157,6 +163,9 @@
 #buttons1{
     top: 50%;
     transform: translate(0,-50%);
+    app-icon-to-button{
+        display: none;
+    }
 }
 #buttons2{
     bottom: 0;
@@ -173,5 +182,50 @@ app-icon-to-button{
     }
     to{
         opacity: 0;
+    }
+}
+.statusWaiting{
+    app-timer{
+        display: none;
+    }
+    #title{
+        opacity: 1;
+    }
+}
+.statusOther{
+    app-timer{
+        display: block;
+    }
+    #title{
+        opacity: 0;
+    }
+}
+.statusWaiting{
+    #go{
+        display: block;
+    }
+    #reset{
+        display: block;
+    }
+}
+.statusFighting{
+    #pause{
+        display: block;
+    }
+    #restart{
+        display: block;
+    }
+}
+.statusPausing{
+    #continue{
+        display: block;
+    }
+    #restart{
+        display: block;
+    }
+}
+.statusEnd{
+    #restart{
+        display: block;
     }
 }

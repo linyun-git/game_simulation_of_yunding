@@ -1,0 +1,54 @@
+#tip{
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    transform: translate(-50%,0) rotateX(90deg);
+    width: 100%;
+    height: 40px;
+    background: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    p{
+        position: relative;
+        left: 60%;
+        transition: left 1s;
+        font-weight: bold;
+    }
+    
+}
+.act{
+    animation: tipAct1 2s linear;
+    p{
+        animation: tipAct2 2s ease-in;
+    }
+}
+@keyframes tipAct1 {
+    0%{
+        transform: translate(-50%,0) rotateX(90deg);
+    }
+    20%{
+        transform: translate(-50%,0) rotateX(0deg);
+    }
+    80%{
+        transform: translate(-50%,0) rotateX(0deg);
+    }
+    100%{
+        transform: translate(-50%,0) rotateX(90deg);
+    }
+}
+@keyframes tipAct2 {
+    0%{
+        left: -60%;
+    }
+    30%{
+        left: 0;
+    }
+    70%{
+        left: 0;
+    }
+    100%{
+        left: 60%;
+    }
+}

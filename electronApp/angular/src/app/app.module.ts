@@ -13,11 +13,17 @@ import { SelectHeroLiComponent } from './components/select-hero-li/select-hero-l
 import { SelectHeroUlComponent } from './components/select-hero-ul/select-hero-ul.component';
 
 //管道
-import { HeroNameToSrcPipe } from './pipe/hero-name-to-src.pipe';
-import { HeroLevelToStringPipe } from './pipe/hero-level-to-string.pipe';
+import { HeroNameToSrcPipe } from './pipe/heroNameToSrc/hero-name-to-src.pipe';
+import { HeroLevelToStringPipe } from './pipe/heroLevelToString/hero-level-to-string.pipe';
 import { SetHeroPieceComponent } from './components/set-hero-piece/set-hero-piece.component';
-import { IconSrcPipe } from './pipe/icon-src.pipe';
+import { IconSrcPipe } from './pipe/iconSrc/icon-src.pipe';
 import { IconToButtonComponent } from './components/icon-to-button/icon-to-button.component';
+import { TimerComponent } from './components/timer/timer.component';
+import { HasHeroStatusToStringPipe } from './pipe/hasHeroStatusToString/has-hero-status-to-string.pipe';
+import { StatusEqualsWaitingPipe } from './pipe/statusEqualsWaiting/status-equals-waiting.pipe';
+import { HeroFightLogComponent } from './components/hero-fight-log/hero-fight-log.component';
+import { StatusToClassPipe } from './pipe/statusToClass/status-to-class.pipe';
+import { TipsComponent } from './components/tips/tips.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { IconToButtonComponent } from './components/icon-to-button/icon-to-butto
     HeroLevelToStringPipe,
     SetHeroPieceComponent,
     IconSrcPipe,
-    IconToButtonComponent
+    IconToButtonComponent,
+    TimerComponent,
+    HasHeroStatusToStringPipe,
+    StatusEqualsWaitingPipe,
+    HeroFightLogComponent,
+    StatusToClassPipe,
+    TipsComponent
   ],
   imports: [
     BrowserModule,
