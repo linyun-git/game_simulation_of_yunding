@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
-using System.Xml;
+using data_analysis;
 
 
 namespace Battle
@@ -9,93 +10,189 @@ namespace Battle
     {
         static void Main()
         {
-            Hero[,] qp = new Hero[8, 7];
-            Hero Weien = new Hero() { Name = "薇恩", ATN = 40, DEF = 25, HP = 500, MAXHP = 500, ASD = 0.75, Dead = 0 },
-                Maokai = new Hero() { Name = "茂凯", ATN = 55, DEF = 35, HP = 650, MAXHP = 650, ASD = 0.5, Dead = 0 },
-              Leikedun = new Hero() { Name = "雷克顿", ATN = 60, DEF = 35, HP = 600, MAXHP = 600, ASD = 0.5, Dead = 0 },
-                Wolike = new Hero() { Name = "沃里克", ATN = 50, DEF = 30, HP = 650, MAXHP = 650, ASD = 0.6, Dead = 0 };
-            Thread t1 = new Thread(new ParameterizedThreadStart(Weien.Attack));
-            t1.Start(Maokai);
-            Thread t2 = new Thread(new ParameterizedThreadStart(Maokai.Attack));
-            t2.Start(Weien);
-            Thread t3 = new Thread(new ParameterizedThreadStart(Leikedun.Attack));
-            t3.Start(Weien);
-            Thread t4 = new Thread(new ParameterizedThreadStart(Wolike.Attack));
-            t4.Start(Maokai);
-            Thread t5 = new Thread(new ParameterizedThreadStart(Weien.Attack));
-
-            Thread t6 = new Thread(new ParameterizedThreadStart(Maokai.Attack));
-
-            Thread t7 = new Thread(new ParameterizedThreadStart(Leikedun.Attack));
-
-            Thread t8 = new Thread(new ParameterizedThreadStart(Wolike.Attack));
-
-            t1.Join();
-            t2.Join();
-            t3.Join();
-            t4.Join();
-
-            t5.Start(Leikedun);
-            t8.Start(Leikedun);
-
-            t6.Start(Wolike);
-            t7.Start(Wolike);
-
-
-            if (Maokai.Dead == 1 && Leikedun.Dead == 1)
+            Map map = new Map();
+            List<Hero> blueHeros = new List<Hero>();
+            List<Hero> redHeros = new List<Hero>();
+            blueHeros.Add(new Hero(map,"奥恩",1,1));
+            blueHeros.Add(new Hero(map, "奥恩", 1, 2));
+            blueHeros.Add(new Hero(map, "塔莉垭", 1, 28));
+            blueHeros.Add(new Hero(map, "塔莉垭", 1, 29));
+            map.MapList(blueHeros, redHeros);
+            map.run();
+        }
+    }
+    class Map
+    {
+        List<Hero> blueHeros = new List<Hero>();
+        List<Hero> redHeros = new List<Hero>();
+        public void MapList(List<Hero> blue, List<Hero> red)
+        {
+            blueHeros = blue;
+            redHeros = red;
+        }
+        public Hero getTarget(Hero ahero)
+        {
+            List<Hero> heroList;
+            string str = "";
+            if (ahero.id > 27)
             {
-                Console.WriteLine("蓝色方胜利！");
+                heroList = blueHeros;
+                str = "红方";
             }
-            else if (Weien.Dead == 1 && Wolike.Dead == 1)
+            else
             {
-                Console.WriteLine("红色方胜利！", Maokai.Name);
+                heroList = redHeros;
             }
+            for(int i = 0; i < heroList.Count; i++)
+            {
+                if (heroList[i].isLive())
+                {
+                    return heroList[i];
+                }
+            }
+            message(str + "胜利！");
+            return new Hero(this,"未知",0,-1);
+        }
+        public void run()
+        {
+            for(int i = 0; i < blueHeros.Count; i++)
+            {
+                blueHeros[i].t.Start();
+            }
+            for (int i = 0; i < redHeros.Count; i++)
+            {
+                redHeros[i].t.Start();
+            }
+            for (int i = 0; i < blueHeros.Count; i++)
+            {
+                blueHeros[i].t.Join();
+            }
+
+            for (int i = 0; i < redHeros.Count; i++)
+            {
+                blueHeros[i].t.Join();
+            }
+        }
+        public void error(string error)
+        {
+            Console.WriteLine(error);
+        }
+
+        ///<summary>打印信息</summary>
+        public void message(string mes)
+        {
+            Console.WriteLine(mes);
         }
     }
 
     class Hero
     {
-        public double ATN { get; set; }
-        public double DEF { get; set; }
-        public double MAXHP { get; set; }
-        public double HP { get; set; }
-        public string Name { get; set; }
-        public double ASD { get; set; }
-        public double Dead { get; set; }
-        public void Attack(object targ)
+        public int id;
+        private int ad;//攻击力
+        private int adr;//护甲
+        private double MAXHP { get; set; }
+        private double HP { get; set; }
+        private double ASD { get; set; }//攻速
+        private double Dead { get; set; }
+        private int heroLevel;
+        public string heroName;
+        public Thread t;
+
+        Hero target;
+        Map map;
+
+
+        public Hero(Map map,string heroName,int level,int id)
         {
-            Hero target = (Hero)targ;
-            double damage;
+            this.heroName = heroName;
+            heroLevel = level;
+            this.id = id;
+            init();
+        }
+        public bool isLive()
+        {
+            if (HP > 0)
+                return true;
+            else
+                return false;
+        }
+        private void init()
+        {
+            ad = int.Parse(GetInf("ad"));
+            HP = int.Parse(GetInf("hp"));
+            adr = int.Parse(GetInf("adr"));
+            getTarget();
+            t = new Thread(new ParameterizedThreadStart(Attack));
+        }
+        public void delHP(int hp,Hero hero)
+        {
+            int delhp = hp * adr / 100;
+            HP = HP - delhp;
+            message(heroName + "受到" + target.heroName + "发动攻击，造成" +delhp + "点伤害!");
+            message(heroName+ "生命值变为"+HP);
+        }
+        public void Attack(object tar)
+        {
+            int damage;
             while (this.HP > 0)
             {
                 Random rd = new Random();
                 int baoji = rd.Next(1, 5);
                 if (baoji == 1)
                 {
-                    damage = this.ATN * (target.DEF / 100) * 2;
+                    damage = this.ad  * 2;
                 }
                 else
                 {
-                    damage = this.ATN * (target.DEF / 100);
+                    damage = this.ad;
                 }
                 if (target.HP > 0)
                 {
-                    target.HP = target.HP - damage;
+                    target.delHP(damage,this);
+                    message(heroName+"向"+target.heroName+"发动攻击，造成"+damage+"点伤害!");
                 }
                 else
                 {
-
+                    getTarget();
+                    if (target.id == -1)
+                        break;
                 }
-                Console.WriteLine("{0}向{1}发动攻击，造成{2}点伤害!", this.Name, target.Name, damage, target.HP);
                 Thread.Sleep(TimeSpan.FromSeconds(1 / (this.ASD)));
-                if (target.HP <= 0)
-                {
-                    Console.WriteLine("{0}已经死亡！", target.Name);
-                    target.HP = 0;
-                    target.Dead = 1;
-                }
-                Console.WriteLine("{0}生命值变为{1}", target.Name, target.HP);
             }
+            if (HP <= 0)
+            {
+                message(heroName + "已经死亡！");
+                HP = 0;
+                Dead = 1;
+            }
+        }
+
+        ///<summary>获取目标</summary>
+        private void getTarget()
+        {
+            target = map.getTarget(this);
+        }
+
+        ///<summary>读取英雄数据</summary>
+        private string GetInf(string heroInf)
+        {
+            string inf = "0";
+            try
+            {
+                inf = XMLjiexi.GetDetail(heroName, heroLevel, heroInf);
+            }
+            catch (Exception e)
+            {
+                map.error("获取"+heroName+"的"+heroInf+"错误");
+                Console.WriteLine(e);
+            }
+            return inf;
+        }
+
+        ///<summary>产生信息</summary>
+        private void message(string mes)
+        {
+            map.message(mes);
         }
     }
 
