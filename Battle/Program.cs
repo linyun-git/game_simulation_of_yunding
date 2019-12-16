@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using data_analysis;
 
 
@@ -14,9 +15,9 @@ namespace Battle
             List<Hero> blueHeros = new List<Hero>();
             List<Hero> redHeros = new List<Hero>();
             blueHeros.Add(new Hero(map,"奥恩",1,1));
-            blueHeros.Add(new Hero(map, "奥恩", 1, 2));
-            blueHeros.Add(new Hero(map, "塔莉垭", 1, 28));
-            blueHeros.Add(new Hero(map, "塔莉垭", 1, 29));
+            blueHeros.Add(new Hero(map, "茂凯", 1, 2));
+            redHeros.Add(new Hero(map, "塔莉垭", 1, 28));
+            redHeros.Add(new Hero(map, "薇恩", 1, 29));
             map.MapList(blueHeros, redHeros);
             map.run();
         }
@@ -25,6 +26,7 @@ namespace Battle
     {
         List<Hero> blueHeros = new List<Hero>();
         List<Hero> redHeros = new List<Hero>();
+        List<Task> tasks = new List<Task>();
         public void MapList(List<Hero> blue, List<Hero> red)
         {
             blueHeros = blue;
@@ -51,26 +53,31 @@ namespace Battle
                 }
             }
             message(str + "胜利！");
-            return new Hero(this,"未知",0,-1);
+            return new Hero();
         }
         public void run()
         {
-            for(int i = 0; i < blueHeros.Count; i++)
-            {
-                blueHeros[i].t.Start();
-            }
-            for (int i = 0; i < redHeros.Count; i++)
-            {
-                redHeros[i].t.Start();
-            }
             for (int i = 0; i < blueHeros.Count; i++)
             {
-                blueHeros[i].t.Join();
+                Hero hero = blueHeros[i];
+                Task task = new Task(() => {
+                    hero.run();
+                });
+                tasks.Add(task);
+                task.Start();
             }
-
             for (int i = 0; i < redHeros.Count; i++)
             {
-                blueHeros[i].t.Join();
+                Hero hero = redHeros[i];
+                Task task = new Task(() => {
+                    hero.run();
+                });
+                tasks.Add(task);
+                task.Start();
+            }
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                tasks[i].Wait();
             }
         }
         public void error(string error)
@@ -96,17 +103,20 @@ namespace Battle
         private double Dead { get; set; }
         private int heroLevel;
         public string heroName;
-        public Thread t;
 
         Hero target;
         Map map;
 
-
+        public Hero()
+        {
+            this.id = -1;
+        }
         public Hero(Map map,string heroName,int level,int id)
         {
             this.heroName = heroName;
             heroLevel = level;
             this.id = id;
+            this.map = map;
             init();
         }
         public bool isLive()
@@ -116,22 +126,26 @@ namespace Battle
             else
                 return false;
         }
+        public void run()
+        {
+            Console.WriteLine(heroName+"run");
+            getTarget();
+            Attack();
+        }
         private void init()
         {
             ad = int.Parse(GetInf("ad"));
             HP = int.Parse(GetInf("hp"));
             adr = int.Parse(GetInf("adr"));
-            getTarget();
-            t = new Thread(new ParameterizedThreadStart(Attack));
         }
         public void delHP(int hp,Hero hero)
         {
             int delhp = hp * adr / 100;
             HP = HP - delhp;
-            message(heroName + "受到" + target.heroName + "发动攻击，造成" +delhp + "点伤害!");
+            //message(heroName + "受到" + hero.heroName + "发动攻击，造成" +delhp + "点伤害!");
             message(heroName+ "生命值变为"+HP);
         }
-        public void Attack(object tar)
+        private void Attack()
         {
             int damage;
             while (this.HP > 0)
@@ -157,7 +171,8 @@ namespace Battle
                     if (target.id == -1)
                         break;
                 }
-                Thread.Sleep(TimeSpan.FromSeconds(1 / (this.ASD)));
+                //Thread.Sleep(TimeSpan.FromSeconds(1 / (this.ASD)));
+                System.Threading.Thread.Sleep(100);
             }
             if (HP <= 0)
             {
