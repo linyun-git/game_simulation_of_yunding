@@ -18,6 +18,7 @@ export class HeroFightLogComponent implements OnInit, AfterViewChecked {
       this.logScroll.nativeElement.scrollTop = this.logScroll.nativeElement.scrollHeight;
     } catch (err) { }
   }
+  hasMove:boolean = false
   display:string = 'none'
   HP: number = 60
   maxHP: number = 100
@@ -57,8 +58,15 @@ export class HeroFightLogComponent implements OnInit, AfterViewChecked {
   }
   mouseup() {
     this.status = 'static'
+    if(this.hasMove){
+      this.hasMove = false
+    }
+    else{
+      this.none()
+    }
   }
   mousemove(e: MouseEvent) {
+    this.hasMove = true
     if (this.status == 'moving') {
       this.move(this.x + e.clientX - this.X, this.y + e.clientY - this.Y)
     }
