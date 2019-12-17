@@ -97,10 +97,10 @@ namespace Battle
         public int id;
         private int ad;//攻击力
         private int adr;//护甲
-        private double MAXHP { get; set; }
-        private double HP { get; set; }
-        private double ASD { get; set; }//攻速
-        private double Dead { get; set; }
+        private double MAXHP;
+        private double HP;
+        private double ASD;//攻速
+        private double Dead;
         private int heroLevel;
         public string heroName;
 
@@ -137,6 +137,7 @@ namespace Battle
             ad = int.Parse(GetInf("ad"));
             HP = int.Parse(GetInf("hp"));
             adr = int.Parse(GetInf("adr"));
+            ASD = double.Parse(GetInf("asd"));
         }
         public void delHP(int hp,Hero hero)
         {
@@ -171,8 +172,8 @@ namespace Battle
                     if (target.id == -1)
                         break;
                 }
-                //Thread.Sleep(TimeSpan.FromSeconds(1 / (this.ASD)));
-                System.Threading.Thread.Sleep(100);
+                Thread.Sleep(TimeSpan.FromSeconds(1 / ASD));
+                //System.Threading.Thread.Sleep(100);
             }
             if (HP <= 0)
             {
