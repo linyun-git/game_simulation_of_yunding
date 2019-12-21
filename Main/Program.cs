@@ -77,7 +77,7 @@ namespace Main
             try
             {
                 inf = XMLjiexi.GetSkill(heroName);
-                LinkToClient.SendCommand("setHeroInf " + heroSquareId + " skill-" + inf);
+                //LinkToClient.SendCommand("setHeroInf " + heroSquareId + " skill-" + inf);
             }
             catch (Exception)
             {

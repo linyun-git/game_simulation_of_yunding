@@ -23,7 +23,8 @@ namespace Main
         }
         public new void skill()
         {
-
+            target.delHP(300, this);
+            LinkToClient.SendCommand("fightLog " + square.squareId + " 茂凯" + "发动了技能");
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Main
         protected readonly object HPlock= new object();
         protected readonly object MPlock = new object();
 
-        Hero target;
+        protected Hero target;
 
         public Hero()
         {
