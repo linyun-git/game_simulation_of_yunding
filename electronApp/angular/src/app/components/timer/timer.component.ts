@@ -22,6 +22,9 @@ export class TimerComponent implements OnInit {
 
   ngOnInit() {
   }
+  getTime(){
+    return this.setTime
+  }
   TimeReady(){
     this.Tip.giveTip('Ready!')
     this.textColor = 'white'

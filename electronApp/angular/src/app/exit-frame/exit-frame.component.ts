@@ -19,6 +19,8 @@ export class ExitFrameComponent implements OnInit {
   }
   protected ok(){
     this.that.send('exit')
+    this.that.exitFrameGone()
+    this.exitFrameAct='go'
     setTimeout(() => this.that.send('bye'), 200);
   }
   exitFrameOut(){

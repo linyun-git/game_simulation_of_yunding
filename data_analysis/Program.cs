@@ -29,7 +29,7 @@ namespace data_analysis
     }
     public class XMLjiexi
         {
-        //  获取英雄不同等级的技能（skill），护甲(adr)，生命值(hp)，攻击力(ad)  输入参数为（英雄的名字，等级，所需内容）
+        //  获取英雄不同等级的，护甲(adr)，生命值(hp)，攻击力(ad)  输入参数为（英雄的名字，等级，所需内容）
         public static string GetDetail(string name, int lv, string detail)
         {
             string informationNeeded = "/HeroList/hero[@name='" + name + "']/detail/LV" + lv + "/" + detail;
@@ -53,6 +53,17 @@ namespace data_analysis
         public static string GetCareer(string name)
         {
             string informationNeeded = "/HeroList/hero[@name='" + name + "']/career";
+            XmlDocument dom = new XmlDocument();
+            dom.Load(@"..\..\..\..\src\hero_attribute.xml");
+            XmlElement root = dom.DocumentElement;
+            XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
+            return node.InnerText;
+        }
+
+        // 获取英雄的技能  输入参数为（英雄的名字）
+        public static string GetSkill(string name)
+        {
+            string informationNeeded = "/HeroList/hero[@name='" + name + "']/skill";
             XmlDocument dom = new XmlDocument();
             dom.Load(@"..\..\..\..\src\hero_attribute.xml");
             XmlElement root = dom.DocumentElement;
