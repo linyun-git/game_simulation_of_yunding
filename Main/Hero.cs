@@ -96,7 +96,7 @@ namespace Main
             }
             LinkToClient.SendCommand("setHeroInf " + square.squareId + " HP-" + HP);
         }
-        protected void skill()
+        protected void Skill()
         {
             target.delHP(300, this);
             LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
@@ -119,7 +119,7 @@ namespace Main
             {
                 if (MP == MAXMP)
                 {
-                    skill();
+                    Skill();
                     lock (MPlock)
                     {
                         MP = 0;
