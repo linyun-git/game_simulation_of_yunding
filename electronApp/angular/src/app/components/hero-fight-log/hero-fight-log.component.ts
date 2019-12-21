@@ -18,18 +18,14 @@ export class HeroFightLogComponent implements OnInit, AfterViewChecked {
       this.logScroll.nativeElement.scrollTop = this.logScroll.nativeElement.scrollHeight;
     } catch (err) { }
   }
-  hasMove:boolean = false
   display:string = 'none'
-  HP: number = 60
-  maxHP: number = 100
-  MP: number = 10
-  maxMP: number = 100
-  heroName: string = '劫'
   block(){
     this.display = 'block'
   }
-  none(){
+  init(){
     this.display = 'none'
+    this.top = 250
+    this.left = 475
   }
   log: string[] = []
   constructor() { }
@@ -58,15 +54,8 @@ export class HeroFightLogComponent implements OnInit, AfterViewChecked {
   }
   mouseup() {
     this.status = 'static'
-    if(this.hasMove){
-      this.hasMove = false
-    }
-    else{
-      this.none()
-    }
   }
   mousemove(e: MouseEvent) {
-    this.hasMove = true
     if (this.status == 'moving') {
       this.move(this.x + e.clientX - this.X, this.y + e.clientY - this.Y)
     }

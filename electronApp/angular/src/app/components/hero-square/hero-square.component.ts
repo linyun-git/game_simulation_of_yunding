@@ -115,6 +115,10 @@ export class HeroSquareComponent implements OnInit {
     if (this.hero.hasHero == hasHeroStatus.hasHeroTrue)
       this.setHeroFrame.open()
   }
+  fightLog(logs:string[]){
+    let log = logs[0]+' ['+logs[1]+']'
+    this.hero.fightLog.push(log)
+  }
 
   //设置英雄
   setHeroLevel(heroLevel: number) {

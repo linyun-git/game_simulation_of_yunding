@@ -73,6 +73,9 @@ export class AppComponent implements OnInit {
       case 'setInit':
         this.managerFrame.setInit(codes)
         break
+      case 'fightLog':
+        this.managerFrame.fightLog(codes)
+        break
       case 'error':
         alert(codes[1])
         break

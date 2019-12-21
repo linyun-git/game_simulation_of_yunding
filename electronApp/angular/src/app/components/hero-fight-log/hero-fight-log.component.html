@@ -1,7 +1,6 @@
-<div id="frame" [ngClass]="[status]" [ngStyle]="{'display':display}" (mousemove)="mousemove($event)" (mouseup)="mouseup()">
-    <div id="log" [ngStyle]="{'top':top+'px','left':left+'px'}">
-        <div id="button" (mousedown)="mousedown($event)">
-        </div>
+<div id="frame" [ngClass]="[status]" [ngStyle]="{'display':display}" (mousemove)="mousemove($event)" (mouseup)="mouseup()" (contextmenu)="init()">
+    <div id="log" [ngStyle]="{'top':top+'px','left':left+'px'}" (mousedown)="mousedown($event)">
+        <div id="drag">{{that.hero.heroName}}</div>
         <div id="title">
             <img src="{{that.hero.heroName|heroNameToSrc}}" alt="" draggable="false">
             <div class="flex">

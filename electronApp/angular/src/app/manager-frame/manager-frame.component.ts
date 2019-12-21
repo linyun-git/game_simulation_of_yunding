@@ -12,7 +12,7 @@ import { TipsComponent } from '../components/tips/tips.component';
 export class ManagerFrameComponent implements OnInit {
   @ViewChildren(HeroSquareComponent) heroSquares
   @ViewChild(TimerComponent, { static: true }) Timer
-  @ViewChild(TipsComponent,{static:true}) Tip
+  @ViewChild(TipsComponent, { static: true }) Tip
   @Input() that: AppComponent
   statusClass() {
     if (this.status == Status.Waiting) {
@@ -42,6 +42,13 @@ export class ManagerFrameComponent implements OnInit {
   }
 
   //处理接收的英雄数据
+  fightLog(codes: string[]) {
+    let squareId: number = Number(codes[1])
+    let log = []
+    log.push(codes[2])
+    log.push(this.Timer.getTime())
+    this.heroSquares._results[squareId].fightLog(log)
+  }
   setHeroInf(codes: string[]) {
     let squareId: number = Number(codes[1])
     codes.shift()
@@ -62,7 +69,7 @@ export class ManagerFrameComponent implements OnInit {
     let heroLevel: number = Number(codes[2])
     this.heroSquares._results[squareId].setHeroLevel(heroLevel)
   }
-  setInit(codes: string[]){
+  setInit(codes: string[]) {
     let squareId: number = Number(codes[1])
     this.heroSquares._results[squareId].init()
   }
@@ -116,9 +123,10 @@ export class ManagerFrameComponent implements OnInit {
     }
   }
   go() {
-    if (this.lastStatus == null){
+    if (this.lastStatus == null) {
       this.status = Status.Fighting
       this.Timer.TimeReady()
+      this.that.send('start')
     }
     else {
       this.status = this.lastStatus

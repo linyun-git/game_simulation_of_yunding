@@ -38,20 +38,22 @@ namespace Main
                 Console.WriteLine(e.ToString());
             }
         }
-        public void ReadData(Action<string> action)
+        public string ReadData()
         {
+            string clientMsg = "";
             try
             {
                 Console.WriteLine("等待客户端数据....");
                 length = clientSocket.Receive(buffer);
-                string clientMsg = AnalyticData(buffer, length);
+                clientMsg = AnalyticData(buffer, length);
                 Console.WriteLine("接受到客户端数据：" + clientMsg);
-                action(clientMsg);
+                
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
+            return clientMsg;
         }
         public void SendData(String str)
         {
