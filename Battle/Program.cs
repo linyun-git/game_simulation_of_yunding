@@ -97,6 +97,8 @@ namespace Battle
         public int id;
         private int ad;//攻击力
         private int adr;//护甲
+        private int MP;
+        private int MMP;
         private double MAXHP;
         private double HP;
         private double ASD;//攻速
@@ -138,6 +140,8 @@ namespace Battle
             HP = int.Parse(GetInf("hp"));
             adr = int.Parse(GetInf("adr"));
             ASD = double.Parse(GetInf("asd"));
+            MP = int.Parse(GetInf("mp"));
+            MMP = int.Parse(GetInf("mmp"));
         }
         public void delHP(int hp,Hero hero)
         {
