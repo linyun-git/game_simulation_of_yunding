@@ -69,7 +69,21 @@ namespace Main
             ability.MP = int.Parse(GetInf("mp"));
             ability.maxHP = int.Parse(GetInf("hp"));
             ability.maxMP = int.Parse(GetInf("mmp"));
-            ability.heroSkill = GetInf("skill");
+            ability.heroSkill = GetSkill();
+        }
+        private string GetSkill()
+        {
+            string inf = "0";
+            try
+            {
+                inf = XMLjiexi.GetSkill(heroName);
+                LinkToClient.SendCommand("setHeroInf " + heroSquareId + " skill-" + inf);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("获取" +heroName+ "的skill" + "错误");
+            }
+            return inf;
         }
         private string GetInf(string heroInf)
         {
@@ -107,7 +121,7 @@ namespace Main
         public string GetHeroInf()
         {
             return "ad-"+ability.ad+" ap-"+ability.ap+" adr-"+ability.adr+" apr-"+ability.apr
-                +" MP-"+ability.MP+" maxHP-"+ability.maxHP+" maxMP-"+ability.maxMP+" heroSkill-"+ability.heroSkill+" level-"+ heroLevel;
+                +" MP-"+ability.MP+" maxHP-"+ability.maxHP+" maxMP-"+ability.maxMP+" level-"+ heroLevel;
         }
         public bool IdEquals(int heroSquareId)
         {
