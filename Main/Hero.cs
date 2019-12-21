@@ -11,17 +11,20 @@ namespace Main
         public const string Blue = "blue";
         public const string unKnow = "unKnow";
         public string color;
-        private int ad;//攻击力
-        private int adr;//护甲
-        private double MAXHP;
-        private double HP;
-        private double ASD;//攻速
-        private int heroLevel;
+        protected int ad;//攻击力
+        protected int adr;//护甲
+        protected int MP;
+        protected int MAXMP;
+        protected double MAXHP;
+        protected double HP;
+        protected double ASD;//攻速
+        protected int heroLevel;
         public string heroName;
-        private 攻击类型 type = 攻击类型.近战;
+        protected 攻击类型 type = 攻击类型.近战;
         public Square square;
 
-        private readonly object HPlock= new object();
+        protected readonly object HPlock= new object();
+        protected readonly object MPlock = new object();
 
         Hero target;
 
@@ -61,16 +64,19 @@ namespace Main
             getTarget();
             Attack();
         }
-        private void init()
+        protected void init()
         {
             ad = int.Parse(GetInf("ad"));
             MAXHP = int.Parse(GetInf("hp"));
             adr = int.Parse(GetInf("adr"));
             ASD = double.Parse(GetInf("asd"));
             HP = MAXHP;
+            MP = int.Parse(GetInf("mp"));
+            MAXMP = int.Parse(GetInf("mmp"));
         }
         public void delHP(int hp, Hero hero)
         {
+            AddMP();
             int delhp = hp * adr / 100;
             lock (HPlock)
             {
@@ -90,11 +96,36 @@ namespace Main
             }
             LinkToClient.SendCommand("setHeroInf " + square.squareId + " HP-" + HP);
         }
-        private void Attack()
+        protected void skill()
+        {
+            target.delHP(300, this);
+            LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
+        }
+        protected void AddMP()
+        {
+            lock (MPlock)
+            {
+                if (MAXMP - MP < 10)
+                    MP = MAXMP;
+                else
+                    MP += 10;
+            }
+            LinkToClient.SendCommand("setHeroInf " + square.squareId + " MP-" + MP);
+        }
+        protected void Attack()
         {
             int damage;
             while (HP > 0)
             {
+                if (MP == MAXMP)
+                {
+                    skill();
+                    lock (MPlock)
+                    {
+                        MP = 0;
+                    }
+                    LinkToClient.SendCommand("setHeroInf " + square.squareId + " MP-" + MP);
+                }
                 Random rd = new Random();
                 int baoji = rd.Next(1, 5);
                 if (baoji == 1)
@@ -108,6 +139,7 @@ namespace Main
                 if (target.HP > 0)
                 {
                     target.delHP(damage, this);
+                    AddMP();
                     message(heroName + "向" + target.heroName + "发动攻击，造成" + damage + "点伤害!");
                 }
                 else
@@ -122,13 +154,13 @@ namespace Main
         }
 
         ///<summary>获取目标</summary>
-        private void getTarget()
+        protected void getTarget()
         {
             target = square.GetTarget();
         }
 
         ///<summary>读取英雄数据</summary>
-        private string GetInf(string heroInf)
+        protected string GetInf(string heroInf)
         {
             string inf = "0";
             try
@@ -144,10 +176,23 @@ namespace Main
         }
 
         ///<summary>产生信息</summary>
-        private void message(string mes)
+        protected void message(string mes)
         {
             Battle.map.message(mes);
         }
-        enum 攻击类型 { 近战, 远程 }
+        protected enum 攻击类型 { 近战, 远程 }
+
+
+        public static Hero CreateHero(string heroName,int heroLevel,int heroId)
+        {
+            Hero hero = new Hero();
+            switch (heroName)
+            {
+                case "茂凯":
+                    hero = new MAOKAI(heroLevel, heroId);
+                    break;
+            }
+            return hero;
+        }
     }
 }
