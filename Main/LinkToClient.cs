@@ -2,205 +2,97 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
 
 namespace Main
 {
-    class LinkToClient
+    internal class LinkToClient
     {
-        private List<HeroInf> redHeroList = new List<HeroInf>();
-        private List<HeroInf> blueHeroList = new List<HeroInf>();
-        private int maxNum = 10;
-        private Task readDataTask;
+        private Task readDataTask;//接受命令任务
+        private Task sendComandTask;//发送命令任务
+
         private CancellationTokenSource readDataCts = new CancellationTokenSource();
-        private Task runCodeTask;
         private CancellationTokenSource runCodeCts = new CancellationTokenSource();
-        private object acceptCodeListMe = new object();
-        private List<String[]> acceptCodeList;//接受命令栈
+        private CancellationTokenSource sendCommandCts = new CancellationTokenSource();
+
+
+        private static List<String> sendComandList;//发送命令栈
+
+        private static readonly object sendComandListlock = new object();//sendComandList的lock
+
         private CsharpLinkWebSocket CsharpLinkWebSocket;
+
+        private static readonly string ip = "127.0.0.1";
+        private static readonly int port = 4430;
+
+
+
         public LinkToClient()
         {
-            acceptCodeList = new List<string[]>();
-            CsharpLinkWebSocket = new CsharpLinkWebSocket("127.0.0.1", 4430);
-            readData();
-            runAcceptCode();
-            readDataTask.Wait();
-            runCodeTask.Wait();
+            sendComandList = new List<string>();
+            CsharpLinkWebSocket = new CsharpLinkWebSocket(ip, port);
+            SendCommand();
         }
-        //每次接收到数据将数据放入接受命令栈
-        private void readData(String data)
+
+        //公开函数
+        public static void SendCommand(string command)
         {
-            lock (acceptCodeListMe)
+            lock (sendComandListlock)
             {
-                acceptCodeList.Add(data.Split(" "));
+                sendComandList.Add(command);
             }
         }
+        public void ReadData(Action<string> action)
+        {
+            readData(action);
+            readDataTask.Start();
+            readDataTask.Wait();
+        }
+        public void TaskBreak()
+        {
+            readDataCts.Cancel();
+            sendCommandCts.Cancel();
+        }
+        public static void Error(string error)
+        {
+            SendCommand("error " + error);
+        }
 
-
-        //线程操作
-        private void readData()
+        //接收数据
+        private void readData(Action<string> action)
         {
             readDataTask = new Task(() =>
             {
                 while (true)
                 {
                     if (readDataCts.Token.IsCancellationRequested) break;
-                    CsharpLinkWebSocket.ReadData(this.readData);
+                    string code = CsharpLinkWebSocket.ReadData();
+                    new Task(() => {
+                        action(code);
+                    }).Start();
                 }
             });
-            readDataTask.Start();
         }
-        private void runAcceptCode()
+
+        //发送数据
+        private void SendCommand()
         {
-            runCodeTask = new Task(() =>
-            {
+            sendComandTask = new Task(()=> {
                 while (true)
                 {
-                    if (runCodeCts.Token.IsCancellationRequested) break;
-                    if (acceptCodeList.Count > 0)
+                    if (sendCommandCts.Token.IsCancellationRequested) break;
+                    if (sendComandList.Count > 0)
                     {
-                        runCode(acceptCodeList[0]);
-                        lock (acceptCodeListMe)
+                        lock (sendComandListlock)
                         {
-                            acceptCodeList.RemoveAt(0);
+                            CsharpLinkWebSocket.SendData(sendComandList[0]);
+                            sendComandList.RemoveAt(0);
                         }
                     }
-                    System.Threading.Thread.Sleep(100);
+                    Thread.Sleep(20);
                 }
             });
-            runCodeTask.Start();
+            sendComandTask.Start();
         }
 
-        ///<summary>执行一条命令</summary>
-        ///<param name="code">传入的命令</param>
-        private void runCode(string[] code)
-        {
-            switch (code[0])
-            {
-                case "init":
-                    init();
-                    break;
-                case "exit":
-                    exit();
-                    break;
-                case "reset":
-                    reset();
-                    break;
-                case "setHeroPlace":
-                    setHeroPlace(code);
-                    break;
-                case "changeHeroLevel":
-                    changeHeroLevel(code);
-                    break;
-            }
-            Console.WriteLine("执行了一条命令：" + string.Join("_", code));
-        }
-        private void runAcceptCodeOff()
-        {
-            runCodeCts.Cancel();
-        }
-        private void readDataOff()
-        {
-            readDataCts.Cancel();
-        }
-
-        //命令操作
-        private void exit()
-        {
-            readDataOff();
-            runAcceptCodeOff();
-        }
-        private void init()
-        {
-            string heros = string.Join(" ", Program.heros);
-            CsharpLinkWebSocket.SendData("init "+heros);
-            //for (int i = 0; i < Program.heros.Length; i++)
-            //{
-              //  CsharpLinkWebSocket.SendData("hero " + Program.heros[i]);
-           // }
-        }
-        private void reset()
-        {
-            blueHeroList.Clear();
-            CsharpLinkWebSocket.SendData("setHeroNum blueNum " + blueHeroList.Count.ToString());
-            redHeroList.Clear();
-            CsharpLinkWebSocket.SendData("setHeroNum redNum " + redHeroList.Count.ToString());
-        }
-        private void setHeroPlace(string[] code)
-        {
-            try
-            {
-                HeroInf hero;
-                int heroSquareID = Int32.Parse(code[1]);
-                List<HeroInf> heroList;
-                string heroColor;
-                if (heroSquareID <= 27)
-                {
-                    heroList = blueHeroList;
-                    heroColor = "blue";
-                }
-                else
-                {
-                    heroList = redHeroList;
-                    heroColor = "red";
-                }
-                if(heroList.Any(hero => hero.IdEquals(heroSquareID)))
-                {
-                    hero = heroList.FirstOrDefault(hero => hero.IdEquals(heroSquareID));
-                    hero = new HeroInf(code[2],heroSquareID);
-                    CsharpLinkWebSocket.SendData("setHeroNum " + heroColor + "Num " + heroList.Count.ToString());
-                    CsharpLinkWebSocket.SendData("setHeroInf " + heroSquareID + " " + hero.GetHeroInf());
-                }
-                else if(heroList.Count<maxNum)
-                {
-                    hero = new HeroInf(code[2], heroSquareID);
-                    heroList.Add(hero);
-                    CsharpLinkWebSocket.SendData("setHeroNum " + heroColor + "Num " + heroList.Count.ToString());
-                    CsharpLinkWebSocket.SendData("setHeroInf " + heroSquareID + " " + hero.GetHeroInf());
-                }
-                else if (heroList.Count == maxNum)
-                {
-                    CsharpLinkWebSocket.SendData("setInit " + heroSquareID);
-                    error("已达上限");
-                }
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-        }
-        private void changeHeroLevel(string[] code)
-        {
-            HeroInf hero;
-            try
-            {
-                int heroSquareID = Int32.Parse(code[1]);
-                if (heroSquareID <= 27)
-                {
-                    hero = blueHeroList.FirstOrDefault(hero => hero.IdEquals(heroSquareID));
-                }
-                else
-                {
-                    hero = redHeroList.FirstOrDefault(hero => hero.IdEquals(heroSquareID));
-                }
-                hero.ChangeLevel();
-                CsharpLinkWebSocket.SendData("setHeroInf " + heroSquareID + " " + hero.GetHeroInf());
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-        }
-
-        //执行
-        private Boolean addHero(HeroInf hero,List<HeroInf> heroList)
-        {
-            return false;
-        }
-
-        public void error(string error)
-        {
-            CsharpLinkWebSocket.SendData("error " + error);
-        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using data_analysis;
+using Main;
 
 namespace Main
 {
@@ -28,7 +29,7 @@ namespace Main
             {
                 Console.WriteLine(ex.Message);
             }*/
-            LinkToClient linkToClient = new LinkToClient();
+            Main main = new Main();
             Console.WriteLine("Hello World!");
             /*try
             {
@@ -40,14 +41,14 @@ namespace Main
             }*/
         }
     }
-    class HeroInf
+    public class HeroInf
     {
         private string heroName;
         private int heroSquareId;
         private int heroLevel;
         private Ability ability;
 
-        public HeroInf(String heroName,int heroSquareId)
+        public HeroInf(string heroName, int heroSquareId)
         {
             this.heroName = heroName;
             this.heroSquareId = heroSquareId;
@@ -55,15 +56,19 @@ namespace Main
             ability = new Ability();
             Init();
         }
+        public int GetId()
+        {
+            return heroSquareId;
+        }
         private void Init()
         {
-            ability.ad = Int32.Parse(GetInf("ad"));
+            ability.ad = int.Parse(GetInf("ad"));
             //ability.ap = Int32.Parse(getInf("ap"));
-            ability.adr = Int32.Parse(GetInf("adr"));
-            ability.apr = Int32.Parse(GetInf("apr"));
-            ability.MP = Int32.Parse(GetInf("mp"));
-            ability.maxHP = Int32.Parse(GetInf("hp"));
-            ability.maxMP = Int32.Parse(GetInf("mmp"));
+            ability.adr = int.Parse(GetInf("adr"));
+            ability.apr = int.Parse(GetInf("apr"));
+            ability.MP = int.Parse(GetInf("mp"));
+            ability.maxHP = int.Parse(GetInf("hp"));
+            ability.maxMP = int.Parse(GetInf("mmp"));
             ability.heroSkill = GetInf("skill");
         }
         private string GetInf(string heroInf)
@@ -111,6 +116,11 @@ namespace Main
                 return true;
             }
             else return false;
+        }
+
+        public Hero ToHero()
+        {
+            return new Hero(heroName,heroLevel,heroSquareId);
         }
 
         ///<summary>英雄属性</summary>
