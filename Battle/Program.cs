@@ -147,6 +147,7 @@ namespace Battle
         {
             int delhp = hp * adr / 100;
             HP = HP - delhp;
+            MP = MP + 10;
             //message(heroName + "受到" + hero.heroName + "发动攻击，造成" +delhp + "点伤害!");
             message(heroName+ "生命值变为"+HP);
         }
@@ -168,6 +169,7 @@ namespace Battle
                 if (target.HP > 0)
                 {
                     target.delHP(damage,this);
+                    this.MP = this.MP + 10;
                     message(heroName+"向"+target.heroName+"发动攻击，造成"+damage+"点伤害!");
                 }
                 else
