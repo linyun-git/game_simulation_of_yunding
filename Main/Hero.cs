@@ -83,6 +83,7 @@ namespace Main
                 HP -= delhp;
                 LinkToClient.SendCommand("fightLog " + square.squareId + " " +
                     heroName + "受到" + hero.heroName + "发动攻击，造成" + delhp + "点伤害!");
+                mudaLog("受到" + hero.heroName + "发动攻击，造成" + delhp + "点伤害!");
             }
             //message(heroName + "受到" + hero.heroName + "发动攻击，造成" +delhp + "点伤害!");
             if (HP <= 0)
@@ -96,23 +97,57 @@ namespace Main
             }
             LinkToClient.SendCommand("setHeroInf " + square.squareId + " HP-" + HP);
         }
+        public void addHP(int hp, Hero hero)
+        {
+            AddMP();
+            int addhp = hp;
+            lock (HPlock)
+            {
+                if (HP + hp > MAXHP)
+                    HP = MAXHP;
+                else
+                HP += hp;
+            }
+        }
         protected void Skill()
         {
             switch (this.heroName)
             {
-                case "茂凯":
-                    lock (HPlock) 
-                    this.HP += 100;
-                    LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
-                    break;
+                
                 case "弗拉基米尔":
-                    lock (HPlock)
-                        this.HP += 200;
                     target.delHP(200, this);
-                    LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
+                    addHP(40, this);
                     break;
+                case "克格莫":
+                    target.delHP(125, this);
+                    break;
+                case "沃里克":
+                    target.delHP(150, this);
+                    break;
+                case "薇恩":
+                    target.delHP(((int)(0.09*target.MAXHP)), this);
+                    break;
+                case "雷克塞":
+                    target.delHP(250, this);
+                    break;
+                case "维迦":
+                    target.delHP(150, this);
+                    break;
+                case "辛德拉":
+                    target.delHP(175, this);
+                    break;
+                case "乐芙兰":
+                    target.delHP(200, this);
+                    break;
+                case "沃利贝尔":
+                    target.delHP(200, this);
+                    break;
+                case "茂凯":
+                    addHP(50, this);
+                    break;
+
             }
-            
+            oulaLog(heroName + "发动了技能");
         }
         protected void AddMP()
         {
@@ -128,16 +163,28 @@ namespace Main
         protected void Attack()
         {
             int damage;
+            int count=1;
             while (HP > 0)
             {
                 if (MP == MAXMP)
                 {
-                    Skill();
-                    lock (MPlock)
+                    if (heroName == "薇恩" || heroName == "茂凯")
                     {
-                        MP = 0;
+                        if (count == 3)
+                        {
+                            Skill();
+                            count = 1;
+                        }
                     }
-                    LinkToClient.SendCommand("setHeroInf " + square.squareId + " MP-" + MP);
+                    else
+                    {
+                        Skill();
+                        lock (MPlock)
+                        {
+                            MP = 0;
+                        }
+                        LinkToClient.SendCommand("setHeroInf " + square.squareId + " MP-" + MP);
+                    }
                 }
                 Random rd = new Random();
                 int baoji = rd.Next(1, 5);
@@ -154,6 +201,7 @@ namespace Main
                     target.delHP(damage, this);
                     AddMP();
                     message(heroName + "向" + target.heroName + "发动攻击，造成" + damage + "点伤害!");
+                    count++;
                 }
                 else
                 {
@@ -164,6 +212,15 @@ namespace Main
                 Thread.Sleep(TimeSpan.FromSeconds(1 / ASD));
                 //System.Threading.Thread.Sleep(100);
             }
+        }
+
+        protected void oulaLog(string log)
+        {
+            LinkToClient.SendCommand("fightLog " + square.squareId + " oulaLog " + log);
+        }
+        protected void mudaLog(string log)
+        {
+            LinkToClient.SendCommand("fightLog " + square.squareId + " mudaLog " + log);
         }
 
         ///<summary>获取目标</summary>
