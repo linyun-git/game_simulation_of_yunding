@@ -99,6 +99,8 @@ namespace Main
         }
         public void SetHeros(List<HeroInf> blueHeroList, List<HeroInf> redHeroList)
         {
+            blueHeros.Clear();
+            redHeros.Clear();
             for(int i = 0; i < blueHeroList.Count; i++)
             {
                 HeroInf heroInf = blueHeroList[i];
@@ -116,6 +118,7 @@ namespace Main
         }
         public void run()
         {
+            tasks.Clear();
             for (int i = 0; i < blueHeros.Count; i++)
             {
                 Hero hero = blueHeros[i];
@@ -141,10 +144,12 @@ namespace Main
             if (blueHeros.Count > 0)
             {
                 Console.WriteLine("蓝方胜利!");
+                LinkToClient.SendCommand("result 蓝方胜利!");
             }
             else
             {
                 Console.WriteLine("红方胜利!");
+                LinkToClient.SendCommand("result 红方胜利!");
             }
         }
         public void error(string error)

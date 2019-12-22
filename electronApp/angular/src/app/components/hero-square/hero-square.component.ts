@@ -160,6 +160,9 @@ export class HeroSquareComponent implements OnInit {
       for (let heroAbility of heroAbilities) {
         let order = heroAbility.split('-')
         switch (order[0]) {
+          case 'name':
+            this.hero.heroName = order[1]
+            break
           case 'skill':
             this.hero.heroSkill = order[1]
             break

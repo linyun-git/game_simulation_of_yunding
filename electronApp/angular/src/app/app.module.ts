@@ -24,6 +24,7 @@ import { StatusEqualsWaitingPipe } from './pipe/statusEqualsWaiting/status-equal
 import { HeroFightLogComponent } from './components/hero-fight-log/hero-fight-log.component';
 import { StatusToClassPipe } from './pipe/statusToClass/status-to-class.pipe';
 import { TipsComponent } from './components/tips/tips.component';
+import { ResultFrameComponent } from './result-frame/result-frame.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { TipsComponent } from './components/tips/tips.component';
     StatusEqualsWaitingPipe,
     HeroFightLogComponent,
     StatusToClassPipe,
-    TipsComponent
+    TipsComponent,
+    ResultFrameComponent
   ],
   imports: [
     BrowserModule,

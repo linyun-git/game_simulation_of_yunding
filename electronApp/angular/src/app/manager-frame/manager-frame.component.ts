@@ -40,6 +40,9 @@ export class ManagerFrameComponent implements OnInit {
   gone() {
     this.heroManagerAct = 'gone'
   }
+  fightEnd(){
+    
+  }
 
   //处理接收的英雄数据
   fightLog(codes: string[]) {

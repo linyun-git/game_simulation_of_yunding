@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { ExitFrameComponent } from './exit-frame/exit-frame.component';
 import { ManagerFrameComponent } from './manager-frame/manager-frame.component';
 import { PublicSrcService } from './services/public-src.service';
+import { ResultFrameComponent } from './result-frame/result-frame.component';
 let pubsrc = new PublicSrcService
 @Component({
   selector: 'app-root',
@@ -11,8 +12,9 @@ let pubsrc = new PublicSrcService
 export class AppComponent implements OnInit {
   @ViewChild('exitFrame', { static: true }) private exitFrame: ExitFrameComponent
   @ViewChild('managerFrame', { static: true }) private managerFrame: ManagerFrameComponent
+  @ViewChild('resultFrame', { static: true }) private resultFrame: ResultFrameComponent
   title = 'angular';
-  protected frameZIndex: string[] = ['0', '2', '1']
+  protected frameZIndex: string[] = ['0', '2', '1', '3']
   constructor() { }
   ngOnInit(): void {
     this.connect()
@@ -75,6 +77,10 @@ export class AppComponent implements OnInit {
         break
       case 'fightLog':
         this.managerFrame.fightLog(codes)
+        break
+      case 'result':
+        codes.push()
+        this.resultFrame.result(codes)
         break
       case 'error':
         alert(codes[1])

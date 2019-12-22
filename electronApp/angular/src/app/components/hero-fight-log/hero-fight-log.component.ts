@@ -19,6 +19,7 @@ export class HeroFightLogComponent implements OnInit {
   log: string[] = []
   display: string = 'none'
   block() {
+    this.init()
     this.display = 'block'
   }
   init() {
@@ -46,6 +47,9 @@ export class HeroFightLogComponent implements OnInit {
     return this.that.hero.ability.HP / this.that.hero.ability.maxHP
   }
   MPpoint() {
+    if(this.that.hero.ability.maxMP==0){
+      return 0
+    }
     return this.that.hero.ability.MP / this.that.hero.ability.maxMP
   }
   //允许移动

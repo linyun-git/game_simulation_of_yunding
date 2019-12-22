@@ -1,0 +1,18 @@
+<div id="frame">
+    <div id="card" [ngClass]="[display]">
+        <div class="title">
+            战报
+        </div>
+        <div class="content">
+            <h1 [ngClass]="[color]">{{title}}</h1>
+            <div class="mvp">
+                <p>MVP</p>
+            <img src="{{hero | heroNameToSrc}}" alt="">
+            </div>
+        <div class="output"><p>输出：</p><p>{{output}}</p></div>
+        </div>
+        <div class="select">
+            <app-ok-button (click)="Gone()"></app-ok-button>
+        </div>
+    </div>
+</div>

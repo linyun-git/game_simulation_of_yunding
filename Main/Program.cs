@@ -80,7 +80,6 @@ namespace Main
             try
             {
                 inf = XMLjiexi.GetSkill(heroName);
-                //LinkToClient.SendCommand("setHeroInf " + heroSquareId + " skill-" + inf);
             }
             catch (Exception)
             {
@@ -124,7 +123,7 @@ namespace Main
         public string GetHeroInf()
         {
             return "ad-"+ability.ad+" ap-"+ability.ap+" adr-"+ability.adr+" apr-"+ability.apr
-                +" MP-"+ability.MP+" maxHP-"+ability.maxHP+" maxMP-"+ability.maxMP+" level-"+ heroLevel;
+                +" MP-"+ability.MP+" maxHP-"+ability.maxHP+" maxMP-"+ability.maxMP+" level-"+ heroLevel+" skill-"+ability.heroSkill;
         }
         public bool IdEquals(int heroSquareId)
         {
