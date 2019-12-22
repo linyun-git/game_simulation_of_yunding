@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewChecked, ElementRef,Input } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewChecked, ElementRef, Input } from '@angular/core';
 import { HeroSquareComponent } from '../hero-square/hero-square.component';
 
 @Component({
@@ -6,36 +6,47 @@ import { HeroSquareComponent } from '../hero-square/hero-square.component';
   templateUrl: './hero-fight-log.component.html',
   styleUrls: ['./hero-fight-log.component.scss']
 })
-export class HeroFightLogComponent implements OnInit, AfterViewChecked {
-  @Input() that:HeroSquareComponent
+export class HeroFightLogComponent implements OnInit {
+  @Input() that: HeroSquareComponent
   @ViewChild('scroll', { static: true }) private logScroll: ElementRef;
   //日志自动滚动到最下方
-  ngAfterViewChecked(): void {
-    this.scrollToBottom()
-  }
-  scrollToBottom(){
+  scrollToBottom() {
     try {
       this.logScroll.nativeElement.scrollTop = this.logScroll.nativeElement.scrollHeight;
     } catch (err) { }
   }
-  display:string = 'none'
-  block(){
+  read: string = '欧拉'
+  log: string[] = []
+  display: string = 'none'
+  block() {
     this.display = 'block'
   }
-  init(){
+  init() {
     this.display = 'none'
     this.top = 250
     this.left = 475
   }
-  log: string[] = []
   constructor() { }
   ngOnInit() {
+    this.log = this.that.hero.oulaLog
   }
-  HPpoint(){
-    return this.that.hero.ability.HP/this.that.hero.ability.maxHP
+  switchLog() {
+    switch (this.read) {
+      case '欧拉':
+        this.read = '木哒'
+        this.log = this.that.hero.mudaLog
+        break
+      case '木哒':
+        this.read = '欧拉'
+        this.log = this.that.hero.oulaLog
+        break
+    }
   }
-  MPpoint(){
-    return this.that.hero.ability.MP/this.that.hero.ability.maxMP
+  HPpoint() {
+    return this.that.hero.ability.HP / this.that.hero.ability.maxHP
+  }
+  MPpoint() {
+    return this.that.hero.ability.MP / this.that.hero.ability.maxMP
   }
   //允许移动
   status: string = 'static'

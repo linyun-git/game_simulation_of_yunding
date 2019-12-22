@@ -81,8 +81,7 @@ namespace Main
             lock (HPlock)
             {
                 HP -= delhp;
-                LinkToClient.SendCommand("fightLog " + square.squareId + " " +
-                    heroName + "受到" + hero.heroName + "发动攻击，造成" + delhp + "点伤害!");
+                mudaLog("受到" + hero.heroName + "的攻击，造成" + delhp + "点伤害!");
             }
             //message(heroName + "受到" + hero.heroName + "发动攻击，造成" +delhp + "点伤害!");
             if (HP <= 0)
@@ -99,7 +98,7 @@ namespace Main
         protected void skill()
         {
             target.delHP(300, this);
-            LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
+            oulaLog("发动了技能");
         }
         protected void AddMP()
         {
@@ -141,6 +140,7 @@ namespace Main
                     target.delHP(damage, this);
                     AddMP();
                     message(heroName + "向" + target.heroName + "发动攻击，造成" + damage + "点伤害!");
+                    oulaLog("向" + target.heroName + "发动攻击，造成" + damage + "点伤害!");
                 }
                 else
                 {
@@ -185,14 +185,26 @@ namespace Main
 
         public static Hero CreateHero(string heroName,int heroLevel,int heroId)
         {
-            Hero hero = new Hero();
+            Hero hero;
             switch (heroName)
             {
-                case "茂凯":
-                    hero = new MAOKAI(heroLevel, heroId);
+                case "黛安娜":
+                    hero = new JIAOYUE(heroLevel, heroId);
+                    break;
+                default:
+                    hero = new Hero(heroName,heroLevel,heroId);
                     break;
             }
             return hero;
+        }
+
+        private void oulaLog(string log)
+        {
+            LinkToClient.SendCommand("fightLog " + square.squareId + " oulaLog " + log);
+        }
+        private void mudaLog(string log)
+        {
+            LinkToClient.SendCommand("fightLog " + square.squareId + " mudaLog " + log);
         }
     }
 }

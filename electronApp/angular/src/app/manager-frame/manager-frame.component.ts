@@ -44,10 +44,10 @@ export class ManagerFrameComponent implements OnInit {
   //处理接收的英雄数据
   fightLog(codes: string[]) {
     let squareId: number = Number(codes[1])
-    let log = []
-    log.push(codes[2])
-    log.push(this.Timer.getTime())
-    this.heroSquares._results[squareId].fightLog(log)
+    codes.shift()
+    codes.shift()
+    codes.push(this.Timer.getTime())
+    this.heroSquares._results[squareId].fightLog(codes)
   }
   setHeroInf(codes: string[]) {
     let squareId: number = Number(codes[1])

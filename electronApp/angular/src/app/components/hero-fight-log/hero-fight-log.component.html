@@ -8,8 +8,9 @@
                 <div id="MP" class="bar" [ngStyle]="{'width':MPpoint()*135+'px'}"><span>{{that.hero.ability.MP}}/{{that.hero.ability.maxMP}}</span></div>
             </div>
         </div>
+        <div id="button" (click)="switchLog()">{{read}}</div>
         <div id="cont" #scroll>
-            <p *ngFor="let item of that.hero.fightLog">{{item}}</p>
+            <p *ngFor="let item of log">{{item}}</p>
         </div>
     </div>
 </div>

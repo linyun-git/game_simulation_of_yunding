@@ -8,9 +8,12 @@ namespace Main
 {
     class Program
     {
-        public static string[] heros = {"阿兹尔", "艾翁",
+        /*public static string[] heros = {"阿兹尔", "艾翁",
             "黛安娜", "劫", "拉克丝", "乐芙兰", "雷克顿",
-            "娜美", "千珏", "辛德拉" };
+            "娜美", "千珏", "辛德拉" };*/
+        public static string[] heros = {"弗拉基米尔", "克格莫",
+            "乐芙兰", "雷克顿", "茂凯", "薇恩", "维迦",
+            "沃里克", "沃利贝尔", "辛德拉" };
         static void Main(string[] args)
         {
             /*注释掉直接打开打包后的electron应用，方便调试

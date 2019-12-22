@@ -25,7 +25,8 @@ export class HeroSquareComponent implements OnInit {
     heroName: '',
     heroLevel: 1,
     heroSkill: '',
-    fightLog: [''],
+    oulaLog: [''],
+    mudaLog: [''],
     ability: {
       ad: 0,//攻击力
       ap: 0,//法强
@@ -59,8 +60,6 @@ export class HeroSquareComponent implements OnInit {
     }
   }
   squareClass(): string[] {
-    console.log('class');
-
     let Class: string[] = []
     if (this.statusEqualsWaiting()) {
       Class.push('pointer')
@@ -115,9 +114,16 @@ export class HeroSquareComponent implements OnInit {
     if (this.hero.hasHero == hasHeroStatus.hasHeroTrue)
       this.setHeroFrame.open()
   }
-  fightLog(logs:string[]){
-    let log = logs[0]+' ['+logs[1]+']'
-    this.hero.fightLog.push(log)
+  fightLog(codes: string[]) {
+    let log = codes[1] + ' [' + codes[2] + ']'
+    switch (codes[0]) {
+      case 'oulaLog':
+        this.hero.oulaLog.push(log)
+        break
+      case 'mudaLog':
+        this.hero.mudaLog.push(log)
+    }
+    this.fightLogFrame.scrollToBottom()
   }
 
   //设置英雄
@@ -147,7 +153,8 @@ export class HeroSquareComponent implements OnInit {
       this.hero.ability.MP = 0
       this.hero.ability.maxMP = 0
       this.hero.ability.maxHP = 0
-      this.hero.fightLog = []
+      this.hero.oulaLog = []
+      this.hero.mudaLog = []
     }
     else {
       for (let heroAbility of heroAbilities) {

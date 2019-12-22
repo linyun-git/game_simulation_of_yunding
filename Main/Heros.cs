@@ -5,11 +5,11 @@ using System.Text;
 namespace Main
 {
     ///<summary>茂凯</summary>
-    class MAOKAI : Hero
+    class JIAOYUE : Hero
     {
-        public MAOKAI(int level,int id)
+        public JIAOYUE(int level,int id)
         {
-            heroName = "茂凯";
+            heroName = "皎月";
             heroLevel = level;
             if (id <= 27)
             {
@@ -24,7 +24,7 @@ namespace Main
         public new void skill()
         {
             target.delHP(300, this);
-            LinkToClient.SendCommand("fightLog " + square.squareId + " 茂凯" + "发动了技能");
+            LinkToClient.SendCommand("fightLog " + square.squareId + " 皎月" + "发动了技能");
         }
     }
 }
