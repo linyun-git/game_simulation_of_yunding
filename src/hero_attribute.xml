@@ -86,6 +86,7 @@
                 <race>森林</race>
                 <career>德鲁伊</career>
                 <skill>被动：在被一个敌方技能造成伤害后，茂凯的下次攻击会治疗自身100/150/200生命值。</skill>
+                <skillname>吸元秘术</skillname>
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -127,6 +128,7 @@
                 <race>光</race>
                 <career>游侠</career>
                 <skill>固有：薇恩每第三次攻击造成基于目标最大生命值的9%/12%/15%额外真实伤害。</skill>
+                <skillname>圣银弩箭</skillname>          
                 <detail>
                         <LV1>
                                 <hp>500</hp>
@@ -209,6 +211,7 @@
                 <race>剧毒</race>
                 <career>掠食者</career>
                 <skill>克格莫朝一名随机的敌人发射一团酸液，在命中时造成125/275/425魔法伤害。</skill>
+                <skillname>活体大炮</skillname> 
                 <detail>
                         <LV1>
                                 <hp>500</hp>
@@ -250,6 +253,7 @@
                 <race>海洋</race>
                 <career>法师</career>
                 <skill>弗拉基米尔对目标造成200/325/450魔法伤害并治疗自身等额的生命值。</skill>
+                <skillname>生命吸取</skillname> 
                 <detail>
                         <LV1>
                                 <hp>550</hp>
@@ -332,6 +336,7 @@
                 <race>极地</race>
                 <career>掠食者</career>
                 <skill>沃里克扑向生命值最低的敌人，发动3次攻击并将其晕眩1.5秒，造成150/225/300伤害，并治疗自己。附带攻击特效。</skill>
+                <skillname>无尽束缚</skillname> 
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -619,6 +624,7 @@
                 <race>海洋</race>
                 <career>法师</career>
                 <skill>辛德拉在随机的一名敌人附近幻化出一颗会爆炸的流水法球，在爆炸时对命中的所有敌人造成175/350/600魔法伤害。</skill>
+                <skillname>水力法球</skillname> 
                 <detail>
                         <LV1>
                                 <hp>500</hp>
@@ -824,6 +830,7 @@
                 <race>钢铁</race>
                 <career>掠食者</career>
                 <skill>雷克塞撕咬一名敌人，造成250/550/850真实伤害</skill>
+                <skillname>狂怒之咬</skillname> 
                 <detail>
                         <LV1>
                                 <hp>650</hp>
@@ -865,6 +872,7 @@
                 <race>森林</race>
                 <career>刺客法师</career>
                 <skill>乐芙兰朝一名随机的敌人掷出一道幻影锁链，造成200/450/800魔法伤害并在短暂的延迟后将目标晕眩1.5秒。</skill>
+                <skillname>幻影锁链</skillname> 
                 <detail>
                         <LV1>
                                 <hp>550</hp>
@@ -906,6 +914,7 @@
                 <race>雷霆极地</race>
                 <career>狂战士</career>
                 <skill>沃利贝尔撕咬他的目标，造成200/450/850魔法伤害。如果目标的生命值低于35%，这个技能会将目标击杀并回满沃利贝尔的法力值。</skill>
+                <skillname>狂野之咬</skillname> 
                 <detail>
                         <LV1>
                                 <hp>850</hp>
@@ -1029,8 +1038,7 @@
         <hero name="索拉卡">
                 <race>光</race>
                 <career>秘术</career>
-                <skill>
-                  索拉卡使一名随机敌人周围的区域平静，对站在区域内的所有敌人造成150/300/450魔法伤害并阻止他们获得法力值。持续时间：3/5/7秒</skill>
+                <skill>索拉卡使一名随机敌人周围的区域平静，对站在区域内的所有敌人造成150/300/450魔法伤害并阻止他们获得法力值。持续时间：3/5/7秒</skill>
                 <detail>
                         <LV1>
                                 <hp>600</hp>
@@ -1401,6 +1409,7 @@
                 <race>影</race>
                 <career>法师</career>
                 <skill>维迦用魔法能量来轰击一名敌人，造成300/600/900伤害。如果敌人的星级低于维迦，那么这个技能会将其立刻击杀。（无视【水晶】效果）</skill>
+                <skillname>圣银弩箭</skillname> 
                 <detail>
                         <LV1>
                                 <hp>600</hp>

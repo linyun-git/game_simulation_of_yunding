@@ -10,6 +10,7 @@ namespace Main
         public const string Red = "red";
         public const string Blue = "blue";
         public const string unKnow = "unKnow";
+        public string skillname;
         public string color;
         protected int ad;//攻击力
         protected int adr;//护甲
@@ -74,18 +75,18 @@ namespace Main
             HP = MAXHP;
             MP = int.Parse(GetInf("mp"));
             MAXMP = int.Parse(GetInf("mmp"));
+            skillname = GetSkillName();
         }
-        public void delHP(int hp, Hero hero)
+        public int delHP(int hp, Hero hero)
         {
             AddMP();
             int delhp = hp * adr / 100;
-            this.totaldamage += delhp;
             lock (HPlock)
             {
                 HP -= delhp;
                 LinkToClient.SendCommand("fightLog " + square.squareId + " " +
-                    heroName + "受到" + hero.heroName + "发动攻击，造成" + delhp + "点伤害!");
-                mudaLog("受到" + hero.heroName + "发动攻击，造成" + delhp + "点伤害!");
+                    heroName + "受到" + hero.heroName + "攻击，造成" + delhp + "点伤害!");
+                mudaLog("受到" + hero.heroName + "攻击，造成" + delhp + "点伤害!");
             }
             //message(heroName + "受到" + hero.heroName + "发动攻击，造成" +delhp + "点伤害!");
             if (HP <= 0)
@@ -98,6 +99,7 @@ namespace Main
                 message(heroName + "生命值变为" + HP);
             }
             LinkToClient.SendCommand("setHeroInf " + square.squareId + " HP-" + HP);
+            return delhp;
         }
         public void addHP(int hp, Hero hero)
         {
@@ -118,38 +120,47 @@ namespace Main
                 
                 case "弗拉基米尔":
                     target.delHP(200, this);
+                    totaldamage += target.delHP(200, this);
                     addHP(40, this);
                     break;
                 case "克格莫":
                     target.delHP(125, this);
+                    totaldamage += target.delHP(125, this);
                     break;
                 case "沃里克":
                     target.delHP(150, this);
+                    totaldamage += target.delHP(150, this);
                     break;
                 case "薇恩":
                     target.delHP(((int)(0.09*target.MAXHP)), this);
+                    totaldamage += target.delHP(((int)(0.09 * target.MAXHP)), this);
                     break;
                 case "雷克塞":
                     target.delHP(250, this);
+                    totaldamage += target.delHP(250, this);
                     break;
                 case "维迦":
                     target.delHP(150, this);
+                    totaldamage += target.delHP(150, this);
                     break;
                 case "辛德拉":
                     target.delHP(175, this);
+                    totaldamage += target.delHP(175, this);
                     break;
                 case "乐芙兰":
                     target.delHP(200, this);
+                    totaldamage += target.delHP(200, this);
                     break;
                 case "沃利贝尔":
                     target.delHP(200, this);
+                    totaldamage += target.delHP(200, this);
                     break;
                 case "茂凯":
                     addHP(50, this);
                     break;
 
             }
-            oulaLog(heroName + "发动了技能");
+            oulaLog(heroName + "发动了技能：" + skillname);
         }
         protected void AddMP()
         {
@@ -201,8 +212,10 @@ namespace Main
                 if (target.HP > 0)
                 {
                     target.delHP(damage, this);
+                    totaldamage += target.delHP(damage, this);
                     AddMP();
-                    message(heroName + "向" + target.heroName + "发动攻击，造成" + damage + "点伤害!");
+                    message(heroName + "向" + target.heroName + "发动攻击，造成" + target.delHP(damage, this) + "点伤害!");
+                    oulaLog(heroName + "向" + target.heroName + "发动攻击，造成" + target.delHP(damage, this) + "点伤害!");
                     count++;
                 }
                 else
@@ -242,6 +255,20 @@ namespace Main
             catch (Exception e)
             {
                 Battle.map.error("获取" + heroName + "的" + heroInf + "错误");
+                Console.WriteLine(e);
+            }
+            return inf;
+        }
+        protected string GetSkillName()
+        {
+            string inf = "0";
+            try
+            {
+                inf = XMLjiexi.GetSkillname(heroName);
+            }
+            catch (Exception e)
+            {
+                Battle.map.error("获取" + heroName + "的技能名字错误");
                 Console.WriteLine(e);
             }
             return inf;
