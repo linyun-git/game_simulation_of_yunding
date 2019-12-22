@@ -75,6 +75,7 @@ namespace Main
             HP = MAXHP;
             MP = int.Parse(GetInf("mp"));
             MAXMP = int.Parse(GetInf("mmp"));
+            skillname = GetSkillName();
         }
         public int delHP(int hp, Hero hero)
         {
@@ -159,7 +160,7 @@ namespace Main
                     break;
 
             }
-            oulaLog(heroName + "发动了技能");
+            oulaLog(heroName + "发动了技能：" + skillname);
         }
         protected void AddMP()
         {
@@ -254,6 +255,20 @@ namespace Main
             catch (Exception e)
             {
                 Battle.map.error("获取" + heroName + "的" + heroInf + "错误");
+                Console.WriteLine(e);
+            }
+            return inf;
+        }
+        protected string GetSkillName()
+        {
+            string inf = "0";
+            try
+            {
+                inf = XMLjiexi.GetSkillname(heroName);
+            }
+            catch (Exception e)
+            {
+                Battle.map.error("获取" + heroName + "的技能名字错误");
                 Console.WriteLine(e);
             }
             return inf;
