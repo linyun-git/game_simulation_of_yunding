@@ -18,7 +18,8 @@ namespace Main
         protected double MAXHP;
         protected double HP;
         protected double ASD;//攻速
-        protected int heroLevel;
+        protected int totaldamage;
+        protected int heroLevel = 0;
         public string heroName;
         protected 攻击类型 type = 攻击类型.近战;
         public Square square;
@@ -78,6 +79,7 @@ namespace Main
         {
             AddMP();
             int delhp = hp * adr / 100;
+            this.totaldamage += delhp;
             lock (HPlock)
             {
                 HP -= delhp;
