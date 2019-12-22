@@ -136,6 +136,9 @@ export class ManagerFrameComponent implements OnInit {
     }
   }
   end(){
+    for (var i = 0; i < 55; i++) {
+      this.heroSquares._results[i].reset()
+    }
     this.lastStatus = null
     this.status = Status.Waiting
   }

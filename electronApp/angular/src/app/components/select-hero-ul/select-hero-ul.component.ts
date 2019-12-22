@@ -10,7 +10,7 @@ export class SelectHeroUlComponent implements OnInit {
   @Input() that:HeroSquareComponent
   protected display:string='none'
   constructor(public pubsrc:PublicSrcService) { }
-
+  img:string = 'redDelete'
   ngOnInit() {
   }
   private cancel(){
@@ -18,5 +18,11 @@ export class SelectHeroUlComponent implements OnInit {
   }
   selectHero(){
     this.display='block'
+  }
+  over(){
+    this.img='whiteDelete'
+  }
+  out(){
+    this.img='redDelete'
   }
 }

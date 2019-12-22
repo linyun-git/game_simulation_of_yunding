@@ -18,6 +18,9 @@ export class HeroFightLogComponent implements OnInit {
   read: string = '欧拉'
   log: string[] = []
   display: string = 'none'
+  logReset(){
+    this.log = this.that.hero.oulaLog
+  }
   block() {
     this.init()
     this.display = 'block'

@@ -1,8 +1,13 @@
 <div [ngStyle]="{'display':display}" id="selectHeroFrame">
     <div (click)="cancel()" id="container">
-        <div></div>
-        <ul>
-            <app-select-hero-li *ngFor="let item of pubsrc.getHeros()" [hero]=item [that]=that></app-select-hero-li>
-        </ul>
+        <div class="card">
+            <div class="line"></div>
+            <ul>
+                <app-select-hero-li *ngFor="let item of pubsrc.getHeros()" [hero]=item [that]=that></app-select-hero-li>
+            </ul>
+            <div class="del" (mouseout)="out()" (mouseover)="over()">
+                <img src="{{img | iconSrc}}" alt="">
+            </div>
+        </div>
     </div>
 </div>

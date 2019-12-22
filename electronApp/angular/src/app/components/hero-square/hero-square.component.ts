@@ -5,7 +5,6 @@ import { ManagerFrameComponent } from 'src/app/manager-frame/manager-frame.compo
 import { SetHeroPieceComponent } from '../set-hero-piece/set-hero-piece.component';
 import { Status } from '../../manager-frame/manager-frame.component';
 import { HeroFightLogComponent } from '../hero-fight-log/hero-fight-log.component';
-import { HeroLevelToStringPipe } from 'src/app/pipe/heroLevelToString/hero-level-to-string.pipe';
 
 @Component({
   selector: 'app-hero-square',
@@ -127,6 +126,12 @@ export class HeroSquareComponent implements OnInit {
   }
 
   //设置英雄
+  reset(){
+    this.hero.mudaLog = []
+    this.hero.oulaLog = []
+    this.fightLogFrame.init()
+    this.fightLogFrame.logReset()
+  }
   setHeroLevel(heroLevel: number) {
     this.hero.heroLevel = heroLevel
   }
