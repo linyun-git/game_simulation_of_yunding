@@ -111,46 +111,36 @@ namespace Main
             {
                 
                 case "弗拉基米尔":
-                    target.delHP(200, this);
                     totaldamage += target.delHP(200, this);
                     addHP(40, this);
                     break;
                 case "克格莫":
-                    target.delHP(125, this);
                     totaldamage += target.delHP(125, this);
                     break;
                 case "沃里克":
-                    target.delHP(150, this);
                     totaldamage += target.delHP(150, this);
                     break;
                 case "薇恩":
-                    target.delHP(((int)(0.09*target.MAXHP)), this);
                     totaldamage += target.delHP(((int)(0.09 * target.MAXHP)), this);
                     break;
                 case "雷克塞":
-                    target.delHP(250, this);
                     totaldamage += target.delHP(250, this);
                     break;
                 case "维迦":
-                    target.delHP(150, this);
                     totaldamage += target.delHP(150, this);
                     break;
                 case "辛德拉":
-                    target.delHP(175, this);
                     totaldamage += target.delHP(175, this);
                     break;
                 case "乐芙兰":
-                    target.delHP(200, this);
                     totaldamage += target.delHP(200, this);
                     break;
                 case "沃利贝尔":
-                    target.delHP(200, this);
                     totaldamage += target.delHP(200, this);
                     break;
                 case "茂凯":
                     addHP(50, this);
                     break;
-
             }
             oulaLog(heroName + "发动了技能：" + skillname);
         }
@@ -203,10 +193,9 @@ namespace Main
                 }
                 if (target.HP > 0)
                 {
-                    target.delHP(damage, this);
                     totaldamage += target.delHP(damage, this);
                     AddMP();
-                    oulaLog(heroName + "向" + target.heroName + "发动攻击，造成" + target.delHP(damage, this) + "点伤害!");
+                    oulaLog(heroName + "向" + target.heroName + "发动攻击，造成" + (damage*adr / 100) + "点伤害!");
                     count++;
                 }
                 else
