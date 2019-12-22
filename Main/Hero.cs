@@ -98,8 +98,21 @@ namespace Main
         }
         protected void Skill()
         {
-            target.delHP(300, this);
-            LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
+            switch (this.heroName)
+            {
+                case "茂凯":
+                    lock (HPlock) 
+                    this.HP += 100;
+                    LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
+                    break;
+                case "弗拉基米尔":
+                    lock (HPlock)
+                        this.HP += 200;
+                    target.delHP(200, this);
+                    LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
+                    break;
+            }
+            
         }
         protected void AddMP()
         {
@@ -182,17 +195,5 @@ namespace Main
         }
         protected enum 攻击类型 { 近战, 远程 }
 
-
-        public static Hero CreateHero(string heroName,int heroLevel,int heroId)
-        {
-            Hero hero = new Hero();
-            switch (heroName)
-            {
-                case "茂凯":
-                    hero = new MAOKAI(heroLevel, heroId);
-                    break;
-            }
-            return hero;
-        }
     }
 }
