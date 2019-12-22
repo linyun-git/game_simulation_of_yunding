@@ -84,19 +84,11 @@ namespace Main
             lock (HPlock)
             {
                 HP -= delhp;
-                LinkToClient.SendCommand("fightLog " + square.squareId + " " +
-                    heroName + "受到" + hero.heroName + "攻击，造成" + delhp + "点伤害!");
                 mudaLog("受到" + hero.heroName + "攻击，造成" + delhp + "点伤害!");
             }
-            //message(heroName + "受到" + hero.heroName + "发动攻击，造成" +delhp + "点伤害!");
             if (HP <= 0)
             {
-                message(heroName + "已经死亡！");
                 HP = 0;
-            }
-            else
-            {
-                message(heroName + "生命值变为" + HP);
             }
             LinkToClient.SendCommand("setHeroInf " + square.squareId + " HP-" + HP);
             return delhp;
@@ -214,7 +206,6 @@ namespace Main
                     target.delHP(damage, this);
                     totaldamage += target.delHP(damage, this);
                     AddMP();
-                    message(heroName + "向" + target.heroName + "发动攻击，造成" + target.delHP(damage, this) + "点伤害!");
                     oulaLog(heroName + "向" + target.heroName + "发动攻击，造成" + target.delHP(damage, this) + "点伤害!");
                     count++;
                 }
@@ -275,10 +266,6 @@ namespace Main
         }
 
         ///<summary>产生信息</summary>
-        protected void message(string mes)
-        {
-            Battle.map.message(mes);
-        }
         protected enum 攻击类型 { 近战, 远程 }
 
     }
