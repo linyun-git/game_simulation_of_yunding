@@ -81,7 +81,8 @@ namespace Main
             lock (HPlock)
             {
                 HP -= delhp;
-                mudaLog("受到" + hero.heroName + "的攻击，造成" + delhp + "点伤害!");
+                LinkToClient.SendCommand("fightLog " + square.squareId + " " +
+                    heroName + "受到" + hero.heroName + "发动攻击，造成" + delhp + "点伤害!");
             }
             //message(heroName + "受到" + hero.heroName + "发动攻击，造成" +delhp + "点伤害!");
             if (HP <= 0)
@@ -95,10 +96,23 @@ namespace Main
             }
             LinkToClient.SendCommand("setHeroInf " + square.squareId + " HP-" + HP);
         }
-        protected void skill()
+        protected void Skill()
         {
-            target.delHP(300, this);
-            oulaLog("发动了技能");
+            switch (this.heroName)
+            {
+                case "茂凯":
+                    lock (HPlock) 
+                    this.HP += 100;
+                    LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
+                    break;
+                case "弗拉基米尔":
+                    lock (HPlock)
+                        this.HP += 200;
+                    target.delHP(200, this);
+                    LinkToClient.SendCommand("fightLog " + square.squareId + " " + "发动了技能");
+                    break;
+            }
+            
         }
         protected void AddMP()
         {
@@ -118,7 +132,7 @@ namespace Main
             {
                 if (MP == MAXMP)
                 {
-                    skill();
+                    Skill();
                     lock (MPlock)
                     {
                         MP = 0;
@@ -140,7 +154,6 @@ namespace Main
                     target.delHP(damage, this);
                     AddMP();
                     message(heroName + "向" + target.heroName + "发动攻击，造成" + damage + "点伤害!");
-                    oulaLog("向" + target.heroName + "发动攻击，造成" + damage + "点伤害!");
                 }
                 else
                 {
@@ -182,29 +195,5 @@ namespace Main
         }
         protected enum 攻击类型 { 近战, 远程 }
 
-
-        public static Hero CreateHero(string heroName,int heroLevel,int heroId)
-        {
-            Hero hero;
-            switch (heroName)
-            {
-                case "黛安娜":
-                    hero = new JIAOYUE(heroLevel, heroId);
-                    break;
-                default:
-                    hero = new Hero(heroName,heroLevel,heroId);
-                    break;
-            }
-            return hero;
-        }
-
-        private void oulaLog(string log)
-        {
-            LinkToClient.SendCommand("fightLog " + square.squareId + " oulaLog " + log);
-        }
-        private void mudaLog(string log)
-        {
-            LinkToClient.SendCommand("fightLog " + square.squareId + " mudaLog " + log);
-        }
     }
 }
