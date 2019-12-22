@@ -141,16 +141,40 @@ namespace Main
             {
                 tasks[i].Wait();
             }
-            if (blueHeros.Count > 0)
+            result();
+        }
+        private void result()
+        {
+            int damage = 0;
+            string name = "未知";
+            string color = "green";
+            for(int i = 0; i < blueHeros.Count; i++)
             {
-                Console.WriteLine("蓝方胜利!");
-                LinkToClient.SendCommand("result 蓝方胜利!");
+                if (blueHeros[i].totaldamage > damage)
+                {
+                    damage = blueHeros[i].totaldamage;
+                    name = blueHeros[i].heroName;
+                }
             }
-            else
+            for (int i = 0; i < redHeros.Count; i++)
+            {
+                if (redHeros[i].totaldamage > damage)
+                {
+                    damage = redHeros[i].totaldamage;
+                    name = redHeros[i].heroName;
+                }
+            }
+            if (!blueHeros.Any(hero => hero.isLive()))
             {
                 Console.WriteLine("红方胜利!");
-                LinkToClient.SendCommand("result 红方胜利!");
+                color = "red";
             }
+            else if(!redHeros.Any(hero => hero.isLive()))
+            {
+                Console.WriteLine("蓝方胜利!");
+                color = "blue";
+            }
+            LinkToClient.SendCommand("result "+color+" " + name + " " + damage);
         }
         public void error(string error)
         {

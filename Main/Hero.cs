@@ -19,7 +19,7 @@ namespace Main
         protected double MAXHP;
         protected double HP;
         protected double ASD;//攻速
-        protected int totaldamage;
+        public int totaldamage;
         protected int heroLevel = 0;
         public string heroName;
         protected 攻击类型 type = 攻击类型.近战;
@@ -37,6 +37,7 @@ namespace Main
         public void SetSquare(Square square)
         {
             this.square = square;
+            LinkToClient.SendCommand("setHeroInf " + square.squareId + " HP-" + HP + " MP-" + MP);
         }
         public Hero(string heroName, int level, int id)
         {
@@ -62,7 +63,6 @@ namespace Main
         public void run()
         {
             Console.WriteLine(heroName + "run");
-            LinkToClient.SendCommand("setHeroInf " + square.squareId + " HP-" + HP);
             getTarget();
             Attack();
         }

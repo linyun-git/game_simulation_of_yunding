@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   @ViewChild('managerFrame', { static: true }) private managerFrame: ManagerFrameComponent
   @ViewChild('resultFrame', { static: true }) private resultFrame: ResultFrameComponent
   title = 'angular';
-  protected frameZIndex: string[] = ['0', '2', '1', '3']
+  protected frameZIndex: string[] = ['0', '2', '1', '0']
   constructor() { }
   ngOnInit(): void {
     this.connect()
@@ -35,6 +35,17 @@ export class AppComponent implements OnInit {
   managerToHome() {
     this.frameZIndex[1] = '2'
     this.frameZIndex[2] = '1'
+  }
+  result(log:string[]){
+    this.managerFrame.TimerReset()
+    this.resultFrame.result(log)
+    this.frameZIndex[3] = '3'
+  }
+  resultFrameGone(){
+    this.frameZIndex[3] = '0'
+  }
+  end(){
+    this.managerFrame.end()
   }
 
   //WebSocket通信
@@ -79,8 +90,8 @@ export class AppComponent implements OnInit {
         this.managerFrame.fightLog(codes)
         break
       case 'result':
-        codes.push()
-        this.resultFrame.result(codes)
+        codes.shift()
+        this.result(codes)
         break
       case 'error':
         alert(codes[1])

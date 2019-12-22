@@ -2,4 +2,4 @@
 <app-exit-frame [ngStyle]="{'z-index':frameZIndex[0]}" #exitFrame [that]=this></app-exit-frame>
 <app-main-frame [ngStyle]="{'z-index':frameZIndex[1]}" [that]=this></app-main-frame>
 <app-manager-frame [ngStyle]="{'z-index':frameZIndex[2]}" #managerFrame [that]=this></app-manager-frame>
-<app-result-frame [ngStyle]="{'z-index':frameZIndex[3]}" style="top: 20px;" #resultFrame></app-result-frame>
+<app-result-frame [ngStyle]="{'z-index':frameZIndex[3]}" style="top: 20px;" #resultFrame [that]=this></app-result-frame>

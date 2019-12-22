@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-result-frame',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result-frame.component.scss']
 })
 export class ResultFrameComponent implements OnInit {
+  @Input() that:AppComponent
   input: string
   hero: string
   output: number
@@ -15,7 +17,12 @@ export class ResultFrameComponent implements OnInit {
   color: string
   title: string
   ngOnInit() {
+    this.reset()
+  }
+  reset(){
     this.display = 'gone'
+    this.color = 'green'
+    this.hero = '未知'
   }
   result(result:string[]) {
     this.input = result[0]
@@ -42,6 +49,15 @@ export class ResultFrameComponent implements OnInit {
   }
   Gone(){
     this.display = 'gone'
+    setTimeout(() => {
+      this.that.resultFrameGone()
+    }, 280);
+    setTimeout(() => {
+      this.reset()
+    }, 280);
+    setTimeout(() => {
+      this.that.end()
+    }, 280);
   }
   Out(){
     this.display = 'out'

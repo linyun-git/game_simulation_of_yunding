@@ -46,13 +46,19 @@ namespace Main
                 case "start":
                     start();
                     break;
+                case "ready":
+                    ready();
+                    break;
             }
             Console.WriteLine("执行了一条命令：" + string.Join("_", code));
         }
         //命令操作
+        private void ready()
+        {
+            Battle.map.SetHeros(blueHeroList, redHeroList);
+        }
         private void start()
         {
-            Battle.map.SetHeros(blueHeroList,redHeroList);
             Battle.map.run();
         }
         private void exit()

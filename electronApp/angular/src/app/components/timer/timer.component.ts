@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { TipsComponent } from '../tips/tips.component';
+import { ManagerFrameComponent } from 'src/app/manager-frame/manager-frame.component';
 
 var time,pausetime
 @Component({
@@ -9,6 +10,7 @@ var time,pausetime
 })
 export class TimerComponent implements OnInit {
   @Input() Tip:TipsComponent
+  @Input() that:ManagerFrameComponent
   protected textColor:string = 'white'
   private maxTime:number
   imgsrc = 'whiteTime'
@@ -16,7 +18,7 @@ export class TimerComponent implements OnInit {
   public thisTime
   setTime: number
   pauseTime:number = 0
-  timerun:boolean = true
+  timerun:boolean = false
   fun:any
   constructor() { }
 
@@ -24,6 +26,10 @@ export class TimerComponent implements OnInit {
   }
   getTime(){
     return this.setTime
+  }
+  reset(){
+    this.timerun = false
+    pausetime = 0
   }
   TimeReady(){
     this.Tip.giveTip('Ready!')
@@ -35,6 +41,7 @@ export class TimerComponent implements OnInit {
     this.fun = (()=>{
       this.FightStart()
     })
+    this.timerun = true
     this.run()
   }
   TimeOut(){
@@ -50,6 +57,7 @@ export class TimerComponent implements OnInit {
     this.run()
   }
   FightStart(){
+    this.that.battleStart()
     this.Tip.giveTip('Fight!')
     this.pauseTime = 0
     this.textColor = 'white'

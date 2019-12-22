@@ -129,11 +129,22 @@ export class ManagerFrameComponent implements OnInit {
     if (this.lastStatus == null) {
       this.status = Status.Fighting
       this.Timer.TimeReady()
-      this.that.send('start')
+      this.that.send('ready')
     }
     else {
       this.status = this.lastStatus
     }
+  }
+  end(){
+    this.lastStatus = null
+    this.status = Status.Waiting
+  }
+
+  battleStart(){
+    this.that.send('start')
+  }
+  TimerReset(){
+    this.Timer.reset()
   }
 }
 export enum Status { Fighting, Waiting, pausing, end }
