@@ -25,4 +25,7 @@ export class SelectHeroUlComponent implements OnInit {
   out(){
     this.img='redDelete'
   }
+  del(){
+    this.that.del()
+  }
 }

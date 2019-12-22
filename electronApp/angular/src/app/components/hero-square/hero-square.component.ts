@@ -126,6 +126,10 @@ export class HeroSquareComponent implements OnInit {
   }
 
   //设置英雄
+  del(){
+    this.init()
+    this.that.delHero(this.heroSquareId)
+  }
   reset(){
     this.hero.mudaLog = []
     this.hero.oulaLog = []

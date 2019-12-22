@@ -143,6 +143,17 @@ namespace Main
             }
             result();
         }
+        public void stop()
+        {
+            for(int i = 0; i < blueHeros.Count; i++)
+            {
+                blueHeros[i].stop();
+            }
+            for (int i = 0; i < redHeros.Count; i++)
+            {
+                redHeros[i].stop();
+            }
+        }
         private void result()
         {
             int damage = 0;

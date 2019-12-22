@@ -53,6 +53,7 @@ export class TimerComponent implements OnInit {
     this.thisTime = time.getTime()
     this.maxTime = 10
     this.fun = (()=>{
+      this.that.stop()
     })
     this.run()
   }

@@ -7,6 +7,8 @@ namespace Main
 {
     public class Hero
     {
+        private CancellationTokenSource heroCts = new CancellationTokenSource();
+
         public const string Red = "red";
         public const string Blue = "blue";
         public const string unKnow = "unKnow";
@@ -65,6 +67,10 @@ namespace Main
             Console.WriteLine(heroName + "run");
             getTarget();
             Attack();
+        }
+        public void stop()
+        {
+            heroCts.Cancel();
         }
         protected void init()
         {
@@ -161,6 +167,7 @@ namespace Main
             int count=1;
             while (HP > 0)
             {
+                if (heroCts.Token.IsCancellationRequested) break;
                 if (MP == MAXMP)
                 {
                     if (heroName == "薇恩" || heroName == "茂凯")

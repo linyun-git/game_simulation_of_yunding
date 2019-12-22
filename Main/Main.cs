@@ -28,6 +28,9 @@ namespace Main
             string[] code = codes.Split(" ");
             switch (code[0])
             {
+                case "end":
+                    end();
+                    break;
                 case "init":
                     init();
                     break;
@@ -49,10 +52,17 @@ namespace Main
                 case "ready":
                     ready();
                     break;
+                case "delHero":
+                    delHero(code);
+                    break;
             }
             Console.WriteLine("执行了一条命令：" + string.Join("_", code));
         }
         //命令操作
+        private void end()
+        {
+            Battle.map.stop();
+        }
         private void ready()
         {
             Battle.map.SetHeros(blueHeroList, redHeroList);
@@ -138,6 +148,29 @@ namespace Main
                 }
                 hero.ChangeLevel();
                 LinkToClient.SendCommand("setHeroInf " + heroSquareID + " " + hero.GetHeroInf());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+        private void delHero(string[] codes)
+        {
+            try
+            {
+                int heroSquareID = int.Parse(codes[1]);
+                if (heroSquareID <= 27)
+                {
+                    HeroInf heroInf = blueHeroList.FirstOrDefault(hero => hero.IdEquals(heroSquareID));
+                    blueHeroList.Remove(heroInf);
+                    LinkToClient.SendCommand("setHeroNum blueNum " + blueHeroList.Count);
+                }
+                else
+                {
+                    HeroInf heroInf = redHeroList.FirstOrDefault(hero => hero.IdEquals(heroSquareID));
+                    redHeroList.Remove(heroInf);
+                    LinkToClient.SendCommand("setHeroNum redNum " + redHeroList.Count);
+                }
             }
             catch (Exception e)
             {

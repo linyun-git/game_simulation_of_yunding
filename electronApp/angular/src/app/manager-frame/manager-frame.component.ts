@@ -86,6 +86,13 @@ export class ManagerFrameComponent implements OnInit {
     let code: string = 'changeHeroLevel ' + heroSquareId
     this.that.send(code)
   }
+  delHero(heroSquareId:number){
+    let code: string = 'delHero ' + heroSquareId
+    this.that.send(code)
+  }
+  stop(){
+    this.that.send('end')
+  }
 
   //按钮操作
   pause() {

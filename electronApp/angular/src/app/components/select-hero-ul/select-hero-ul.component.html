@@ -5,7 +5,7 @@
             <ul>
                 <app-select-hero-li *ngFor="let item of pubsrc.getHeros()" [hero]=item [that]=that></app-select-hero-li>
             </ul>
-            <div class="del" (mouseout)="out()" (mouseover)="over()">
+            <div class="del" (mouseout)="out()" (mouseover)="over()" (click)="del()">
                 <img src="{{img | iconSrc}}" alt="">
             </div>
         </div>
