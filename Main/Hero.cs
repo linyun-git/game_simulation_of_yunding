@@ -10,6 +10,7 @@ namespace Main
         public const string Red = "red";
         public const string Blue = "blue";
         public const string unKnow = "unKnow";
+        public string skillname;
         public string color;
         protected int ad;//攻击力
         protected int adr;//护甲
@@ -84,8 +85,8 @@ namespace Main
             {
                 HP -= delhp;
                 LinkToClient.SendCommand("fightLog " + square.squareId + " " +
-                    heroName + "受到" + hero.heroName + "发动攻击，造成" + delhp + "点伤害!");
-                mudaLog("受到" + hero.heroName + "发动攻击，造成" + delhp + "点伤害!");
+                    heroName + "受到" + hero.heroName + "攻击，造成" + delhp + "点伤害!");
+                mudaLog("受到" + hero.heroName + "攻击，造成" + delhp + "点伤害!");
             }
             //message(heroName + "受到" + hero.heroName + "发动攻击，造成" +delhp + "点伤害!");
             if (HP <= 0)
@@ -203,6 +204,7 @@ namespace Main
                     target.delHP(damage, this);
                     AddMP();
                     message(heroName + "向" + target.heroName + "发动攻击，造成" + damage + "点伤害!");
+                    oulaLog(heroName + "向" + target.heroName + "发动攻击，造成" + damage + "点伤害!");
                     count++;
                 }
                 else
