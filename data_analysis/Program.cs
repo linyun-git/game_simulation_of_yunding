@@ -22,6 +22,8 @@ namespace data_analysis
                 Console.WriteLine(name[i]);
             }*/
 
+            data = XMLjiexi.GetSkillname("弗拉基米尔");
+
 
             Console.WriteLine(data);
             Console.ReadLine();
@@ -60,6 +62,17 @@ namespace data_analysis
             return node.InnerText;
         }
 
+        // 获取英雄的技能名字  输入参数为（英雄的名字）
+        public static string GetSkillname(string name)
+        {
+            string informationNeeded = "/HeroList/hero[@name='" + name + "']/skillname";
+            XmlDocument dom = new XmlDocument();
+            dom.Load(@"..\..\..\..\src\hero_attribute.xml");
+            XmlElement root = dom.DocumentElement;
+            XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
+            return node.InnerText;
+        }
+
         // 获取英雄的技能  输入参数为（英雄的名字）
         public static string GetSkill(string name)
         {
@@ -70,7 +83,8 @@ namespace data_analysis
             XmlElement node = (XmlElement)root.SelectSingleNode(informationNeeded);
             return node.InnerText;
         }
-
+        
+        //获取所有的英雄名字
         public static String[] GetName()
         {
             string name;
