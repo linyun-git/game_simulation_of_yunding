@@ -25,6 +25,8 @@ import { HeroFightLogComponent } from './components/hero-fight-log/hero-fight-lo
 import { StatusToClassPipe } from './pipe/statusToClass/status-to-class.pipe';
 import { TipsComponent } from './components/tips/tips.component';
 import { ResultFrameComponent } from './result-frame/result-frame.component';
+import { AboutFrameComponent } from './about-frame/about-frame.component';
+import { TipFrameComponent } from './tip-frame/tip-frame.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { ResultFrameComponent } from './result-frame/result-frame.component';
     HeroFightLogComponent,
     StatusToClassPipe,
     TipsComponent,
-    ResultFrameComponent
+    ResultFrameComponent,
+    AboutFrameComponent,
+    TipFrameComponent
   ],
   imports: [
     BrowserModule,

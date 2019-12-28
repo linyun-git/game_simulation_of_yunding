@@ -19,4 +19,7 @@ export class MainFrameComponent implements OnInit {
   private exit(){
     this.that.exitFrameOut()
   }
+  private about(){
+    this.that.aboutFrameOut()
+  }
 }
